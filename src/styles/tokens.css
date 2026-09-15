@@ -1,41 +1,61 @@
 :root {
   color-scheme: dark;
 
-  /* cores */
-  --bg: #050507;
-  --bg-2: #0a0713;
-  --bg-3: #110b20;
-  --surface: rgba(255, 255, 255, 0.045);
-  --surface-hover: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --text: #f4f1fb;
-  --text-muted: #a8a0c2;
-  --text-faint: #7c7398;
-  --primary: #8b3bff;
+  /* ── cores ── */
+  --bg: #05060c;
+  --bg-2: #0a0b16;
+  --bg-3: #101124;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.075);
+  --surface-strong: rgba(255, 255, 255, 0.055);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --text: #f5f3ff;
+  --text-muted: #a9a3c8;
+  --text-faint: #767099;
+
+  --primary: #8a3dff;
   --primary-hover: #a45dff;
+  --primary-dim: rgba(138, 61, 255, 0.12);
   --accent: #ff41d0;
-  --success: #54e08b;
+  --water: #32d6c2;
+  --water-hover: #5eead4;
+
+  --success: #4be08b;
   --warning: #ffb43e;
   --danger: #ff5d7a;
 
-  /* neons sutis */
-  --glow-primary: rgba(139, 59, 255, 0.35);
+  /* neons suaves */
+  --glow-primary: rgba(138, 61, 255, 0.35);
   --glow-accent: rgba(255, 65, 208, 0.22);
+  --glow-water: rgba(50, 214, 194, 0.28);
 
-  /* tipografia */
+  /* ── tipografia ── */
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', monospace;
 
-  /* radius */
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --text-xs: 0.7rem;
+  --text-sm: 0.84rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.3rem;
+  --text-xl: 1.6rem;
+  --text-2xl: 2.1rem;
+  --text-3xl: 3rem;
+  --text-hero: clamp(3rem, 10vw, 6.8rem);
+
+  /* ── radius ── */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
   --radius-full: 999px;
 
-  /* layout */
+  /* ── layout ── */
   --container: 1160px;
   --gutter: clamp(20px, 5vw, 48px);
+  --nav-h: 72px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -46,9 +66,14 @@
   --space-8: 72px;
   --space-9: 120px;
 
-  /* motion */
+  /* ── sombras ── */
+  --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.32);
+  --shadow-lift: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 28px 64px rgba(0, 0, 0, 0.5);
+
+  /* ── motion ── */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --dur-fast: 160ms;
   --dur: 320ms;
   --dur-slow: 640ms;

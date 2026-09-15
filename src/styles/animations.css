@@ -1,24 +1,29 @@
-/* reveal on scroll */
+/* ── reveal on scroll: blur-up ── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px) scale(0.995);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
 }
 .reveal.is-in {
   opacity: 1;
   transform: none;
+  filter: none;
   transition:
     opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out);
+    transform 0.7s var(--ease-out),
+    filter 0.7s var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 }
 
-/* flutuação do mascote */
+/* ── flutuação do mascote ── */
 .float {
   animation: float 6s ease-in-out infinite;
 }
@@ -32,7 +37,7 @@
   }
 }
 
-/* bolhas orbitais */
+/* ── bolhas orbitais ── */
 .orbit-dot {
   position: absolute;
   inset: 0;
@@ -67,7 +72,7 @@
   }
 }
 
-/* pisca de cursor de terminal */
+/* ── pisca de cursor de terminal ── */
 .blink {
   animation: blink 1.06s steps(1) infinite;
 }
@@ -77,22 +82,26 @@
   }
 }
 
-/* scroll cue */
+/* ── scroll cue ── */
 .scroll-cue {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--text-faint);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.scroll-cue:hover {
+  color: var(--text-muted);
 }
 .scroll-cue .line {
   width: 1px;
   height: 40px;
-  background: linear-gradient(var(--primary-hover), transparent);
+  background: linear-gradient(var(--water), transparent);
   animation: cue-drop 1.8s var(--ease-out) infinite;
 }
 @keyframes cue-drop {
@@ -113,10 +122,10 @@
   }
 }
 
-/* hatch do diagrama do universo */
+/* ── hatch do diagrama do universo ── */
 .node-in {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(12px);
 }
 .node-in.is-in {
   opacity: 1;
@@ -127,7 +136,19 @@
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-/* toast de easter egg */
+/* ── barra de progresso de navegação ── */
+.nav-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--water));
+  box-shadow: 0 0 12px var(--glow-primary);
+  pointer-events: none;
+}
+
+/* ── toast de easter egg ── */
 .toast {
   position: fixed;
   left: 50%;
@@ -154,7 +175,7 @@
   padding: 12px 18px;
   border-radius: var(--radius-full);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: var(--text-sm);
   color: var(--text);
   max-width: min(90vw, 460px);
   text-align: left;

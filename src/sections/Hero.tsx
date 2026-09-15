@@ -32,7 +32,7 @@ export function Hero({ onEgg }: HeroProps) {
           <span className="blink">_</span>
         </p>
 
-        <h1 className="h1 hero-title reveal" style={{ ['--reveal-delay' as string]: '80ms' }}>
+        <h1 className="h1 hero-title hero-title-shimmer reveal" style={{ ['--reveal-delay' as string]: '80ms' }}>
           <span className="hero-product">{site.product}</span>
         </h1>
 
