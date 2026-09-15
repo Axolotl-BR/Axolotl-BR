@@ -366,3 +366,43 @@
     align-items: flex-start;
   }
 }
+
+/* ───────── poster lab ───────── */
+.poster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+.poster-card {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  user-select: none;
+  aspect-ratio: 1344 / 620;
+  background: #000;
+}
+.poster-card-stamp {
+  background-color: #3f40ff;
+}
+.poster-card-rush {
+  aspect-ratio: 1344 / 820;
+  cursor: pointer;
+}
+
+.poster-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 880px) {
+  .poster-grid {
+    grid-template-columns: 1fr;
+  }
+}

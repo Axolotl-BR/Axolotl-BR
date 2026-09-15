@@ -9,6 +9,7 @@ import { Community } from './sections/Community'
 import { DiscordSection } from './sections/DiscordSection'
 import { Servers } from './sections/Servers'
 import { Lab } from './sections/Lab'
+import { PosterLab } from './sections/PosterLab'
 import { BuiltPublic } from './sections/BuiltPublic'
 import { StatusSection } from './sections/StatusSection'
 import { News } from './sections/News'
@@ -50,6 +51,7 @@ export function App() {
         <DiscordSection />
         <Servers />
         <Lab />
+        <PosterLab />
         <BuiltPublic />
         <StatusSection />
         <News />
