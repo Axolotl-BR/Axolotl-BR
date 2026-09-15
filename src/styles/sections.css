@@ -144,6 +144,21 @@
   margin-top: var(--space-7);
 }
 
+.hero-banner {
+  width: min(880px, 100%);
+  margin-top: var(--space-7);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card), 0 0 60px rgba(50, 214, 194, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+.hero-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .hero-portal {
   position: relative;
   width: min(680px, 100%);

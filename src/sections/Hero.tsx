@@ -2,6 +2,7 @@ import { ArrowUpRight, ChevronDown } from 'lucide-react'
 import { site, links, universeNodes } from '../data/site'
 import { eggMessages } from '../lib/easterEggs'
 import { useState } from 'react'
+import banner from '../assets/banner.png'
 
 type HeroProps = {
   onEgg: (msg: string) => void
@@ -49,7 +50,11 @@ export function Hero({ onEgg }: HeroProps) {
           </a>
         </div>
 
-        <div className="hero-portal reveal" style={{ ['--reveal-delay' as string]: '320ms' }}>
+        <div className="hero-banner reveal" style={{ ['--reveal-delay' as string]: '320ms' }}>
+          <img src={banner} alt="banner visual do axolotl br" className="hero-banner-img" />
+        </div>
+
+        <div className="hero-portal reveal" style={{ ['--reveal-delay' as string]: '400ms' }}>
           <div className="portal" aria-hidden="true">
             <div className="portal-ring" />
             <div className="portal-ring portal-ring-2" />

@@ -44,34 +44,15 @@
   font-size: 15px;
   min-height: 44px;
 }
-.nav-logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
+.nav-logo-img {
+  display: block;
+  width: auto;
   height: 38px;
-  font-size: 20px;
-  line-height: 1;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(180deg, var(--primary-dim), rgba(138, 61, 255, 0.03));
-  border: 1px solid rgba(138, 61, 255, 0.35);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 18px var(--glow-primary);
+  border-radius: var(--radius-xs);
   transition: transform var(--dur-fast) var(--ease-spring);
 }
-.nav-logo:hover .nav-logo-mark {
-  transform: rotate(8deg) scale(1.06);
-}
-.nav-logo-text {
-  font-family: var(--font-display);
-  line-height: 1;
-}
-.nav-logo-sub {
-  font-family: var(--font-mono);
-  font-style: normal;
-  font-size: 0.6rem;
-  letter-spacing: 0.26em;
-  color: var(--water);
-  margin-left: 6px;
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.04);
 }
 
 .nav-links {
@@ -364,45 +345,5 @@
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-  }
-}
-
-/* ───────── poster lab ───────── */
-.poster-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-  align-items: stretch;
-}
-
-.poster-card {
-  position: relative;
-  width: 100%;
-  margin-inline: auto;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-  user-select: none;
-  aspect-ratio: 1344 / 620;
-  background: #000;
-}
-.poster-card-stamp {
-  background-color: #3f40ff;
-}
-.poster-card-rush {
-  aspect-ratio: 1344 / 820;
-  cursor: pointer;
-}
-
-.poster-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-@media (max-width: 880px) {
-  .poster-grid {
-    grid-template-columns: 1fr;
   }
 }
