@@ -23,6 +23,7 @@ export function Hero({ onEgg }: HeroProps) {
   return (
     <section className="hero">
       <div className="hero-bg" aria-hidden="true">
+        <div className="hero-bg-banner" style={{ backgroundImage: `url(${banner})` }} />
         <div className="hero-orb hero-orb-1" />
         <div className="hero-orb hero-orb-2" />
       </div>
@@ -48,10 +49,6 @@ export function Hero({ onEgg }: HeroProps) {
           <a href="#universo" className="btn btn-ghost">
             explorar o universo
           </a>
-        </div>
-
-        <div className="hero-banner reveal" style={{ ['--reveal-delay' as string]: '320ms' }}>
-          <img src={banner} alt="banner visual do axolotl br" className="hero-banner-img" />
         </div>
 
         <div className="hero-portal reveal" style={{ ['--reveal-delay' as string]: '400ms' }}>

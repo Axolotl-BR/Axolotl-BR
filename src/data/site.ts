@@ -5,7 +5,7 @@
 
 export const site = {
   brand: 'AXOLOTL BR',
-  product: 'AXOLOTL HUB',
+  product: 'Axolotl BR',
   tagline: 'Sua comunidade na internet. De player para player.',
   url: 'https://axolotl-br.github.io/Axolotl-BR/',
   year: 2026,
