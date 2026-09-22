@@ -1,5 +1,5 @@
 import { ArrowUpRight, ChevronDown } from 'lucide-react'
-import { site, links, universeNodes } from '../data/site'
+import { site, links } from '../data/site'
 import { eggMessages } from '../lib/easterEggs'
 import { useState } from 'react'
 import banner from '../assets/banner.png'
@@ -69,24 +69,6 @@ export function Hero({ onEgg }: HeroProps) {
           >
             🫟
           </button>
-
-          <ul className="hero-nodes" aria-hidden="true">
-            {universeNodes.map((n, i) => (
-              <li key={n.name} className="hero-node" style={{ ['--i' as string]: i }}>
-                <span className="hero-node-name mono">{n.name}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="hero-foot mono reveal" style={{ ['--reveal-delay' as string]: '420ms' }}>
-          <span className="hero-status">
-            <span className="led online" /> comunicando
-          </span>
-          <span className="hero-status">
-            <span className="led warning" /> hub em construção
-          </span>
-          <span className="hero-status mono">🫟 build.axolotl</span>
         </div>
 
         <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo" tabIndex={-1}>

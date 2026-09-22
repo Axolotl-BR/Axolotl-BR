@@ -214,69 +214,6 @@
   filter: drop-shadow(0 0 40px var(--glow-primary)) drop-shadow(0 0 80px var(--glow-water));
 }
 
-.hero-nodes {
-  position: absolute;
-  inset: 0;
-  list-style: none;
-}
-.hero-node {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  padding: 7px 13px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  background: rgba(5, 6, 12, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
-  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
-}
-.hero-node:hover {
-  color: var(--text);
-  border-color: rgba(138, 61, 255, 0.4);
-}
-.hero-node:nth-child(1) {
-  left: 50%;
-  top: 4%;
-}
-.hero-node:nth-child(2) {
-  left: 86%;
-  top: 24%;
-}
-.hero-node:nth-child(3) {
-  left: 86%;
-  top: 74%;
-}
-.hero-node:nth-child(4) {
-  left: 50%;
-  top: 96%;
-}
-.hero-node:nth-child(5) {
-  left: 14%;
-  top: 74%;
-}
-.hero-node:nth-child(6) {
-  left: 14%;
-  top: 24%;
-}
-
-.hero-foot {
-  display: flex;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-  justify-content: center;
-  color: var(--text-faint);
-  font-size: 0.68rem;
-  margin-top: var(--space-5);
-}
-.hero-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .hero-scroll {
   position: absolute;
   bottom: 28px;
@@ -294,10 +231,6 @@
   }
   .hero-mascot {
     font-size: 68px;
-  }
-  .hero-node {
-    font-size: 0.5rem;
-    padding: 5px 9px;
   }
   .hero-scroll {
     bottom: 14px;
