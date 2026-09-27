@@ -159,7 +159,7 @@
     padding: var(--space-6) var(--gutter) calc(var(--space-6) + 40px);
   }
   .nav-menu::before {
-    content: 'menu // axolotl hub';
+    content: 'menu // axolotl br';
     display: block;
     font-family: var(--font-mono);
     font-size: var(--text-xs);

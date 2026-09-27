@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-// AXOLOTL HUB — fonte única de verdade
+// AXOLOTL BR — fonte única de verdade
 // links, nomes e status reais. nada inventado.
 // ─────────────────────────────────────────────
 
@@ -42,7 +42,7 @@ export const universeNodes = [
 export type StatusState = 'online' | 'offline' | 'maintenance' | 'development'
 
 export const status = [
-  { label: 'AXOLOTL HUB', state: 'development' as const, note: 'em construção' },
+  { label: 'AXOLOTL BR', state: 'development' as const, note: 'em construção' },
   { label: 'DISCORD', state: 'online' as const, note: 'comunidade ativa' },
   { label: 'GITHUB', state: 'online' as const, note: 'projetos públicos' },
   { label: 'SMP', state: 'development' as const, note: 'em desenvolvimento' },
