@@ -9,4 +9,13 @@ export default defineConfig({
     port: 5173,
     open: true,
   },
+  preview: {
+    // O preview herda `server.open` por padrão. Num container não existe
+    // navegador, então o vite spawna `xdg-open` e morre com ENOENT.
+    open: false,
+  },
+  build: {
+    // teto de aviso do bundle; falha o build se estourar
+    chunkSizeWarningLimit: 800,
+  },
 })

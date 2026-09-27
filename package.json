@@ -8,8 +8,7 @@
     "dev": "vite",
     "typecheck": "tsc --noEmit",
     "build": "vite build",
-    "start": "node server.js",
-    "preview": "vite preview"
+    "start": "npm run build && node server.js"
   },
   "dependencies": {
     "lucide-react": "^0.454.0",

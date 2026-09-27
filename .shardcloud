@@ -5,4 +5,4 @@ MEMORY=1024
 VERSION=recommended
 SUBDOMAIN=axolotl-br
 LANGUAGE=node
-CUSTOM_COMMAND=npm install && npm run build && npm run start
+CUSTOM_COMMAND=npm run start
