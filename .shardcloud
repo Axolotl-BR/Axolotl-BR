@@ -1,0 +1,8 @@
+DISPLAY_NAME=Axolotl Hub
+DESCRIPTION=The official hub of the Axolotl BR universe. Player to Player.
+MAIN=server.js
+MEMORY=512
+VERSION=recommended
+SUBDOMAIN=axolotl-br
+LANGUAGE=node
+CUSTOM_COMMAND=npm run build && npm run start
