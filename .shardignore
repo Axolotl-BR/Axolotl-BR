@@ -1,0 +1,14 @@
+# Dependencias - a plataforma instala sozinha
+node_modules/
+
+# Build - regenerado no container
+dist/
+
+# Versionamento e CI
+.git/
+.github/
+
+# Ruido
+*.log
+.DS_Store
+Thumbs.db
