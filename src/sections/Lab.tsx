@@ -1,4 +1,4 @@
-import { ArrowUpRight, FolderKanban, Loader } from 'lucide-react'
+import { ArrowUpRight, FolderKanban } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { labProjects, type LabStatus } from '../data/site'
@@ -16,13 +16,13 @@ export function Lab() {
   return (
     <Section
       id="projetos"
-      eyebrow="axolotl lab"
+      eyebrow="projetos"
       title={
         <>
-          onde ideias estranhas <span className="text-gradient">viram projetos.</span>
+          o que a gente <span className="text-accent">tá construindo.</span>
         </>
       }
-      lead="O lado técnico do universo. ferramentas, bots, experimentos e código — construídos em público, quebrados e consertados dentro do hub."
+      lead="Ferramenta, bot e código aberto — feito pela comunidade, em público."
       className="lab"
     >
       <Reveal>
@@ -86,14 +86,6 @@ export function Lab() {
             </article>
           </Reveal>
         ))}
-
-        <Reveal delay={360} className="lab-cell">
-          <article className="lab-project lab-empty panel">
-            <Loader size={18} className="lab-empty-icon" />
-            <p className="lab-empty-title">o laboratório está preparando alguma coisa.</p>
-            <p className="mono lab-empty-note">estado vazio. mas só por enquanto.</p>
-          </article>
-        </Reveal>
       </div>
     </Section>
   )

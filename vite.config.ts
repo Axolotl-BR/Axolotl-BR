@@ -3,8 +3,8 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  // base relativa: funciona em /Axolotl-BR/, /Axolotlhub/ ou qualquer subpasta do Pages
-  base: './',
+  // base absoluta: host próprio na raiz (estilo duneco.gg), sem subpasta
+  base: '/',
   server: {
     port: 5173,
     open: true,

@@ -12,12 +12,8 @@ export function Servers() {
     <Section
       id="servidores"
       eyebrow="servidores"
-      title={
-        <>
-          play the <span className="text-gradient">universe.</span>
-        </>
-      }
-      lead="Lugares onde o universo acontece de verdade. por enquanto o avatar central é o minecraft — e quando os dados forem reais, eles aparecem aqui."
+      title={<>axolotl smp.</>}
+      lead="Nosso servidor de survival no Minecraft. Ainda em construção — o progresso sai no Discord."
     >
       <Reveal>
         <div className="smp-card panel">
@@ -46,21 +42,10 @@ export function Servers() {
             <a href={links.discord} target="_blank" rel="noreferrer" className="btn btn-ghost">
               acompanhar no discord <ArrowUpRight size={14} aria-hidden="true" />
             </a>
-            <p className="mono smp-note">
-              jogadores e versão aparecem quando existirem dados reais. prometido.
-            </p>
+            <p className="mono smp-note">o IP sai no Discord quando abrir.</p>
           </div>
         </div>
       </Reveal>
-
-      <div className="servers-empty">
-        <Reveal delay={120}>
-          <p className="mono servers-empty-text">
-            outros servidores: <span className="text-faint">nothing here yet. o laboratório está
-            preparando alguma coisa.</span>
-          </p>
-        </Reveal>
-      </div>
     </Section>
   )
 }

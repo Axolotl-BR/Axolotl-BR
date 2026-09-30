@@ -1,5 +1,5 @@
-DISPLAY_NAME=Axolotl Hub
-DESCRIPTION=The official hub of the Axolotl BR universe. Player to Player.
+DISPLAY_NAME=Axolotl BR
+DESCRIPTION=The official site of the Axolotl BR universe. Player to Player.
 MAIN=index.js
 MEMORY=1024
 VERSION=recommended

@@ -65,7 +65,7 @@ export function Navbar() {
       />
 
       <div className="nav-inner container">
-        <a href="#hub" className="nav-logo" aria-label={`${site.brand} — início`}>
+        <a href="#inicio" className="nav-logo" aria-label={`${site.brand} — início`}>
           <img src={logo} alt={site.brand} className="nav-logo-img" />
         </a>
 

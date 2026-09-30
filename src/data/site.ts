@@ -7,9 +7,9 @@ export const site = {
   brand: 'AXOLOTL BR',
   product: 'Axolotl BR',
   tagline: 'Sua comunidade na internet. De player para player.',
-  url: 'https://axolotl-br.github.io/Axolotl-BR/',
+  url: 'https://axolotl-br.shardweb.app/',
   year: 2026,
-  copyright: '🔌 Powered by Cool Axolotl CLUB © 2020 - 2026 by Fabi',
+  copyright: '© 2020 – 2026 axolotl br • de player pra player — by fabi',
 } as const
 
 export const links = {
@@ -21,38 +21,27 @@ export const links = {
 } as const
 
 export const nav = [
-  { label: 'HUB', href: '#hub' },
-  { label: 'UNIVERSO', href: '#universo' },
-  { label: 'PROJETOS', href: '#projetos' },
-  { label: 'SERVIDORES', href: '#servidores' },
+  { label: 'INÍCIO', href: '#inicio' },
   { label: 'COMUNIDADE', href: '#comunidade' },
+  { label: 'DONO', href: '#dono' },
+  { label: 'SERVIDORES', href: '#servidores' },
+  { label: 'PROJETOS', href: '#projetos' },
   { label: 'NOVIDADES', href: '#novidades' },
-] as const
-
-// núcleo do ecossistema — o axolote é o centro
-export const universeNodes = [
-  { name: 'COMMUNITY', hint: 'pessoas e conversa' },
-  { name: 'GAMES', hint: 'jogamos juntos' },
-  { name: 'SERVERS', hint: 'experiências ativas' },
-  { name: 'PROJECTS', hint: 'coisas construídas' },
-  { name: 'TECH', hint: 'código e sistemas' },
-  { name: 'CREATORS', hint: 'quem cria aqui' },
 ] as const
 
 export type StatusState = 'online' | 'offline' | 'maintenance' | 'development'
 
-export const status = [
-  { label: 'AXOLOTL BR', state: 'development' as const, note: 'em construção' },
-  { label: 'DISCORD', state: 'online' as const, note: 'comunidade ativa' },
-  { label: 'GITHUB', state: 'online' as const, note: 'projetos públicos' },
-  { label: 'SMP', state: 'development' as const, note: 'em desenvolvimento' },
-  { label: 'LAB', state: 'online' as const, note: 'experimentos rodando' },
-] as const
+export const owner = {
+  name: 'fabi café',
+  handle: 'OFabiano1',
+  since: '2020',
+  facts: ['fundou a comunidade em 2020', 'tá no Discord todo dia'],
+} as const
 
 export const stateLabel: Record<StatusState, string> = {
   online: 'ONLINE',
   offline: 'OFFLINE',
-  maintenance: 'MAINTENANCE',
+  maintenance: 'MANUTENÇÃO',
   development: 'EM DESENVOLVIMENTO',
 }
 
@@ -62,7 +51,7 @@ export const servers = [
     state: 'development' as StatusState,
     version: null,
     players: null,
-    desc: 'O universo Minecraft do Axolotl. Surviving com lore, eventos e relíquias — nada de servidor genérico onde você entra, joga dois dias e esquece.',
+    desc: 'O servidor de Minecraft da comunidade. Survival com lore, eventos e construção coletiva — ainda em construção.',
     features: ['lore', 'eventos', 'survival', 'comunidade'],
   },
 ] as const
@@ -83,32 +72,32 @@ export const labProjects: readonly LabProject[] = [
   {
     name: 'F.R.I.D.A.Y.',
     concept: 'File Retrieval, Indexing, Directory & Archiving Y-system',
-    role: 'organizador inteligente de arquivos para Windows',
-    desc: 'Entende antes de organizar. Nunca apaga nada. Toda operação é reversível. Roda 100% local — o axolote não vaza seus arquivos pra internet.',
+    role: 'organizador de arquivos para Windows',
+    desc: 'Entende antes de mexer. Nada é apagado, tudo dá pra desfazer. Roda 100% no seu PC.',
     status: 'em desenvolvimento',
-    tags: ['python', 'desktop', 'local-first', 'undo total'],
+    tags: ['python', 'windows', 'local', 'reversível'],
   },
   {
     name: 'AXL BOT',
-    role: 'a infraestrutura da comunidade',
-    desc: 'Bot do Discord com economia, moderação e presença em todo canto do servidor. Parte do DNA do Axolotl desde o começo.',
+    role: 'o bot do servidor',
+    desc: 'Moderação, economia e utilidades pro Discord. Sai em breve.',
     status: 'em breve',
-    tags: ['discord', 'bot', 'comunidade'],
+    tags: ['discord', 'moderação', 'economia'],
   },
   {
     name: 'axolotl em 23 linguagens',
-    role: 'o meme científico do universo',
-    desc: 'a mesma ideia em bf, c, c++, c#, dart, elixir, go, haskell, java, js, kotlin, lua, ml, php, perl, powershell, python, r, ruby, shell, swift, ts e vbs. porque sim.',
+    role: 'o mesmo programa, 23 vezes',
+    desc: 'De brainfuck a swift: a mesma ideia escrita em 23 linguagens. Não pergunta por quê.',
     status: 'online',
-    tags: ['open source', 'meme', 'código'],
+    tags: ['código aberto', '23 linguagens'],
     href: links.githubAxolotlLang,
   },
   {
     name: 'E3 do Axolotl',
-    role: 'o showcase do universo',
-    desc: 'A apresentação de todas as frentes: SMP, bots, labs, talks, studio, jogos, identidade e os extras que ninguém prevê.',
+    role: 'o evento da comunidade',
+    desc: 'Um dia pra mostrar tudo que saiu do papel: SMP, bots, jogos e o resto. Ainda no planejamento.',
     status: 'planejado',
-    tags: ['evento', 'universo'],
+    tags: ['evento'],
   },
 ] as const
 
@@ -118,32 +107,32 @@ export const news = [
   {
     kind: 'UPDATE' as NewsKind,
     date: '2026',
-    title: 'hub v1.0 em construção',
-    desc: 'A casa do universo está sendo erguida agora, aqui. Este site é o resultado. O resto vem em seguida.',
+    title: 'este site',
+    desc: 'A casa nova da comunidade. Você tá nela.',
   },
   {
     kind: 'COMMUNITY' as NewsKind,
     date: '2020',
     title: 'o começo',
-    desc: 'A comunidade nasce como um projeto experimental. De player para player, antes de virar qualquer coisa maior.',
+    desc: 'Um grupo de amigos monta um servidor no Discord. Sem plano, sem nome chique.',
   },
   {
     kind: 'EVENT' as NewsKind,
     date: '2021 – 2022',
-    title: 'eventos e identidade',
-    desc: 'Primeiros eventos internos, testes de servidores e os primeiros traços da identidade visual que apareceu aqui.',
+    title: 'primeiros eventos',
+    desc: 'Campeonatinhos internos, testes de servidor e os primeiros traços da identidade.',
   },
   {
     kind: 'PROJECT' as NewsKind,
     date: '2023 – 2024',
-    title: 'universo em expansão',
-    desc: 'Planejamento das frentes do ecossistema: servidores, bots, jogos e o laboratório de projetos.',
+    title: 'a coisa cresce',
+    desc: 'Bot próprio, ideias de jogo e os primeiros rascunhos do SMP.',
   },
   {
     kind: 'UPDATE' as NewsKind,
     date: '2025',
     title: 'mão na massa',
-    desc: 'Desenvolvimento ativo de site, bots, jogos e labs. Muita coisa quebrada, consertada e publicada em público.',
+    desc: 'Site, bots e labs saindo do papel.',
   },
 ] as const
 
@@ -151,12 +140,8 @@ export const changelog = [
   {
     version: 'v1.0',
     date: 'set 2026',
-    title: 'hub experience',
-    changes: [
-      'nova casa digital do universo',
-      'o sistema operacional da comunidade',
-      'cultura axolotl de player para player',
-    ],
+    title: 'site v1.0',
+    changes: ['casa nova da comunidade', 'código aberto desde o dia um'],
   },
 ] as const
 
@@ -184,19 +169,19 @@ export const socials = [
 export const githubRepos = [
   {
     name: 'Axolotl-BR',
-    desc: 'o site oficial — comunidade, projetos e experimentos',
+    desc: 'este site, de verdade',
     lang: 'HTML',
     href: links.githubSite,
   },
   {
     name: 'Axolotl',
-    desc: 'a mesma ideia em 23 linguagens de programação',
-    lang: 'Java',
+    desc: 'o mesmo programa em 23 linguagens',
+    lang: 'várias',
     href: links.githubAxolotlLang,
   },
   {
     name: 'Axolotl-site-beta',
-    desc: 'versões beta e testes do site',
+    desc: 'testes e rascunhos do site',
     lang: 'HTML',
     href: links.githubSiteBeta,
   },

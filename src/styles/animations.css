@@ -1,84 +1,20 @@
-/* ── reveal on scroll: blur-up ── */
+/* ── reveal on scroll ── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px) scale(0.995);
-  filter: blur(6px);
-  will-change: opacity, transform, filter;
+  transform: translateY(12px);
 }
 .reveal.is-in {
   opacity: 1;
   transform: none;
-  filter: none;
   transition:
-    opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out),
-    filter 0.7s var(--ease-out);
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
-    filter: none;
-  }
-}
-
-/* ── flutuação do mascote ── */
-.float {
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-/* ── bolhas orbitais ── */
-.orbit-dot {
-  position: absolute;
-  inset: 0;
-  animation: orbit-spin 26s linear infinite;
-}
-.orbit-dot::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  border-radius: 50%;
-  background: var(--primary-hover);
-  box-shadow: 0 0 10px var(--glow-primary);
-  opacity: 0.7;
-}
-.orbit-dot:nth-child(1) {
-  animation-duration: 22s;
-}
-.orbit-dot:nth-child(2) {
-  animation-duration: 34s;
-  animation-direction: reverse;
-}
-.orbit-dot:nth-child(3) {
-  animation-duration: 27s;
-}
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ── pisca de cursor de terminal ── */
-.blink {
-  animation: blink 1.06s steps(1) infinite;
-}
-@keyframes blink {
-  50% {
-    opacity: 0;
   }
 }
 
@@ -101,39 +37,7 @@
 .scroll-cue .line {
   width: 1px;
   height: 40px;
-  background: linear-gradient(var(--water), transparent);
-  animation: cue-drop 1.8s var(--ease-out) infinite;
-}
-@keyframes cue-drop {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-  50% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  51% {
-    transform-origin: bottom;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
-}
-
-/* ── hatch do diagrama do universo ── */
-.node-in {
-  opacity: 0;
-  transform: translateY(12px);
-}
-.node-in.is-in {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity 0.6s var(--ease-out),
-    transform 0.6s var(--ease-out);
-  transition-delay: var(--reveal-delay, 0ms);
+  background: var(--border-strong);
 }
 
 /* ── barra de progresso de navegação ── */
@@ -143,8 +47,7 @@
   left: 0;
   height: 2px;
   border-radius: var(--radius-full);
-  background: linear-gradient(90deg, var(--primary), var(--accent), var(--water));
-  box-shadow: 0 0 12px var(--glow-primary);
+  background: var(--primary);
   pointer-events: none;
 }
 
@@ -171,7 +74,7 @@
   gap: 12px;
   background: var(--bg-2);
   border: 1px solid var(--border-strong);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6), 0 0 30px var(--glow-primary);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
   padding: 12px 18px;
   border-radius: var(--radius-full);
   font-family: var(--font-mono);

@@ -92,7 +92,6 @@
   height: 4px;
   border-radius: 50%;
   background: var(--water);
-  box-shadow: 0 0 10px var(--glow-water);
 }
 
 .nav-cta {
@@ -205,22 +204,10 @@
 /* ───────── footer v2 ───────── */
 .footer {
   border-top: 1px solid var(--border);
-  background:
-    radial-gradient(640px 280px at 50% 0%, rgba(138, 61, 255, 0.1), transparent 70%),
-    linear-gradient(180deg, var(--bg-2), var(--bg));
+  background: var(--bg-2);
   padding-block: 72px 40px;
   position: relative;
   overflow: hidden;
-}
-.footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.014), transparent 240px),
-    radial-gradient(420px 220px at 85% 10%, rgba(50, 214, 194, 0.05), transparent 70%);
-  pointer-events: none;
 }
 
 .footer .container {
@@ -244,9 +231,8 @@
   font-size: 30px;
   line-height: 1;
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, var(--primary-dim), rgba(138, 61, 255, 0.03));
-  border: 1px solid rgba(138, 61, 255, 0.3);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 20px var(--glow-primary);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
   transition: transform 0.24s var(--ease-spring), border-color 0.24s ease;
 }
 .footer-axo:hover {

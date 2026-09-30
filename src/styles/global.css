@@ -46,62 +46,12 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--bg-3), var(--border-strong));
+  background: var(--border-strong);
   border-radius: var(--radius-full);
   border: 2px solid var(--bg);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-dim);
-}
-
-/* atmosfera: grid hairline + vinheta + orbes em camadas */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 82%);
-  pointer-events: none;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(760px 460px at 50% -6%, rgba(138, 61, 255, 0.14), transparent 70%),
-    radial-gradient(560px 380px at 94% 58%, rgba(255, 65, 208, 0.07), transparent 70%),
-    radial-gradient(640px 480px at 4% 86%, rgba(138, 61, 255, 0.06), transparent 70%),
-    radial-gradient(420px 300px at 78% 12%, rgba(50, 214, 194, 0.04), transparent 70%);
-}
-
-/* gradiente de fundo em profundidade */
-body > #root {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.014), transparent 320px),
-    radial-gradient(900px 520px at 50% 0%, rgba(138, 61, 255, 0.04), transparent 70%);
-}
-
-/* cursor glow (desktop, mouse, reduced-motion off) */
-.cursor-glow {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(400px 400px at var(--mx) var(--my), rgba(138, 61, 255, 0.09), transparent 70%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-@media (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .cursor-glow {
-    display: none;
-  }
 }
 
 ::selection {
@@ -153,7 +103,7 @@ button {
   top: -60px;
   left: 16px;
   z-index: 2000;
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  background: var(--primary);
   color: #fff;
   padding: 10px 18px;
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
@@ -213,7 +163,7 @@ button {
   content: '';
   width: 28px;
   height: 1px;
-  background: linear-gradient(90deg, var(--primary), transparent);
+  background: var(--primary);
 }
 
 .section-head {
@@ -260,13 +210,12 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  background: var(--primary);
   border-color: transparent;
   color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 24px rgba(138, 61, 255, 0.28);
 }
 .btn-primary:hover {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 14px 46px var(--glow-primary);
+  background: var(--primary-hover);
 }
 
 .btn-ghost {
@@ -276,7 +225,6 @@ button {
 .btn-ghost:hover {
   background: var(--surface-hover);
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-card);
 }
 
 /* ── led de status ── */
@@ -290,42 +238,24 @@ button {
 }
 .led.online {
   background: var(--success);
-  box-shadow: 0 0 0 3px rgba(75, 224, 139, 0.12), 0 0 14px rgba(75, 224, 139, 0.45);
+  box-shadow: 0 0 0 3px rgba(75, 224, 139, 0.12);
 }
 .led.warning {
   background: var(--warning);
-  box-shadow: 0 0 0 3px rgba(255, 180, 62, 0.12), 0 0 14px rgba(255, 180, 62, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 180, 62, 0.12);
 }
 .led.primary {
   background: var(--primary-hover);
-  box-shadow: 0 0 0 3px rgba(164, 93, 255, 0.12), 0 0 14px rgba(164, 93, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(164, 93, 255, 0.12);
 }
 .led.water {
   background: var(--water);
-  box-shadow: 0 0 0 3px rgba(50, 214, 194, 0.12), 0 0 14px var(--glow-water);
+  box-shadow: 0 0 0 3px rgba(50, 214, 194, 0.12);
 }
 .led.offline {
   background: var(--danger);
-  box-shadow: 0 0 0 3px rgba(255, 93, 122, 0.12), 0 0 14px rgba(255, 93, 122, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 93, 122, 0.12);
 }
-@media (prefers-reduced-motion: no-preference) {
-  .led.online {
-    animation: led-pulse 2.4s ease-in-out infinite;
-  }
-  .led.offline {
-    animation: led-pulse 3s ease-in-out infinite;
-  }
-}
-@keyframes led-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.55;
-  }
-}
-
 /* ── chips / tags ── */
 .chip {
   font-family: var(--font-mono);
@@ -354,48 +284,17 @@ button {
   color: var(--text-muted);
   background: var(--surface-strong);
 }
-.tag[data-kind='NEWS'] {
-  color: var(--primary-hover);
-  border-color: rgba(164, 93, 255, 0.35);
-  background: rgba(138, 61, 255, 0.07);
-}
-.tag[data-kind='UPDATE'] {
-  color: var(--accent);
-  border-color: rgba(255, 65, 208, 0.35);
-  background: rgba(255, 65, 208, 0.06);
-}
-.tag[data-kind='PROJECT'] {
-  color: var(--success);
-  border-color: rgba(75, 224, 139, 0.3);
-  background: rgba(75, 224, 139, 0.05);
-}
-.tag[data-kind='EVENT'],
-.tag[data-kind='COMMUNITY'] {
-  color: var(--warning);
-  border-color: rgba(255, 180, 62, 0.3);
-  background: rgba(255, 180, 62, 0.06);
-}
-
 /* ── card base ── */
 .panel {
-  background:
-    linear-gradient(180deg, var(--surface-strong), rgba(255, 255, 255, 0.02) 46%, transparent),
-    var(--bg-2);
+  background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
   transition:
     border-color var(--dur-fast) var(--ease-out),
-    background var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out);
+    transform var(--dur-fast) var(--ease-out);
 }
 .panel:hover {
   border-color: var(--border-strong);
-  background:
-    linear-gradient(180deg, var(--surface-hover), rgba(255, 255, 255, 0.03) 46%, transparent),
-    var(--bg-3);
-  box-shadow: var(--shadow-lift);
 }
 
 /* divisores */

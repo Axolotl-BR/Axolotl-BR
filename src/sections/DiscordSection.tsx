@@ -1,15 +1,6 @@
-import { ArrowUpRight, MessageCircle, Users, Trophy, LifeBuoy, Bot, Bell } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Reveal } from '../components/Reveal'
 import { links } from '../data/site'
-
-const features = [
-  { icon: MessageCircle, label: 'conversa' },
-  { icon: Users, label: 'comunidade' },
-  { icon: Trophy, label: 'eventos' },
-  { icon: LifeBuoy, label: 'suporte' },
-  { icon: Bot, label: 'bots' },
-  { icon: Bell, label: 'novidades' },
-]
 
 export function DiscordSection() {
   return (
@@ -17,30 +8,19 @@ export function DiscordSection() {
       <div className="container">
         <Reveal>
           <div className="discord-door">
-            <div className="discord-glow" aria-hidden="true" />
             <div className="discord-inner">
               <div className="discord-info">
                 <span className="eyebrow">discord</span>
-                <h2 className="h2 discord-title">
-                  o ponto de <span className="text-gradient">encontro.</span>
-                </h2>
+                <h2 className="h2 discord-title">o ponto de encontro.</h2>
                 <p className="lead discord-desc">
-                  O coração social do universo. é onde o axolotl respira em tempo real: canais,
-                  eventos, suporte de verdade e a conversa que nunca para.
+                  É onde tudo acontece: conversa, eventos e os avisos do servidor. Se você vai
+                  entrar em um lugar só, entra aqui.
                 </p>
-                <ul className="discord-feats">
-                  {features.map((f) => (
-                    <li key={f.label}>
-                      <f.icon size={15} aria-hidden="true" />
-                      <span className="mono">{f.label}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className="discord-enter">
                 <div className="discord-status">
-                  <span className="led online" /> comunidade online
+                  <span className="led online" /> comunidade ativa
                 </div>
                 <a
                   href={links.discord}

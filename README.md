@@ -8,12 +8,13 @@ Este site é o lugar digital onde o universo Axolotl BR vive: comunidade, jogos,
 
 ## o que tem aqui
 
-- **hub** — identidade e a sensação de entrar no universo
-- **universo** — todo mundo conectado ao mesmo axolote
+- **início** — identidade e a chamada pra entrar
 - **comunidade** — o discord e o que acontece lá
 - **servidores** — smp e experiências de jogo
-- **projetos** — o axolotl lab e o que está sendo construído
-- **news** — a história do universo conforme acontece
+- **projetos** — o que está sendo construído
+- **código** — repos abertos no github
+- **dono** — quem manda aqui + tocando agora no spotify
+- **news** — a história conforme acontece
 
 ## rodando
 
@@ -64,10 +65,24 @@ src/
 
 ## deploy
 
-`.github/workflows/static.yml` builda o vite e publica `dist/` no GitHub Pages.
+host próprio (ShardCloud): `npm run build && node index.js` serve `dist/` na raiz — ver `.shardcloud` e `index.js`. sem GitHub Pages.
+
+## tocando agora (spotify)
+
+a seção `ouvindo` mostra o que o fabi tá ouvindo, ao vivo, via `GET /api/now-playing` (servido pelo `index.js`). sem credencial, mostra "o fabi não tá ouvindo nada agora." — nada inventado.
+
+pra ativar, com a conta do fabi:
+
+1. cria um app em `developer.spotify.com/dashboard` (qualquer nome, qualquer redirect).
+2. abre no navegador (troca `SEU_CLIENT_ID`):
+   `https://accounts.spotify.com/authorize?client_id=SEU_CLIENT_ID&response_type=code&redirect_uri=http://localhost:8888/callback&scope=user-read-currently-playing`
+3. autoriza e copia o `code` da URL de retorno (`?code=...`).
+4. troca os valores e roda:
+   `curl -X POST https://accounts.spotify.com/api/token -H "Authorization: Basic $(echo -n CLIENT_ID:CLIENT_SECRET | base64)" -d grant_type=authorization_code -d code=CODIGO -d redirect_uri=http://localhost:8888/callback`
+5. pega o `refresh_token` da resposta e configura no host como variáveis de ambiente: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN`. nunca commitar esses valores.
 
 ---
 
 🫟 axolotl online.
 
-_powered by cool axolotl club · feito na internet._
+_de player pra player · feito na internet._

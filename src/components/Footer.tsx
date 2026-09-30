@@ -64,7 +64,7 @@ export function Footer({ onEgg }: FooterProps) {
               github
             </a>
             <a href={links.githubSite} target="_blank" rel="noreferrer" className="footer-link">
-              este hub
+              este site
             </a>
           </div>
         </div>
@@ -75,7 +75,7 @@ export function Footer({ onEgg }: FooterProps) {
         <div className="footer-bottom">
           <p className="footer-copy">{site.copyright}</p>
           <p className="footer-mystery mono">/dev/log: nada por aqui ainda. segura esse axolote.</p>
-          <p className="footer-made mono">made somewhere on the internet.</p>
+          <p className="footer-made mono">feito por gente, não por template.</p>
         </div>
       </div>
     </footer>

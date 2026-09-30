@@ -24,17 +24,10 @@ export function Hero({ onEgg }: HeroProps) {
     <section className="hero">
       <div className="hero-bg" aria-hidden="true">
         <div className="hero-bg-banner" style={{ backgroundImage: `url(${banner})` }} />
-        <div className="hero-orb hero-orb-1" />
-        <div className="hero-orb hero-orb-2" />
       </div>
 
       <div className="container hero-inner">
-        <p className="hero-boot mono reveal">
-          &gt; conectando ao hub
-          <span className="blink">_</span>
-        </p>
-
-        <h1 className="h1 hero-title hero-title-shimmer reveal" style={{ ['--reveal-delay' as string]: '80ms' }}>
+        <h1 className="h1 hero-title reveal" style={{ ['--reveal-delay' as string]: '80ms' }}>
           <span className="hero-product">{site.product}</span>
         </h1>
 
@@ -46,30 +39,21 @@ export function Hero({ onEgg }: HeroProps) {
           <a href={links.discord} target="_blank" rel="noreferrer" className="btn btn-primary hero-cta">
             entrar na comunidade <ArrowUpRight size={15} aria-hidden="true" />
           </a>
-          <a href="#universo" className="btn btn-ghost">
-            explorar o universo
+          <a href="#comunidade" className="btn btn-ghost">
+            ver a comunidade
           </a>
         </div>
 
-        <div className="hero-portal reveal" style={{ ['--reveal-delay' as string]: '400ms' }}>
-          <div className="portal" aria-hidden="true">
-            <div className="portal-ring" />
-            <div className="portal-ring portal-ring-2" />
-            <span className="orbit-dot" />
-            <span className="orbit-dot" />
-            <span className="orbit-dot" />
-          </div>
-
-          <button
-            type="button"
-            className="hero-mascot float"
-            onClick={pokeMascot}
-            aria-label="o axolote do hub (clica nele, ele gosta)"
-            title="🫟"
-          >
-            🫟
-          </button>
-        </div>
+        <button
+          type="button"
+          className="hero-mascot reveal"
+          style={{ ['--reveal-delay' as string]: '400ms' }}
+          onClick={pokeMascot}
+          aria-label="o axolote (clica nele, ele gosta)"
+          title="🫟"
+        >
+          🫟
+        </button>
 
         <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo" tabIndex={-1}>
           <span>desce</span>

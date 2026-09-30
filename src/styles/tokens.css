@@ -18,18 +18,11 @@
   --primary: #8a3dff;
   --primary-hover: #a45dff;
   --primary-dim: rgba(138, 61, 255, 0.12);
-  --accent: #ff41d0;
   --water: #32d6c2;
-  --water-hover: #5eead4;
 
   --success: #4be08b;
   --warning: #ffb43e;
   --danger: #ff5d7a;
-
-  /* neons suaves */
-  --glow-primary: rgba(138, 61, 255, 0.35);
-  --glow-accent: rgba(255, 65, 208, 0.22);
-  --glow-water: rgba(50, 214, 194, 0.28);
 
   /* ── tipografia ── */
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
@@ -66,10 +59,6 @@
   --space-8: 72px;
   --space-9: 120px;
 
-  /* ── sombras ── */
-  --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.32);
-  --shadow-lift: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 28px 64px rgba(0, 0, 0, 0.5);
-
   /* ── motion ── */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
@@ -77,10 +66,6 @@
   --dur-fast: 160ms;
   --dur: 320ms;
   --dur-slow: 640ms;
-
-  /* cursor glow (setado em JS) */
-  --mx: 50vw;
-  --my: 30vh;
 }
 
 @media (prefers-reduced-motion: reduce) {

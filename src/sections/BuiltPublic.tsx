@@ -6,14 +6,14 @@ import { githubRepos, links } from '../data/site'
 export function BuiltPublic() {
   return (
     <Section
-      id="builtpublic"
-      eyebrow="github"
+      id="codigo"
+      eyebrow="código"
       title={
         <>
-          built <span className="text-gradient">in public.</span>
+          tudo aberto <span className="text-accent">no github.</span>
         </>
       }
-      lead="O código que sustenta o universo mora no github. repos reais, sem dados inventados — os que estão publicados aparecem aqui."
+      lead="Nada de código fechado. O que a gente faz, publica."
     >
       <div className="built-grid">
         {githubRepos.map((repo, i) => (
@@ -30,9 +30,7 @@ export function BuiltPublic() {
               </div>
               <h3 className="built-repo-name mono">{repo.name}</h3>
               <p className="built-repo-desc">{repo.desc}</p>
-              <span className="built-repo-lang mono">
-                <span className="led primary" aria-hidden="true" /> {repo.lang}
-              </span>
+              <span className="built-repo-lang mono">{repo.lang}</span>
             </a>
           </Reveal>
         ))}
@@ -41,7 +39,7 @@ export function BuiltPublic() {
       <Reveal delay={280}>
         <div className="built-more">
           <a href={links.githubOrg} target="_blank" rel="noreferrer" className="btn btn-ghost">
-            ver o org inteiro <ArrowUpRight size={14} aria-hidden="true" />
+            ver tudo no github <ArrowUpRight size={14} aria-hidden="true" />
           </a>
         </div>
       </Reveal>

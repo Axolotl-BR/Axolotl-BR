@@ -6,19 +6,14 @@ export function News() {
   return (
     <Section
       id="novidades"
-      eyebrow="do axolotl"
-      title={
-        <>
-          o que está <span className="text-gradient">acontecendo.</span>
-        </>
-      }
-      lead="A história do universo em tempo real. atualizações, eventos e anotações registradas do jeito que aconteceram."
+      eyebrow="novidades"
+      title={<>o que já rolou.</>}
     >
       <ol className="news-list">
         {news.map((item, i) => (
           <li key={`${item.kind}-${item.date}`}>
             <Reveal delay={i * 70}>
-              <article className={`news-item ${i === 0 ? 'news-now' : ''}`}>
+              <article className="news-item">
                 <div className="news-meta">
                   <span className="tag" data-kind={item.kind}>
                     {item.kind}
@@ -37,7 +32,7 @@ export function News() {
 
       <Reveal delay={400}>
         <div className="news-foot mono">
-          <span className="text-faint">// mais registros vêm com o tempo. o universo não para.</span>
+          <span className="text-faint">// continua.</span>
         </div>
       </Reveal>
     </Section>

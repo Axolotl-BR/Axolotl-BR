@@ -1,4 +1,4 @@
-// Servidor estático de produção para o AXOLOTL HUB.
+// Servidor estático de produção para o site AXOLOTL BR.
 //
 // A ShardCloud roteia a porta 80 e só alcança o container se ele estiver
 // escutando em 0.0.0.0:80. O `vite preview` não serve: sobe em
@@ -75,6 +75,85 @@ function responderErro(res, codigo, arquivo) {
   createReadStream(arquivo).pipe(res)
 }
 
+// ── spotify: "tocando agora" ─────────────────────
+// Credenciais só por variável de ambiente — nunca commitar segredo.
+// SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET / SPOTIFY_REFRESH_TOKEN.
+// Sem elas, a API responde { playing: false } e o site mostra o fallback.
+const SPOTIFY = {
+  id: process.env.SPOTIFY_CLIENT_ID || '',
+  secret: process.env.SPOTIFY_CLIENT_SECRET || '',
+  refresh: process.env.SPOTIFY_REFRESH_TOKEN || '',
+}
+
+let tokenCache = null // { access, expiresAt }
+
+async function spotifyAccess() {
+  if (tokenCache && tokenCache.expiresAt > Date.now() + 30000) return tokenCache.access
+  const basic = Buffer.from(`${SPOTIFY.id}:${SPOTIFY.secret}`).toString('base64')
+  const corpo = new URLSearchParams({ grant_type: 'refresh_token', refresh_token: SPOTIFY.refresh })
+  const r = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: { Authorization: `Basic ${basic}`, 'content-type': 'application/x-www-form-urlencoded' },
+    body: corpo,
+  })
+  if (!r.ok) throw new Error(`spotify token: ${r.status}`)
+  const data = await r.json()
+  tokenCache = { access: data.access_token, expiresAt: Date.now() + (data.expires_in || 3600) * 1000 }
+  return tokenCache.access
+}
+
+function responderJson(res, obj) {
+  const corpo = JSON.stringify(obj)
+  res.writeHead(200, {
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-store',
+  })
+  res.end(corpo)
+}
+
+async function tocandoAgora(res) {
+  if (!SPOTIFY.id || !SPOTIFY.secret || !SPOTIFY.refresh) {
+    responderJson(res, { playing: false })
+    return
+  }
+  try {
+    const tocar = async (access) =>
+      fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+        headers: { Authorization: `Bearer ${access}` },
+      })
+    let r = await tocar(await spotifyAccess())
+    if (r.status === 401) {
+      tokenCache = null
+      r = await tocar(await spotifyAccess())
+    }
+    if (r.status === 204 || !r.ok) {
+      responderJson(res, { playing: false })
+      return
+    }
+    const data = await r.json()
+    const item = data && data.item
+    if (!data || data.is_playing !== true || !item) {
+      responderJson(res, { playing: false })
+      return
+    }
+    const ehEpisodio = item.type === 'episode'
+    const artist = ehEpisodio
+      ? (item.show && item.show.name) || 'podcast'
+      : (item.artists || []).map((a) => a.name).join(', ') || 'desconhecido'
+    const image = (item.album && item.album.images && item.album.images[1]) ||
+      (item.images && item.images[1]) || null
+    responderJson(res, {
+      playing: true,
+      title: item.name || 'sem título',
+      artist,
+      image: image ? image.url : null,
+      url: (item.external_urls && item.external_urls.spotify) || null,
+    })
+  } catch {
+    responderJson(res, { playing: false })
+  }
+}
+
 createServer((req, res) => {
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     res.writeHead(405, { allow: 'GET, HEAD' })
@@ -85,6 +164,12 @@ createServer((req, res) => {
   const alvo = resolver(req.url || '/')
   if (alvo === null) {
     responderErro(res, 400, join(RAIZ, '400.html'))
+    return
+  }
+
+  const rota = (req.url || '/').split('?')[0]
+  if (rota === '/api/now-playing') {
+    tocandoAgora(res)
     return
   }
 
@@ -121,5 +206,5 @@ createServer((req, res) => {
   if (req.method === 'HEAD') return res.end()
   createReadStream(encontrado).pipe(res)
 }).listen(PORTA, HOST, () => {
-  console.log(`AXOLOTL HUB em http://${HOST}:${PORTA} servindo ${RAIZ}`)
+  console.log(`AXOLOTL BR em http://${HOST}:${PORTA} servindo ${RAIZ}`)
 })

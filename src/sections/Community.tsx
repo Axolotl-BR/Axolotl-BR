@@ -4,10 +4,9 @@ import { Reveal } from '../components/Reveal'
 const vibe = [
   'conversa boa',
   'jogos juntos',
-  'eventos improvisados',
-  'criação colaborativa (?)',
+  'eventos',
+  'ajuda quando precisa',
   'amizade de internet',
-  'suporte que funciona',
 ]
 
 export function Community() {
@@ -17,17 +16,17 @@ export function Community() {
       eyebrow="comunidade"
       title={
         <>
-          feito de <span className="text-gradient-accent">player para player.</span>
+          feito de <span className="text-accent">player para player.</span>
         </>
       }
-      lead="sem perfis corporativos, sem roteiro, sem fingir que é outra coisa. aqui as pessoas são quem são na internet: gente que joga, cria e ocupa um canto da web junto."
+      lead="Sem empresa por trás, sem roteiro. Gente que joga junto, cria coisa e aparece todo dia."
     >
       <div className="community-grid">
         <div className="community-copy">
           <Reveal>
             <p className="lead">
-              O axolote funciona assim: todo mundo pode entrar, todo mundo pode criar, e ninguém
-              precisa pedir permissão pra ter ideia.
+              Todo mundo pode entrar, todo mundo pode criar, e ninguém precisa pedir permissão pra
+              ter ideia.
             </p>
           </Reveal>
           <Reveal delay={100}>
