@@ -11,6 +11,7 @@ npm-debug.log*
 # editor / os
 .DS_Store
 *.local
+AGENTS.md
 .vscode/*
 !.vscode/extensions.json
 .idea
