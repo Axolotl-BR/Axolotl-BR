@@ -72,15 +72,9 @@ host próprio (ShardCloud): `npm run build && node index.js` serve `dist/` na ra
 
 a seção `ouvindo` mostra o que o fabi tá ouvindo, ao vivo, via `GET /api/now-playing` (servido pelo `index.js`). sem credencial, mostra "o fabi não tá ouvindo nada agora." — nada inventado.
 
-pra ativar, com a conta do fabi:
+pra ativar, configura no host como variáveis de ambiente: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN`. nunca commitar esses valores.
 
-1. cria um app em `developer.spotify.com/dashboard` (qualquer nome, qualquer redirect).
-2. abre no navegador (troca `SEU_CLIENT_ID`):
-   `https://accounts.spotify.com/authorize?client_id=SEU_CLIENT_ID&response_type=code&redirect_uri=http://localhost:8888/callback&scope=user-read-currently-playing`
-3. autoriza e copia o `code` da URL de retorno (`?code=...`).
-4. troca os valores e roda:
-   `curl -X POST https://accounts.spotify.com/api/token -H "Authorization: Basic $(echo -n CLIENT_ID:CLIENT_SECRET | base64)" -d grant_type=authorization_code -d code=CODIGO -d redirect_uri=http://localhost:8888/callback`
-5. pega o `refresh_token` da resposta e configura no host como variáveis de ambiente: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `SPOTIFY_REFRESH_TOKEN`. nunca commitar esses valores.
+o passo a passo pra gerar o `refresh_token` (com a conta do fabi) tá no `FAZER.txt` local — não versionado, não sobe pro git.
 
 ---
 
