@@ -19,9 +19,7 @@ export function DiscordSection() {
               </div>
 
               <div className="discord-enter">
-                <div className="discord-status">
-                  <span className="led online" /> comunidade ativa
-                </div>
+                <div className="discord-status">aberto pra todo mundo</div>
                 <a
                   href={links.discord}
                   target="_blank"
@@ -30,7 +28,7 @@ export function DiscordSection() {
                 >
                   entrar no discord <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
-                <p className="mono discord-hint">discord.gg/AxolotlBR</p>
+                <p className="mono discord-hint">{links.discord.replace('https://', '')}</p>
               </div>
             </div>
           </div>

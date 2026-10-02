@@ -69,7 +69,6 @@ export function Footer({ onEgg }: FooterProps) {
           </div>
         </div>
 
-        <div className="footer-divider line" aria-hidden="true" />
         <hr className="rule footer-rule" />
 
         <div className="footer-bottom">

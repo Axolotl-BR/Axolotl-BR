@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { nav, links, site } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
@@ -8,7 +8,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [progress, setProgress] = useState(0)
-  const active = useScrollSpy(nav.map((n) => n.href.slice(1)))
+  const ids = useMemo(() => nav.map((n) => n.href.slice(1)), [])
+  const active = useScrollSpy(ids)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -75,7 +76,7 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               className={`nav-link ${active === item.href.slice(1) ? 'is-active' : ''}`}
-              aria-current={active === item.href.slice(1) ? 'true' : undefined}
+              aria-current={active === item.href.slice(1) ? 'location' : undefined}
             >
               {item.label}
             </a>

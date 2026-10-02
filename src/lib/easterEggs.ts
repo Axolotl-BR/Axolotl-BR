@@ -39,6 +39,5 @@ export function consoleNote(): void {
 export const eggMessages = {
   typing: '🫟 o axolote sentiu isso. continue digitando… na verdade não, você já achou.',
   mascot: '🫟 é sério que você ficou clicando no axolote? tá. agora ele é seu amigo.',
-  logo: '⚙️ axolotl br v1.0.0 — build.axolotl · nenhum axolote foi movido durante a compilação.',
   footer: '🐛 /dev/log: segura esse axolote e presta atenção. nada vai acontecer. ou vai.',
 } as const

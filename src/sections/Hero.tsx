@@ -55,7 +55,7 @@ export function Hero({ onEgg }: HeroProps) {
           🫟
         </button>
 
-        <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo" tabIndex={-1}>
+        <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo">
           <span>desce</span>
           <span className="line" />
           <ChevronDown size={14} />

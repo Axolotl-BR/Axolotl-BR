@@ -13,8 +13,9 @@ Este site é o lugar digital onde o universo Axolotl BR vive: comunidade, jogos,
 - **servidores** — smp e experiências de jogo
 - **projetos** — o que está sendo construído
 - **código** — repos abertos no github
-- **dono** — quem manda aqui + tocando agora no spotify
-- **news** — a história conforme acontece
+- **dono** — quem manda aqui
+- **ouvindo** — tocando agora no spotify
+- **novidades** — a história conforme acontece
 
 ## rodando
 
@@ -27,7 +28,7 @@ Build de produção:
 
 ```bash
 npm run build
-npm run preview
+npm start
 ```
 
 > rodando o `npm run dev`/`build` num caminho com `#` (ex.: `#Projetos`) quebra o vite. usar um caminho limpo.
@@ -45,7 +46,7 @@ npm run preview
 src/
 ├── components/     # navbar, section, footer, toast, status dot
 ├── sections/       # as "casas" da página (hero, universo, lab, news...)
-├── hooks/          # scrollspy, pointer glow, reduced motion
+├── hooks/          # scrollspy
 ├── lib/            # easter eggs e helpers
 ├── data/           # fonte única de verdade (links, status, projetos)
 └── styles/         # tokens, globals, componentes e seções
