@@ -83,6 +83,6 @@ pra ativar, com a conta do fabi:
 
 ---
 
-🫟 axolotl online.
+🫟 axolotl 
 
 _de player pra player · feito na internet._
