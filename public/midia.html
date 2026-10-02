@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05060c" />
+    <title>kit de mídia · Axolotl BR</title>
+    <meta
+      name="description"
+      content="Kit de mídia do Axolotl BR: nome, logo, cores, tipografia e regras de uso pra falar da comunidade por aí."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/midia.html" />
+    <style>
+      :root { color-scheme: dark; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #05060c;
+        color: #f5f3ff;
+        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 56px 20px 64px;
+        line-height: 1.65;
+      }
+      main { width: min(720px, 100%); }
+      header { margin-bottom: 40px; }
+      .mono {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .eyebrow { color: #8a3dff; margin-bottom: 14px; display: block; }
+      h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+        margin-bottom: 12px;
+      }
+      header p { color: #a9a3c8; max-width: 52ch; }
+      section {
+        background: #0a0b16;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 20px;
+        padding: clamp(22px, 4vw, 34px);
+        margin-bottom: 20px;
+      }
+      h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+      section > p { color: #a9a3c8; font-size: 0.94rem; margin-bottom: 18px; max-width: 56ch; }
+      .logo-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+      .logo-box {
+        width: 112px;
+        height: 112px;
+        border-radius: 20px;
+        background: #05060c;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+      }
+      .logo-box img { width: 72px; height: 72px; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #8a3dff;
+        padding: 13px 24px;
+        border-radius: 999px;
+      }
+      .btn:hover { background: #a45dff; }
+      .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+      .sw { border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px; overflow: hidden; }
+      .sw i { display: block; height: 64px; }
+      .sw div { padding: 10px 12px; }
+      .sw strong { display: block; font-size: 0.85rem; }
+      .sw span { font-family: 'JetBrains Mono', ui-monospace; font-size: 11px; color: #a9a3c8; }
+      .type-sample { border-left: 2px solid #8a3dff; padding-left: 16px; margin-bottom: 14px; }
+      .type-sample:last-child { margin-bottom: 0; }
+      .type-sample .t1 { font-size: 1.4rem; font-weight: 700; }
+      .type-sample .t2 { font-family: 'JetBrains Mono', ui-monospace; font-size: 0.85rem; color: #a9a3c8; }
+      .type-sample small { color: #767099; font-size: 0.75rem; }
+      ul.rules { list-style: none; display: flex; flex-direction: column; }
+      ul.rules li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        color: #a9a3c8;
+        font-size: 0.94rem;
+        display: flex;
+        gap: 12px;
+      }
+      ul.rules li:last-child { border-bottom: none; }
+      ul.rules b { color: #f5f3ff; font-weight: 600; }
+      .no { color: #ff5d7a; flex: none; }
+      .yes { color: #32d6c2; flex: none; }
+      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
+      footer a { color: #a9a3c8; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// kit de mídia</span>
+        <h1>Fala da gente do jeito certo.</h1>
+        <p>
+          Vai postar sobre a comunidade, fazer thumb, camisa ou slide? Usa esse kit.
+          É o mesmo visual do site — nada de recriar por conta própria.
+        </p>
+      </header>
+
+      <section aria-labelledby="nome">
+        <h2 id="nome">o nome</h2>
+        <p>
+          É <b>Axolotl BR</b> — com x, com BR maiúsculo. Nunca "axolote", nunca
+          "Axolotl Hub", nunca com outro sufixo. A tagline oficial é
+          "Sua comunidade na internet. De player para player."
+        </p>
+      </section>
+
+      <section aria-labelledby="logo">
+        <h2 id="logo">o logo</h2>
+        <p>O axolote 🫟 é a assinatura. Usa o arquivo original, sem esticar nem recolorir.</p>
+        <div class="logo-row">
+          <div class="logo-box">
+            <img src="/favicon.png" alt="Logo do Axolotl BR" width="72" height="72" />
+          </div>
+          <a class="btn" href="/favicon.png" download>baixar png</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="cores">
+        <h2 id="cores">as cores</h2>
+        <p>Fundo escuro sempre. Um roxo de acento, um verde-água de detalhe. Só.</p>
+        <div class="swatches">
+          <div class="sw">
+            <i style="background: #05060c; border-bottom: 1px solid rgba(255,255,255,0.09)"></i>
+            <div><strong>fundo</strong><span>#05060C</span></div>
+          </div>
+          <div class="sw">
+            <i style="background: #8a3dff"></i>
+            <div><strong>roxo axolotl</strong><span>#8A3DFF</span></div>
+          </div>
+          <div class="sw">
+            <i style="background: #32d6c2"></i>
+            <div><strong>verde-água</strong><span>#32D6C2</span></div>
+          </div>
+          <div class="sw">
+            <i style="background: #f5f3ff"></i>
+            <div><strong>texto</strong><span>#F5F3FF</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="tipos">
+        <h2 id="tipos">a tipografia</h2>
+        <p>Duas fontes, cada uma no seu papel. As duas são gratuitas no Google Fonts.</p>
+        <div class="type-sample">
+          <div class="t1">Space Grotesk — títulos e texto</div>
+          <small>700 nos títulos, 400 no corpo</small>
+        </div>
+        <div class="type-sample">
+          <div class="t2">JetBrains Mono — rótulos e código</div>
+          <small>caixa alta, espaçamento largo</small>
+        </div>
+      </section>
+
+      <section aria-labelledby="regras">
+        <h2 id="regras">pode / não pode</h2>
+        <ul class="rules">
+          <li><span class="yes" aria-hidden="true">▸</span><span><b>Pode</b> usar logo e nome em vídeo, post, thumb e trabalho de fã.</span></li>
+          <li><span class="yes" aria-hidden="true">▸</span><span><b>Pode</b> falar que faz parte da comunidade, se fizer.</span></li>
+          <li><span class="no" aria-hidden="true">▸</span><span><b>Não pode</b> fingir que é canal oficial se não for.</span></li>
+          <li><span class="no" aria-hidden="true">▸</span><span><b>Não pode</b> usar a marca em golpe, spam ou venda enganosa.</span></li>
+          <li><span class="no" aria-hidden="true">▸</span><span><b>Não pode</b> mudar as cores ou deformar o logo.</span></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="contato">
+        <h2 id="contato">contato</h2>
+        <p>Parceria, evento ou imprensa: chama no Discord que a gente responde.</p>
+        <a class="btn" href="https://discord.gg/AxolotlBR">discord.gg/AxolotlBR</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/links.html">todos os links</a></p>
+      </footer>
+    </main>
+  </body>
+</html>

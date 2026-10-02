@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#050507" />
+    <meta name="theme-color" content="#05060c" />
     <title>404 — você saiu do mapa · Axolotl BR</title>
+    <meta
+      name="description"
+      content="Essa página não existe. Volta pra central do Axolotl BR ou entra no Discord."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <style>
       :root { color-scheme: dark; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,10 +19,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #050507;
-        background-image:
-          radial-gradient(600px 300px at 50% 30%, rgba(139, 59, 255, 0.16), transparent 70%);
-        color: #f4f1fb;
+        background: #05060c;
+        color: #f5f3ff;
         font-family: 'Space Grotesk', system-ui, sans-serif;
         text-align: center;
         padding: 24px;
@@ -27,37 +30,62 @@
         font-size: 12px;
         letter-spacing: 0.2em;
         text-transform: uppercase;
-        color: #8b3bff;
+        color: #8a3dff;
         margin-bottom: 18px;
       }
+      .brand {
+        font-size: 13px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #767099;
+        margin-bottom: 26px;
+      }
       h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
-      p { color: #a8a0c2; margin-bottom: 28px; max-width: 420px; line-height: 1.6; }
+      p { color: #a9a3c8; margin-bottom: 28px; max-width: 420px; line-height: 1.6; }
+      .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 26px; }
       a {
         display: inline-flex;
         align-items: center;
         gap: 8px;
         text-decoration: none;
-        color: white;
-        background: linear-gradient(135deg, #8b3bff, #a45dff);
-        padding: 14px 28px;
-        border-radius: 999px;
         font-weight: 600;
         font-size: 14px;
         letter-spacing: 0.05em;
-        transition: transform 0.16s ease, box-shadow 0.16s ease;
+        padding: 14px 28px;
+        border-radius: 999px;
+        transition: background 0.16s ease, border-color 0.16s ease;
       }
-      a:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(139, 59, 255, 0.4); }
-      a:focus-visible { outline: 2px solid #f4f1fb; outline-offset: 3px; }
-      .ax { font-size: 40px; margin-bottom: 8px; filter: drop-shadow(0 0 24px rgba(139, 59, 255, 0.5)); }
+      a.solid { color: white; background: #8a3dff; }
+      a.solid:hover { background: #a45dff; }
+      a.line { color: #f5f3ff; border: 1px solid rgba(255, 255, 255, 0.18); }
+      a.line:hover { border-color: rgba(255, 255, 255, 0.35); }
+      a:focus-visible { outline: 2px solid #f5f3ff; outline-offset: 3px; }
+      .ax { font-size: 40px; margin-bottom: 8px; }
+      .mini { font-size: 0.82rem; color: #767099; }
+      .mini a { color: #a9a3c8; text-decoration: none; padding: 0; background: none; border: none; border-radius: 0; font-weight: 400; letter-spacing: 0; font-size: 0.82rem; display: inline; }
+      .mini a:hover { color: #f5f3ff; }
     </style>
   </head>
   <body>
     <main>
       <div class="ax" aria-hidden="true">🫟</div>
+      <div class="brand">axolotl br</div>
       <div class="mono">// 404</div>
       <h1>você saiu do mapa.</h1>
-      <p>Esse lugar não existe (ainda). O axolote confirmou.</p>
-      <a href="/">VOLTAR AO INÍCIO</a>
+      <p>Esse lugar não existe (ainda). O axolote confirmou. Volta pra central ou entra no Discord.</p>
+      <div class="row">
+        <a class="solid" href="/">VOLTAR AO INÍCIO</a>
+        <a class="line" href="https://discord.gg/AxolotlBR">DISCORD</a>
+      </div>
+      <nav class="mini" aria-label="atalhos">
+        <a href="/links.html">todos os links</a>
+        <span aria-hidden="true">·</span>
+        <a href="/smp.html">o servidor de minecraft</a>
+        <span aria-hidden="true">·</span>
+        <a href="/regras.html">regras</a>
+        <span aria-hidden="true">·</span>
+        <a href="/midia.html">kit de mídia</a>
+      </nav>
     </main>
   </body>
 </html>

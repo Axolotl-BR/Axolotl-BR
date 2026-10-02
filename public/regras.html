@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05060c" />
+    <title>regras · Axolotl BR</title>
+    <meta
+      name="description"
+      content="As regras da comunidade Axolotl BR: o que vale no Discord e no servidor de Minecraft."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/regras.html" />
+    <style>
+      :root { color-scheme: dark; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #05060c;
+        color: #f5f3ff;
+        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 56px 20px 64px;
+        line-height: 1.65;
+      }
+      main { width: min(720px, 100%); }
+      header { margin-bottom: 36px; }
+      .mono {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .eyebrow { color: #8a3dff; margin-bottom: 14px; display: block; }
+      h1 {
+        font-size: clamp(2.2rem, 7vw, 3.4rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+      header p { color: #a9a3c8; max-width: 54ch; }
+      header p + p { margin-top: 10px; }
+      section {
+        background: #0a0b16;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 20px;
+        padding: clamp(22px, 4vw, 34px);
+        margin-bottom: 20px;
+      }
+      h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+      section > p { color: #a9a3c8; font-size: 0.94rem; margin-bottom: 16px; max-width: 56ch; }
+      section > p:last-child { margin-bottom: 0; }
+      ol.rules { list-style: none; counter-reset: regra; display: flex; flex-direction: column; }
+      ol.rules li {
+        counter-increment: regra;
+        display: flex;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      }
+      ol.rules li:last-child { border-bottom: none; }
+      ol.rules li::before {
+        content: counter(regra, decimal-leading-zero);
+        flex: none;
+        font-family: 'JetBrains Mono', ui-monospace;
+        font-size: 13px;
+        font-weight: 700;
+        color: #8a3dff;
+        padding-top: 3px;
+      }
+      ol.rules b { color: #f5f3ff; display: block; margin-bottom: 2px; }
+      ol.rules span { color: #a9a3c8; font-size: 0.9rem; }
+      .ladder { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+      .ladder li {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        padding: 14px 18px;
+        font-size: 0.92rem;
+        color: #a9a3c8;
+      }
+      .ladder b { color: #f5f3ff; }
+      .lvl {
+        flex: none;
+        font-family: 'JetBrains Mono', ui-monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 5px 11px;
+        border-radius: 8px;
+      }
+      .lvl.l1 { background: rgba(50, 214, 194, 0.14); color: #32d6c2; }
+      .lvl.l2 { background: rgba(255, 180, 62, 0.14); color: #ffb43e; }
+      .lvl.l3 { background: rgba(255, 93, 122, 0.14); color: #ff5d7a; }
+      details {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin-bottom: 10px;
+      }
+      details summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; list-style: none; }
+      details summary::-webkit-details-marker { display: none; }
+      details summary::before { content: '▸ '; color: #32d6c2; }
+      details[open] summary::before { content: '▾ '; }
+      details p { color: #a9a3c8; font-size: 0.9rem; margin-top: 8px; }
+      details a { color: #f5f3ff; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #8a3dff;
+        padding: 14px 28px;
+        border-radius: 999px;
+      }
+      .btn:hover { background: #a45dff; }
+      .cta { text-align: center; }
+      .cta p { margin-bottom: 20px; }
+      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
+      footer a { color: #a9a3c8; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// regras</span>
+        <h1>Pouca regra, regra clara.</h1>
+        <p>
+          Valem no Discord e no servidor de Minecraft. São poucas de propósito:
+          ninguém decora mural de dez mandamentos.
+        </p>
+        <p>
+          Dúvida se algo pode? Pergunta pra moderação antes. "Não sabia" não cola,
+          mas perguntar sempre cola.
+        </p>
+      </header>
+
+      <section aria-labelledby="regras">
+        <h2 id="regras">as 6 regras</h2>
+        <p>O resto é bom senso. Isso aqui é o inegociável:</p>
+        <ol class="rules">
+          <li>
+            <div>
+              <b>Sem ódio nem preconceito</b>
+              <span>Racismo, homofobia, machismo e qualquer ataque a quem a pessoa é. Aqui caiu, caiu de verdade.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Sem spam nem flood</b>
+              <span>Corrente, flood, caps travado, divulgação sem permissão. Um aviso e segue o jogo.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Sem golpe nem pirataria</b>
+              <span>Link falso, phishing, conta roubada, conteúdo vazado. Tolerância zero, sem conversa.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Conteúdo +18 só no lugar certo</b>
+              <span>Fora do canal marcado, é ban direto. Sem exceção e sem drama.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Respeita a moderação</b>
+              <span>Decisão de mod não se discute no chat: chama no privado. Insistir no público vira punição.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>No jogo, joga limpo</b>
+              <span>Sem hack, sem x-ray, sem griefar construção dos outros. Trapaça apaga o progresso.</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="puni">
+        <h2 id="puni">quando quebra</h2>
+        <p>A escada é sempre a mesma, salvo caso grave que pula direto pro fim:</p>
+        <ul class="ladder">
+          <li><span class="lvl l1">1 · aviso</span><span>Conversa no privado e <b>registro</b> do caso.</span></li>
+          <li><span class="lvl l2">2 · mute</span><span>Tempo calado pra esfriar a cabeça, de <b>1h a 7 dias</b>.</span></li>
+          <li><span class="lvl l3">3 · ban</span><span>Fora do Discord e do SMP. Volta só conversando com a moderação.</span></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="denuncia">
+        <h2 id="denuncia">viu algo errado? denuncia</h2>
+        <p>
+          A moderação não tá em todo lugar ao mesmo tempo. Se viu golpe, assédio,
+          hack ou qualquer quebra das regras acima, o esquema é simples:
+        </p>
+        <ol class="rules">
+          <li>
+            <div>
+              <b>Tira print</b>
+              <span>Mensagem some, print fica. Guarda a evidência antes de qualquer coisa.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Chama no privado</b>
+              <span>Manda pra qualquer moderador online. Não expõe ninguém no chat geral.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Deixa com a gente</b>
+              <span>Todo caso vira registro e resposta. Se foi punição injusta, tem revisão (pergunta acima).</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="faq">
+        <h2 id="faq">dúvidas de sempre</h2>
+        <details>
+          <summary>Fui punido sem entender. E agora?</summary>
+          <p>Chama qualquer moderador no privado e pergunta. Revisão existe pra isso — errar é humano, inclusive da moderação.</p>
+        </details>
+        <details>
+          <summary>Posso divulgar meu canal/servidor?</summary>
+          <p>Só com permissão da moderação e no lugar certo. Divulgação jogada no chat geral é spam (regra 2).</p>
+        </details>
+        <details>
+          <summary>As regras valem na DM?</summary>
+          <p>Golpe, ameaça e assédio valem em qualquer lugar: se vier de membro daqui, denuncia com print. A moderação age.</p>
+        </details>
+        <details>
+          <summary>Quero ser moderador. Como?</summary>
+          <p>Moderação nasce de presença: quem tá todo dia, ajuda e conhece as regras acaba chamado. Não tem formulário.</p>
+        </details>
+      </section>
+
+      <section class="cta" aria-label="chamada">
+        <p>De acordo? Então entra.</p>
+        <a class="btn" href="https://discord.gg/AxolotlBR">entrar no discord</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/links.html">todos os links</a></p>
+      </footer>
+    </main>
+  </body>
+</html>

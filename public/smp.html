@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05060c" />
+    <title>axolotl smp · Axolotl BR</title>
+    <meta
+      name="description"
+      content="O servidor de Minecraft da comunidade Axolotl BR. Survival com lore, eventos e construção coletiva — em desenvolvimento."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/smp.html" />
+    <style>
+      :root { color-scheme: dark; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #05060c;
+        color: #f5f3ff;
+        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 56px 20px 64px;
+        line-height: 1.65;
+      }
+      main { width: min(720px, 100%); }
+      header { margin-bottom: 36px; }
+      .mono {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .eyebrow { color: #8a3dff; margin-bottom: 14px; display: block; }
+      h1 {
+        font-size: clamp(2.2rem, 7vw, 3.4rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+      header p { color: #a9a3c8; max-width: 52ch; }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #ffb43e;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 9px 18px;
+      }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: #ffb43e; flex: none; }
+      section {
+        background: #0a0b16;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 20px;
+        padding: clamp(22px, 4vw, 34px);
+        margin-bottom: 20px;
+      }
+      h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+      section > p { color: #a9a3c8; font-size: 0.94rem; margin-bottom: 18px; max-width: 56ch; }
+      section > p:last-child { margin-bottom: 0; }
+      .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+      .chips li {
+        font-family: 'JetBrains Mono', ui-monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #a9a3c8;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 6px 13px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      ol.steps { list-style: none; counter-reset: passo; display: flex; flex-direction: column; }
+      ol.steps li {
+        counter-increment: passo;
+        display: flex;
+        gap: 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        color: #a9a3c8;
+        font-size: 0.94rem;
+      }
+      ol.steps li:last-child { border-bottom: none; }
+      ol.steps li::before {
+        content: counter(passo);
+        flex: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #8a3dff;
+        color: #fff;
+        font-family: 'JetBrains Mono', ui-monospace;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      ol.steps b { color: #f5f3ff; }
+      ol.steps a { color: #f5f3ff; }
+      details {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin-bottom: 10px;
+      }
+      details summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; list-style: none; }
+      details summary::-webkit-details-marker { display: none; }
+      details summary::before { content: '▸ '; color: #32d6c2; }
+      details[open] summary::before { content: '▾ '; }
+      details p { color: #a9a3c8; font-size: 0.9rem; margin-top: 8px; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #8a3dff;
+        padding: 14px 28px;
+        border-radius: 999px;
+      }
+      .btn:hover { background: #a45dff; }
+      .cta { text-align: center; }
+      .cta p { margin-bottom: 20px; }
+      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
+      footer a { color: #a9a3c8; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// minecraft</span>
+        <h1>Axolotl SMP.</h1>
+        <p>
+          O servidor de Minecraft da comunidade. Survival com lore, eventos e
+          construção coletiva — sem pay-to-win, sem wipe toda semana.
+        </p>
+        <span class="status"><span class="dot" aria-hidden="true"></span> em desenvolvimento</span>
+      </header>
+
+      <section aria-labelledby="o-que">
+        <h2 id="o-que">o que é</h2>
+        <p>
+          Um survival Java onde o que você constrói fica de pé e o que você faz vira história:
+          relíquias, eventos narrados e lugares que a comunidade levanta junta. Nada de servidor
+          genérico onde você entra, joga dois dias e esquece.
+        </p>
+        <ul class="chips">
+          <li>minecraft · java</li>
+          <li>survival</li>
+          <li>lore</li>
+          <li>eventos</li>
+          <li>comunidade</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="entrar">
+        <h2 id="entrar">como entrar</h2>
+        <p>O servidor ainda está em construção. Quando abrir, é assim que funciona:</p>
+        <ol class="steps">
+          <li><span><b>Entra no Discord</b> — <a href="https://discord.gg/AxolotlBR">discord.gg/AxolotlBR</a>. Tudo passa por lá.</span></li>
+          <li><span><b>Acompanha os avisos</b> — data de abertura, IP e versão saem no canal de avisos.</span></li>
+          <li><span><b>Entra com o Java</b> — o SMP é Minecraft Java, no PC.</span></li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="faq">
+        <h2 id="faq">dúvidas de sempre</h2>
+        <p>Transparente desde já, pra ninguém entrar esperando outra coisa:</p>
+        <details>
+          <summary>Quando abre?</summary>
+          <p>Sem data marcada. O progresso sai no Discord — quando tiver IP, você vai saber.</p>
+        </details>
+        <details>
+          <summary>Vai ter wipe?</summary>
+          <p>A ideia é que não: o mundo é pra durar, e construção da comunidade não se apaga à toa.</p>
+        </details>
+        <details>
+          <summary>Tem pay-to-win?</summary>
+          <p>Não. Vantagem de gameplay não se compra aqui.</p>
+        </details>
+        <details>
+          <summary>Precisa ser bom de Minecraft?</summary>
+          <p>Não. Precisa ser gente boa no Discord — o resto se aprende jogando junto.</p>
+        </details>
+        <details>
+          <summary>Bedrock (celular/console) entra?</summary>
+          <p>O SMP é Java, de PC. Se isso mudar um dia, vai estar escrito aqui.</p>
+        </details>
+      </section>
+
+      <section class="cta" aria-label="chamada">
+        <p>Quer ser avisado na abertura? O único lugar é o Discord.</p>
+        <a class="btn" href="https://discord.gg/AxolotlBR">entrar no discord</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/links.html">todos os links</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
