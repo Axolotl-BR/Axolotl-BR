@@ -1,4 +1,4 @@
-# 🫟 AXOLOTL BR
+# AXOLOTL BR
 
 **A central oficial do universo Axolotl BR.**
 
