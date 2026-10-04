@@ -15,10 +15,10 @@
   --text-muted: #a9a3c8;
   --text-faint: #767099;
 
-  --primary: #8a3dff;
-  --primary-hover: #a45dff;
-  --primary-dim: rgba(138, 61, 255, 0.12);
-  --water: #32d6c2;
+  --primary: #8f00ff;
+  --primary-hover: #a845ff;
+  --primary-dim: rgba(143, 0, 255, 0.12);
+  --axo: #52d6a8;
 
   --success: #4be08b;
   --warning: #ffb43e;

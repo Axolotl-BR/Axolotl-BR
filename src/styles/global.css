@@ -55,7 +55,7 @@ body {
 }
 
 ::selection {
-  background: rgba(138, 61, 255, 0.42);
+  background: rgba(143, 0, 255, 0.42);
   color: #fff;
 }
 
@@ -248,9 +248,9 @@ button {
   background: var(--primary-hover);
   box-shadow: 0 0 0 3px rgba(164, 93, 255, 0.12);
 }
-.led.water {
-  background: var(--water);
-  box-shadow: 0 0 0 3px rgba(50, 214, 194, 0.12);
+.led.axo {
+  background: var(--axo);
+  box-shadow: 0 0 0 3px rgba(82, 214, 168, 0.12);
 }
 .led.offline {
   background: var(--danger);

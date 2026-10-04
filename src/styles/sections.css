@@ -28,9 +28,7 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.34;
-  -webkit-mask-image: linear-gradient(180deg, #000 8%, rgba(0, 0, 0, 0.6) 60%, transparent 94%);
-  mask-image: linear-gradient(180deg, #000 8%, rgba(0, 0, 0, 0.6) 60%, transparent 94%);
+  opacity: 0.12;
 }
 .hero-inner {
   display: flex;
@@ -62,7 +60,7 @@
 }
 
 .hero-mascot {
-  margin-top: var(--space-6);
+  margin: 0 0 var(--space-5);
   font-size: 72px;
   line-height: 1;
 }
@@ -166,7 +164,7 @@
   color: var(--text);
 }
 .community-arrow {
-  color: var(--water);
+  color: var(--axo);
 }
 
 @media (max-width: 720px) {
@@ -401,7 +399,7 @@
   display: inline-flex;
 }
 .lab-project-link:hover {
-  color: var(--water);
+  color: var(--axo);
   transform: translate(2px, -2px);
 }
 

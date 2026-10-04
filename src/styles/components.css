@@ -19,7 +19,6 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom-color: var(--border);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .nav-inner {
@@ -91,7 +90,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--water);
+  background: var(--primary);
 }
 
 .nav-cta {
@@ -192,7 +191,7 @@
     background: var(--surface);
   }
   .nav-menu-link .mono {
-    color: var(--water);
+    color: var(--axo);
     font-size: 0.78rem;
   }
   .nav-menu-cta {
@@ -220,6 +219,28 @@
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: var(--space-7);
   margin-bottom: var(--space-8);
+}
+
+.footer-giant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-bottom: var(--space-7);
+  margin-bottom: var(--space-7);
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-giant-title {
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.footer-giant-cta {
+  flex: none;
 }
 
 .footer-axo {
@@ -316,7 +337,7 @@
 }
 
 .footer-made {
-  color: var(--water);
+  color: var(--axo);
   font-size: 0.7rem;
 }
 

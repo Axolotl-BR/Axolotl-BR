@@ -27,15 +27,26 @@ export function Hero({ onEgg }: HeroProps) {
       </div>
 
       <div className="container hero-inner">
-        <h1 className="h1 hero-title reveal" style={{ ['--reveal-delay' as string]: '80ms' }}>
+        <button
+          type="button"
+          className="hero-mascot reveal"
+          style={{ ['--reveal-delay' as string]: '80ms' }}
+          onClick={pokeMascot}
+          aria-label="o axolote (clica nele, ele gosta)"
+          title="🫟"
+        >
+          🫟
+        </button>
+
+        <h1 className="h1 hero-title reveal" style={{ ['--reveal-delay' as string]: '160ms' }}>
           <span className="hero-product">{site.product}</span>
         </h1>
 
-        <p className="hero-tagline reveal" style={{ ['--reveal-delay' as string]: '160ms' }}>
+        <p className="hero-tagline reveal" style={{ ['--reveal-delay' as string]: '240ms' }}>
           {site.tagline}
         </p>
 
-        <div className="hero-actions reveal" style={{ ['--reveal-delay' as string]: '240ms' }}>
+        <div className="hero-actions reveal" style={{ ['--reveal-delay' as string]: '320ms' }}>
           <a href={links.discord} target="_blank" rel="noreferrer" className="btn btn-primary hero-cta">
             entrar na comunidade <ArrowUpRight size={15} aria-hidden="true" />
           </a>
@@ -43,17 +54,6 @@ export function Hero({ onEgg }: HeroProps) {
             ver a comunidade
           </a>
         </div>
-
-        <button
-          type="button"
-          className="hero-mascot reveal"
-          style={{ ['--reveal-delay' as string]: '400ms' }}
-          onClick={pokeMascot}
-          aria-label="o axolote (clica nele, ele gosta)"
-          title="🫟"
-        >
-          🫟
-        </button>
 
         <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo">
           <span>desce</span>

@@ -15,3 +15,9 @@ Thumbs.db
 
 # local: checklist pessoal (nunca enviar)
 FAZER.txt
+
+# env local — segredos vao pelo painel, nunca por arquivo
+# (o deploy passa pelo GitHub primeiro, e o .gitignore ja barra o .env,
+# entao sem isso aqui ele nem chega na ShardCloud)
+.env
+.env.*

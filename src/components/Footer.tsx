@@ -19,6 +19,22 @@ export function Footer({ onEgg }: FooterProps) {
   return (
     <footer className="footer" id="rodape">
       <div className="container">
+        <div className="footer-giant">
+          <h2 className="footer-giant-title">
+            Sua comunidade
+            <br />
+            na internet.
+          </h2>
+          <a
+            href={links.discord}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary footer-giant-cta"
+          >
+            entrar no discord <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        </div>
+
         <div className="footer-grid">
           <div className="footer-brand">
             <button
