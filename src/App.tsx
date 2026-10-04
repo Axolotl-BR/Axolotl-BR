@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Toast } from './components/Toast'
+import { Marquee } from './components/Marquee'
 import { Hero } from './sections/Hero'
+import { Numbers } from './sections/Numbers'
 import { Manifesto } from './sections/Manifesto'
 import { Community } from './sections/Community'
 import { DiscordSection } from './sections/DiscordSection'
@@ -39,6 +41,8 @@ export function App() {
       <Navbar />
       <main id="inicio">
         <Hero onEgg={showToast} />
+        <Marquee />
+        <Numbers />
         <Manifesto />
         <Community />
         <DiscordSection />

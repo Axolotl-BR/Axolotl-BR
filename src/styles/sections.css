@@ -604,3 +604,39 @@
   color: var(--text-faint);
 }
 
+/* ───────── números honestos ───────── */
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.numbers-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px;
+}
+
+.numbers-value {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.numbers-label {
+  color: var(--text);
+}
+
+.numbers-sub {
+  color: var(--text-faint);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 880px) {
+  .numbers-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

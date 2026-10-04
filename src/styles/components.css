@@ -200,6 +200,51 @@
   }
 }
 
+/* ───────── marquee honesta ───────── */
+.marquee {
+  border-block: 1px solid var(--border);
+  background: var(--bg-2);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+}
+
+.marquee-chunk {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 9px 14px 18px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.marquee-sep {
+  color: var(--primary);
+  font-size: 0.6rem;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* ───────── footer v2 ───────── */
 .footer {
   border-top: 1px solid var(--border);

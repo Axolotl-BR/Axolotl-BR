@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05060c" />
+    <title>wiki do smp · Axolotl BR</title>
+    <meta
+      name="description"
+      content="A wiki do Axolotl SMP: como entrar, regras, mundos, eventos e a lore que a comunidade vai escrever — em construção."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/wiki.html" />
+    <style>
+      :root { color-scheme: dark; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #05060c;
+        color: #f5f3ff;
+        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 56px 20px 64px;
+        line-height: 1.65;
+      }
+      main { width: min(860px, 100%); }
+      header { margin-bottom: 36px; }
+      .mono {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .eyebrow { color: #8f00ff; margin-bottom: 14px; display: block; }
+      h1 {
+        font-size: clamp(2.2rem, 7vw, 3.4rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+      header p { color: #a9a3c8; max-width: 56ch; }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #ffb43e;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 9px 18px;
+      }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: #ffb43e; flex: none; }
+      section {
+        background: #0a0b16;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 20px;
+        padding: clamp(22px, 4vw, 34px);
+        margin-bottom: 20px;
+      }
+      h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+      section > p { color: #a9a3c8; font-size: 0.94rem; margin-bottom: 18px; max-width: 60ch; }
+      .cards { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+      .cards a, .cards li > div {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        padding: 16px 18px;
+        text-decoration: none;
+        min-height: 100%;
+      }
+      .cards a:hover { border-color: rgba(255, 255, 255, 0.22); }
+      .cards b { color: #f5f3ff; font-size: 0.95rem; }
+      .cards span { color: #a9a3c8; font-size: 0.86rem; }
+      .tag {
+        align-self: flex-start;
+        font-family: 'JetBrains Mono', ui-monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #52d6a8;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 4px 12px;
+      }
+      .tag.soon { color: #767099; }
+      .tag.comm { color: #8f00ff; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #8f00ff;
+        padding: 14px 28px;
+        border-radius: 999px;
+      }
+      .btn:hover { background: #a845ff; }
+      .cta { text-align: center; }
+      .cta p { margin-bottom: 20px; color: #a9a3c8; font-size: 0.94rem; }
+      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
+      footer a { color: #a9a3c8; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// wiki</span>
+        <h1>Wiki do SMP.</h1>
+        <p>
+          Tudo do servidor num lugar só. O SMP ainda está em construção, então esta wiki
+          é o mapa do que vem aí — sem mecânica inventada, só o que já está decidido.
+        </p>
+        <span class="status"><span class="dot" aria-hidden="true"></span> em desenvolvimento</span>
+      </header>
+
+      <section aria-labelledby="intro">
+        <h2 id="intro">introdução</h2>
+        <p>O essencial pra entender e entrar. Isso aqui já vale hoje.</p>
+        <ul class="cards">
+          <li><a href="/smp.html"><span class="tag">pronto</span><b>sobre o smp</b><span>o que é o servidor da comunidade.</span></a></li>
+          <li><a href="/smp.html#entrar"><span class="tag">pronto</span><b>como entrar</b><span>o passo a passo pra quando abrir.</span></a></li>
+          <li><a href="https://discord.gg/AxolotlBR"><span class="tag">pronto</span><b>suporte</b><span>ajuda e avisos, tudo no Discord.</span></a></li>
+          <li><a href="/regras.html"><span class="tag">pronto</span><b>regras</b><span>as regras da comunidade.</span></a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="main">
+        <h2 id="main">principais</h2>
+        <p>Sistemas do servidor. Planejados, não lançados — detalhes saem no Discord.</p>
+        <ul class="cards">
+          <li><div><span class="tag soon">em construção</span><b>mundos e warps</b><span>o mapa e os pontos da comunidade, quando o mundo abrir.</span></div></li>
+          <li><div><span class="tag soon">planejado</span><b>economia</b><span>se existir, sem pay-to-win. Nada à venda hoje.</span></div></li>
+          <li><div><span class="tag soon">planejado</span><b>terrenos</b><span>proteção de construção — o que você levanta fica de pé.</span></div></li>
+          <li><div><span class="tag soon">planejado</span><b>mcmmo</b><span>habilidades, se entrar no pacote final.</span></div></li>
+          <li><div><span class="tag soon">planejado</span><b>eventos</b><span>campeonatos e eventos narrados com a comunidade.</span></div></li>
+          <li><div><span class="tag soon">sem definição</span><b>vips</b><span>se existir um dia, nunca com vantagem de gameplay.</span></div></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="extra">
+        <h2 id="extra">extras + lore</h2>
+        <p>A história nasce jogando. Lore e iceberg começam a ser escritos na abertura, pela comunidade.</p>
+        <ul class="cards">
+          <li><div><span class="tag soon">em breve</span><b>itens custom</b><span>relíquias e itens com história, quando o servidor abrir.</span></div></li>
+          <li><div><span class="tag soon">em breve</span><b>colecionáveis</b><span>pra quem gosta de completar tudo.</span></div></li>
+          <li><div><span class="tag soon">em breve</span><b>textura</b><span>pacote visual oficial, se a comunidade quiser.</span></div></li>
+          <li><div><span class="tag comm">a comunidade escreve</span><b>lore</b><span>lugares, personagens e eventos viram história aqui.</span></div></li>
+          <li><div><span class="tag comm">a comunidade escreve</span><b>iceberg</b><span>causos, memes e mistérios — nasce com o servidor.</span></div></li>
+        </ul>
+      </section>
+
+      <section class="cta" aria-label="chamada">
+        <p>Quer ajudar a escrever essa wiki jogando? O único lugar é o Discord.</p>
+        <a class="btn" href="https://discord.gg/AxolotlBR">entrar no discord</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/smp.html">smp</a> · <a href="/links.html">todos os links</a></p>
+      </footer>
+    </main>
+  </body>
+</html>

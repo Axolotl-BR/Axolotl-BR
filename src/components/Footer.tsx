@@ -82,6 +82,9 @@ export function Footer({ onEgg }: FooterProps) {
             <a href={links.githubSite} target="_blank" rel="noreferrer" className="footer-link">
               este site
             </a>
+            <a href="/status/" className="footer-link">
+              status
+            </a>
           </div>
         </div>
 

@@ -42,6 +42,9 @@ export function Servers() {
             <a href={links.discord} target="_blank" rel="noreferrer" className="btn btn-ghost">
               acompanhar no discord <ArrowUpRight size={14} aria-hidden="true" />
             </a>
+            <a href="/wiki.html" className="btn btn-ghost">
+              abrir a wiki <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
             <p className="mono smp-note">o IP sai no Discord quando abrir.</p>
           </div>
         </div>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05060c" />
+    <title>status · Axolotl BR</title>
+    <meta
+      name="description"
+      content="Estado real de cada parte do universo Axolotl BR: site, SMP, projetos e agora tocando."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/status/" />
+    <style>
+      :root { color-scheme: dark; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #05060c;
+        color: #f5f3ff;
+        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 56px 20px 64px;
+        line-height: 1.65;
+      }
+      main { width: min(720px, 100%); }
+      header { margin-bottom: 36px; }
+      .mono {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .eyebrow { color: #8f00ff; margin-bottom: 14px; display: block; }
+      h1 {
+        font-size: clamp(2.2rem, 7vw, 3.4rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.02;
+        margin-bottom: 12px;
+      }
+      header p { color: #a9a3c8; max-width: 52ch; }
+      section {
+        background: #0a0b16;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 20px;
+        padding: clamp(22px, 4vw, 34px);
+        margin-bottom: 20px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        font-size: 0.94rem;
+      }
+      .row:last-child { border-bottom: none; }
+      .row small { display: block; color: #a9a3c8; font-size: 0.82rem; }
+      .pill {
+        flex: none;
+        font-family: 'JetBrains Mono', ui-monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 6px 14px;
+        color: #a9a3c8;
+        white-space: nowrap;
+      }
+      .pill.ok { color: #52d6a8; }
+      .pill.warn { color: #ffb43e; }
+      .pill.dim { color: #767099; }
+      .btn {
+        display: inline-flex;
+        text-decoration: none;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #8f00ff;
+        padding: 14px 28px;
+        border-radius: 999px;
+      }
+      .btn:hover { background: #a845ff; }
+      .cta { text-align: center; }
+      .cta p { margin-bottom: 20px; color: #a9a3c8; font-size: 0.94rem; }
+      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
+      footer a { color: #a9a3c8; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// status</span>
+        <h1>Tudo no ar?</h1>
+        <p>Estado real de cada parte do universo. Sem número inventado — o que não abriu, diz que não abriu.</p>
+      </header>
+
+      <section aria-label="estado dos serviços">
+        <div class="row">
+          <div><b>este site</b><small>a central — você está nela</small></div>
+          <span class="pill ok">no ar</span>
+        </div>
+        <div class="row">
+          <div><b>axolotl smp</b><small>survival com lore e eventos — ainda em construção</small></div>
+          <span class="pill warn">em desenvolvimento</span>
+        </div>
+        <div class="row">
+          <div><b>f.r.i.d.a.y.</b><small>organizador de arquivos pra windows</small></div>
+          <span class="pill warn">em desenvolvimento</span>
+        </div>
+        <div class="row">
+          <div><b>axl bot</b><small>o bot do servidor</small></div>
+          <span class="pill dim">em breve</span>
+        </div>
+        <div class="row">
+          <div><b>axolotl em 23 linguagens</b><small>o mesmo programa, 23 vezes</small></div>
+          <span class="pill ok">online</span>
+        </div>
+        <div class="row">
+          <div><b>e3 do axolotl</b><small>o evento da comunidade</small></div>
+          <span class="pill dim">planejado</span>
+        </div>
+        <div class="row">
+          <div><b id="now-label">agora tocando</b><small id="now-sub">o fabi não tá ouvindo nada agora.</small></div>
+          <span class="pill dim" id="now-pill">parado</span>
+        </div>
+      </section>
+
+      <section class="cta" aria-label="chamada">
+        <p>Viu algo errado ou quer novidade antes de todo mundo? Cola no Discord.</p>
+        <a class="btn" href="https://discord.gg/AxolotlBR">entrar no discord</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/wiki.html">wiki do smp</a></p>
+      </footer>
+    </main>
+    <script>
+      fetch('/api/now-playing')
+        .then(function (r) { return r.ok ? r.json() : null })
+        .then(function (d) {
+          if (!d || !d.playing) return
+          var sub = document.getElementById('now-sub')
+          var pill = document.getElementById('now-pill')
+          if (sub) sub.textContent = (d.title || 'sem título') + ' — ' + (d.artist || 'desconhecido')
+          if (pill) { pill.textContent = 'tocando'; pill.className = 'pill ok' }
+        })
+        .catch(function () {})
+    </script>
+  </body>
+</html>
