@@ -17,7 +17,8 @@
 
   --primary: #8f00ff;
   --primary-hover: #a845ff;
-  --primary-dim: rgba(143, 0, 255, 0.12);
+  --primary-ink: #c58bff;
+  --primary-dim: rgba(143, 0, 255, 0.1);
   --axo: #52d6a8;
 
   --success: #4be08b;
@@ -36,7 +37,7 @@
   --text-xl: 1.6rem;
   --text-2xl: 2.1rem;
   --text-3xl: 3rem;
-  --text-hero: clamp(3rem, 10vw, 6.8rem);
+  --text-hero: clamp(3.4rem, 11vw, 7.2rem);
 
   /* ── radius ── */
   --radius-xs: 8px;

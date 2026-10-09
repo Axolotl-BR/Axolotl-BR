@@ -53,7 +53,7 @@ export function App() {
         <NowPlaying />
         <News />
       </main>
-      <Footer onEgg={showToast} />
+      <Footer />
       <Toast message={toast} />
     </>
   )

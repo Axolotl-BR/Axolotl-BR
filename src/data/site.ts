@@ -85,11 +85,11 @@ export const labProjects: readonly LabProject[] = [
     tags: ['discord', 'moderação', 'economia'],
   },
   {
-    name: 'axolotl em 23 linguagens',
-    role: 'o mesmo programa, 23 vezes',
-    desc: 'De brainfuck a swift: a mesma ideia escrita em 23 linguagens. Não pergunta por quê.',
+    name: 'axolotl poliglota',
+    role: 'o mesmo programa, várias vezes',
+    desc: 'A mesma ideia escrita em várias linguagens. Não pergunta por quê.',
     status: 'online',
-    tags: ['código aberto', '23 linguagens'],
+    tags: ['código aberto', 'várias linguagens'],
     href: links.githubAxolotlLang,
   },
   {
@@ -175,7 +175,7 @@ export const githubRepos = [
   },
   {
     name: 'Axolotl',
-    desc: 'o mesmo programa em 23 linguagens',
+    desc: 'o mesmo programa em várias linguagens',
     lang: 'várias',
     href: links.githubAxolotlLang,
   },

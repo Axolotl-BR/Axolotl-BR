@@ -27,17 +27,15 @@ export function useTypingEgg(onTrigger: () => void): void {
 
 export function consoleNote(): void {
   console.log(
-    `%c🫟 %caxolotl.online%c
+    `%cAXOLOTL BR%c
 // você achou o primeiro easter egg.
 // tem mais coisa por aí. digita "axolote" e descobre.`,
-    'font-size:28px',
-    'color:#a45dff;font-weight:700;font-size:16px',
+    'color:#a45dff;font-weight:800;font-size:16px',
     'color:#7c7398;font-family:monospace;font-size:12px',
   )
 }
 
 export const eggMessages = {
-  typing: '🫟 o axolote sentiu isso. continue digitando… na verdade não, você já achou.',
-  mascot: '🫟 é sério que você ficou clicando no axolote? tá. agora ele é seu amigo.',
-  footer: '🐛 /dev/log: segura esse axolote e presta atenção. nada vai acontecer. ou vai.',
+  typing: 'achou. o axolote sentiu isso.',
+  mascot: 'é sério que você ficou cutucando o axolote? tá. agora ele é seu amigo.',
 } as const

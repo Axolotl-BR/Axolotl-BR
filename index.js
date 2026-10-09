@@ -17,6 +17,74 @@ const HOST = '0.0.0.0'
 const MAX_AGE_ASSET = 31536000 // 1 ano — filenames de /assets têm hash
 const COMPRIMIR = new Set(['.html', '.js', '.css', '.svg', '.json', '.txt'])
 
+// ── hardening app-layer (DDoS volumétrico é papel do host/CDN;
+// aqui: abuso, flood barato, header injection, sniffing) ──
+const MAX_URL = 2048
+const API_JANELA_MS = 60_000
+const API_MAX_POR_IP = 30
+const STATIC_JANELA_MS = 60_000
+const STATIC_MAX_POR_IP = 300
+const MAX_CONEXOES = 200
+let conexoesAbertas = 0
+const baldes = new Map() // ip -> { api:{n,reset}, static:{n,reset} }
+
+function ipDe(req) {
+  const fwd = req.headers['x-forwarded-for']
+  if (typeof fwd === 'string' && fwd.length > 0) return fwd.split(',')[0].trim().slice(0, 64)
+  return (req.socket && req.socket.remoteAddress ? req.socket.remoteAddress : 'desconhecido').slice(0, 64)
+}
+
+function limiteExcedido(ip,Api) {
+  const agora = Date.now()
+  let b = baldes.get(ip)
+  if (!b) {
+    b = {
+      api: { n: 0, reset: agora + API_JANELA_MS },
+      static: { n: 0, reset: agora + STATIC_JANELA_MS },
+    }
+    baldes.set(ip, b)
+  }
+  const slot = Api ? b.api : b.static
+  const teto = Api ? API_MAX_POR_IP : STATIC_MAX_POR_IP
+  const janela = Api ? API_JANELA_MS : STATIC_JANELA_MS
+  if (agora > slot.reset) {
+    slot.n = 0
+    slot.reset = agora + janela
+  }
+  slot.n += 1
+  if (slot.n > teto) {
+    return Math.max(1, Math.ceil((slot.reset - agora) / 1000))
+  }
+  return 0
+}
+
+setInterval(() => {
+  const agora = Date.now()
+  for (const [ip, b] of baldes) {
+    if (agora > b.api.reset && agora > b.static.reset) baldes.delete(ip)
+  }
+  if (baldes.size > 2000) {
+    const chaves = [...baldes.keys()].slice(0, 500)
+    for (const k of chaves) baldes.delete(k)
+  }
+}, 60_000).unref()
+
+const CABECALHOS_SEG = {
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'DENY',
+  'referrer-policy': 'strict-origin-when-cross-origin',
+  'permissions-policy': 'geolocation=(), microphone=(), camera=(), payment=()',
+  'cross-origin-opener-policy': 'same-origin',
+  'content-security-policy':
+    "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; " +
+    "font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; " +
+    "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+}
+
+function comSeguranca(h) {
+  return { ...CABECALHOS_SEG, ...h }
+}
+
 const TIPOS = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
@@ -67,12 +135,16 @@ function arquivoValido(alvo) {
 
 function responderErro(res, codigo, arquivo) {
   if (!arquivo || !existsSync(arquivo)) {
-    res.writeHead(codigo, { 'content-type': 'text/plain; charset=utf-8' })
+    res.writeHead(codigo, comSeguranca({ 'content-type': 'text/plain; charset=utf-8' }))
     res.end(`${codigo}\n`)
     return
   }
-  res.writeHead(codigo, { 'content-type': TIPOS['.html'], 'cache-control': 'no-cache' })
-  createReadStream(arquivo).pipe(res)
+  res.writeHead(codigo, comSeguranca({ 'content-type': TIPOS['.html'], 'cache-control': 'no-cache' }))
+  const fluxo = createReadStream(arquivo)
+  fluxo.on('error', () => {
+    try { res.destroy() } catch { /* cliente já foi embora */ }
+  })
+  fluxo.pipe(res)
 }
 
 // ── spotify: "tocando agora" ─────────────────────
@@ -102,18 +174,28 @@ async function spotifyAccess() {
   return tokenCache.access
 }
 
-function responderJson(res, obj) {
+function responderJson(res, obj, metodo) {
   const corpo = JSON.stringify(obj)
-  res.writeHead(200, {
+  res.writeHead(200, comSeguranca({
     'content-type': 'application/json; charset=utf-8',
     'cache-control': 'no-store',
-  })
+  }))
+  if (metodo === 'HEAD') return res.end()
   res.end(corpo)
 }
 
-async function tocandoAgora(res) {
+function responderLimite(res, retryAfter) {
+  res.writeHead(429, comSeguranca({
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-store',
+    'retry-after': String(retryAfter),
+  }))
+  res.end(JSON.stringify({ erro: 'muitas requisições, tenta de novo já já' }))
+}
+
+async function tocandoAgora(res, metodo) {
   if (!SPOTIFY.id || !SPOTIFY.secret || !SPOTIFY.refresh) {
-    responderJson(res, { playing: false })
+    responderJson(res, { playing: false }, metodo)
     return
   }
   try {
@@ -127,13 +209,13 @@ async function tocandoAgora(res) {
       r = await tocar(await spotifyAccess())
     }
     if (r.status === 204 || !r.ok) {
-      responderJson(res, { playing: false })
+      responderJson(res, { playing: false }, metodo)
       return
     }
     const data = await r.json()
     const item = data && data.item
     if (!data || data.is_playing !== true || !item) {
-      responderJson(res, { playing: false })
+      responderJson(res, { playing: false }, metodo)
       return
     }
     const ehEpisodio = item.type === 'episode'
@@ -148,28 +230,60 @@ async function tocandoAgora(res) {
       artist,
       image: image ? image.url : null,
       url: (item.external_urls && item.external_urls.spotify) || null,
-    })
+    }, metodo)
   } catch {
-    responderJson(res, { playing: false })
+    responderJson(res, { playing: false }, metodo)
   }
 }
 
-createServer((req, res) => {
+const servidor = createServer((req, res) => {
+  conexoesAbertas += 1
+  if (conexoesAbertas > MAX_CONEXOES) {
+    conexoesAbertas -= 1
+    res.writeHead(503, comSeguranca({ 'content-type': 'text/plain; charset=utf-8', 'retry-after': '5' }))
+    res.end('ocupado, tenta de novo\n')
+    try { req.socket.destroy() } catch { /* ignora */ }
+    return
+  }
+  res.on('finish', () => { conexoesAbertas -= 1 })
+  res.on('close', () => {
+    // finish já descontou na maioria dos casos; garante sem negativar
+    if (conexoesAbertas > 0 && res.writableEnded === false) conexoesAbertas -= 1
+  })
+  req.on('aborted', () => { try { res.destroy() } catch { /* ignora */ } })
+
   if (req.method !== 'GET' && req.method !== 'HEAD') {
-    res.writeHead(405, { allow: 'GET, HEAD' })
+    res.writeHead(405, comSeguranca({ allow: 'GET, HEAD' }))
     res.end()
     return
   }
 
-  const alvo = resolver(req.url || '/')
-  if (alvo === null) {
-    responderErro(res, 400, join(RAIZ, '400.html'))
+  const urlCrua = req.url || '/'
+  if (urlCrua.length > MAX_URL) {
+    responderErro(res, 414, join(RAIZ, '404.html'))
     return
   }
 
-  const rota = (req.url || '/').split('?')[0]
+  const rota = urlCrua.split('?')[0]
+  const ehApi = rota === '/api/now-playing' || rota === '/api/health'
+  const espera = limiteExcedido(ipDe(req), ehApi)
+  if (espera > 0) {
+    responderLimite(res, espera)
+    return
+  }
+
+  if (rota === '/api/health') {
+    responderJson(res, { ok: true }, req.method)
+    return
+  }
   if (rota === '/api/now-playing') {
-    tocandoAgora(res)
+    tocandoAgora(res, req.method)
+    return
+  }
+
+  const alvo = resolver(urlCrua)
+  if (alvo === null) {
+    responderErro(res, 400, join(RAIZ, '400.html'))
     return
   }
 
@@ -182,29 +296,50 @@ createServer((req, res) => {
 
   const ext = extname(encontrado).toLowerCase()
   const ehAsset = encontrado.includes(`${sep}assets${sep}`)
-  const cabecalhos = {
+  const cabecalhos = comSeguranca({
     'content-type': TIPOS[ext] || 'application/octet-stream',
-    'x-content-type-options': 'nosniff',
-    'referrer-policy': 'strict-origin-when-cross-origin',
-  }
+  })
   cabecalhos['cache-control'] = ehAsset
     ? `public, max-age=${MAX_AGE_ASSET}, immutable`
     : 'public, max-age=0, must-revalidate'
 
   const aceitaGzip = /\bgzip\b/.test(req.headers['accept-encoding'] || '')
 
-  if (aceitaGzip && COMPRIMIR.has(ext)) {
-    cabecalhos['content-encoding'] = 'gzip'
-    cabecalhos.vary = 'Accept-Encoding'
+  const enviarArquivo = (comGzip) => {
+    if (comGzip) {
+      cabecalhos['content-encoding'] = 'gzip'
+      cabecalhos.vary = 'Accept-Encoding'
+    }
     res.writeHead(200, cabecalhos)
     if (req.method === 'HEAD') return res.end()
-    createReadStream(encontrado).pipe(createGzip()).pipe(res)
+    const fluxo = createReadStream(encontrado)
+    const saida = comGzip ? createGzip() : null
+    const quebrou = () => {
+      try { fluxo.destroy() } catch { /* ignora */ }
+      try { if (saida) saida.destroy() } catch { /* ignora */ }
+      try { res.destroy() } catch { /* ignora */ }
+    }
+    fluxo.on('error', quebrou)
+    if (saida) {
+      saida.on('error', quebrou)
+      fluxo.pipe(saida).pipe(res)
+    } else {
+      fluxo.pipe(res)
+    }
+  }
+
+  if (aceitaGzip && COMPRIMIR.has(ext)) {
+    enviarArquivo(true)
     return
   }
 
-  res.writeHead(200, cabecalhos)
-  if (req.method === 'HEAD') return res.end()
-  createReadStream(encontrado).pipe(res)
-}).listen(PORTA, HOST, () => {
+  enviarArquivo(false)
+})
+
+servidor.maxHeadersCount = 20
+servidor.headersTimeout = 10_000
+servidor.requestTimeout = 10_000
+servidor.keepAliveTimeout = 5_000
+servidor.listen(PORTA, HOST, () => {
   console.log(`AXOLOTL BR em http://${HOST}:${PORTA} servindo ${RAIZ}`)
 })

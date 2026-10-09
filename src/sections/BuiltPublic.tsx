@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { githubRepos, links } from '../data/site'
@@ -17,18 +17,20 @@ export function BuiltPublic() {
     >
       <div className="built-grid">
         {githubRepos.map((repo, i) => (
-          <Reveal key={repo.name} delay={i * 90}>
+          <Reveal key={repo.name} delay={i * 70}>
             <a
               href={repo.href}
               target="_blank"
               rel="noreferrer"
-              className="built-repo panel"
+              className="built-repo"
             >
-              <div className="built-repo-top">
-                <Github size={18} aria-hidden="true" />
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </div>
-              <h3 className="built-repo-name mono">{repo.name}</h3>
+              <span className="built-repo-index" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 className="built-repo-name">{repo.name}</h3>
+              <span className="built-repo-top">
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </span>
               <p className="built-repo-desc">{repo.desc}</p>
               <span className="built-repo-lang mono">{repo.lang}</span>
             </a>

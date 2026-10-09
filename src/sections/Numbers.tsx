@@ -30,17 +30,17 @@ export function Numbers() {
       lead="Sem número falso: só o que existe de verdade."
       className="numbers"
     >
-      <div className="numbers-grid">
+      <dl className="numbers-strip">
         {numbers.map((n, i) => (
-          <Reveal key={n.label} delay={i * 80}>
-            <div className="numbers-cell panel">
-              <span className="numbers-value">{n.value}</span>
-              <span className="numbers-label mono">{n.label}</span>
-              <span className="numbers-sub mono">{n.sub}</span>
+          <Reveal key={n.label} delay={i * 70}>
+            <div className="numbers-row">
+              <dt className="numbers-value">{n.value}</dt>
+              <dd className="numbers-label mono">{n.label}</dd>
+              <dd className="numbers-sub mono">{n.sub}</dd>
             </div>
           </Reveal>
         ))}
-      </div>
+      </dl>
     </Section>
   )
 }

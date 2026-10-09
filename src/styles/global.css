@@ -117,18 +117,20 @@ button {
 /* ── tipografia ── */
 .h1 {
   font-size: var(--text-hero);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
   color: var(--text);
+  text-wrap: balance;
 }
 
 .h2 {
-  font-size: clamp(1.9rem, 4.6vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: var(--text);
+  text-wrap: balance;
 }
 
 .lead {
@@ -227,34 +229,28 @@ button {
   border-color: var(--border-strong);
 }
 
-/* ── led de status ── */
+/* ── led de status — ponto flat, sem glow ── */
 .led {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--text-faint);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
   flex: none;
 }
 .led.online {
   background: var(--success);
-  box-shadow: 0 0 0 3px rgba(75, 224, 139, 0.12);
 }
 .led.warning {
   background: var(--warning);
-  box-shadow: 0 0 0 3px rgba(255, 180, 62, 0.12);
 }
 .led.primary {
-  background: var(--primary-hover);
-  box-shadow: 0 0 0 3px rgba(164, 93, 255, 0.12);
+  background: var(--primary);
 }
 .led.axo {
   background: var(--axo);
-  box-shadow: 0 0 0 3px rgba(82, 214, 168, 0.12);
 }
 .led.offline {
   background: var(--danger);
-  box-shadow: 0 0 0 3px rgba(255, 93, 122, 0.12);
 }
 /* ── chips / tags ── */
 .chip {
@@ -284,14 +280,12 @@ button {
   color: var(--text-muted);
   background: var(--surface-strong);
 }
-/* ── card base ── */
+/* ── card base — flat, sem glow ── */
 .panel {
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition:
-    border-color var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out);
+  transition: border-color var(--dur-fast) var(--ease-out);
 }
 .panel:hover {
   border-color: var(--border-strong);

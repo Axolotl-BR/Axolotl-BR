@@ -57,7 +57,15 @@ export function NowPlaying() {
           ) : now.state === 'playing' ? (
             <div className="now-box panel">
               {now.image ? (
-                <img src={now.image} alt={`capa de ${now.title}`} width={64} height={64} className="now-cover" />
+                <img
+                  src={now.image}
+                  alt={`capa de ${now.title}`}
+                  width={64}
+                  height={64}
+                  className="now-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               ) : null}
               <div className="now-info">
                 <p className="now-track">{now.title}</p>

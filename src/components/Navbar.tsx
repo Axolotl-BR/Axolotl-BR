@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { nav, links, site } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
-import logo from '../assets/logo.png'
+import wordmark from '../assets/wordmark.png'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -67,7 +67,13 @@ export function Navbar() {
 
       <div className="nav-inner container">
         <a href="#inicio" className="nav-logo" aria-label={`${site.brand} — início`}>
-          <img src={logo} alt={site.brand} className="nav-logo-img" />
+          <img
+            src={wordmark}
+            alt={site.brand}
+            className="nav-logo-img"
+            loading="eager"
+            decoding="async"
+          />
         </a>
 
         <nav className="nav-links" aria-label="Navegação principal">

@@ -1,7 +1,8 @@
-import { ArrowUpRight, FolderKanban } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { labProjects, type LabStatus } from '../data/site'
+import axolote from '../assets/axolote.png'
 
 const statusLed: Record<LabStatus, string> = {
   'em desenvolvimento': 'warning',
@@ -29,7 +30,7 @@ export function Lab() {
         <div className="friday panel">
           <div className="friday-head">
             <div className="friday-id">
-              <FolderKanban size={20} aria-hidden="true" />
+              <span className="friday-index mono" aria-hidden="true">01</span>
               <div>
                 <h3 className="friday-name mono">F.R.I.D.A.Y.</h3>
                 <p className="friday-concept mono">{friday.concept}</p>
@@ -58,7 +59,20 @@ export function Lab() {
           <Reveal key={p.name} delay={i * 90} className="lab-cell">
             <article className="lab-project panel">
               <div className="lab-project-top">
-                <span className="lab-project-name mono">{p.name}</span>
+                <span className="lab-project-name mono">
+                  {p.name === 'AXL BOT' ? (
+                    <img
+                      src={axolote}
+                      alt="avatar do AXL BOT"
+                      width={22}
+                      height={22}
+                      className="lab-avatar"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : null}
+                  {p.name}
+                </span>
                 <span className={`led ${statusLed[p.status]}`} aria-hidden="true" />
               </div>
               <p className="lab-project-role">{p.role}</p>

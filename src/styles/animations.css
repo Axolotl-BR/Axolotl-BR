@@ -22,7 +22,7 @@
 .scroll-cue {
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -38,6 +38,13 @@
   width: 1px;
   height: 40px;
   background: var(--border-strong);
+  transform-origin: top;
+  animation: cue-drop 2.2s var(--ease-io) infinite;
+}
+@keyframes cue-drop {
+  0% { transform: scaleY(0.3); opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0.3); opacity: 0.4; }
 }
 
 /* ── barra de progresso de navegação ── */
@@ -49,6 +56,21 @@
   border-radius: var(--radius-full);
   background: var(--primary);
   pointer-events: none;
+}
+
+/* ── now-playing pulse — só o ponto online ── */
+.now-box .led.online {
+  animation: led-pulse 2s ease-in-out infinite;
+}
+@keyframes led-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ── links com sweep ── */
+.footer-link,
+.nav-menu-link {
+  position: relative;
 }
 
 /* ── toast de easter egg ── */
@@ -74,7 +96,7 @@
   gap: 12px;
   background: var(--bg-2);
   border: 1px solid var(--border-strong);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
   padding: 12px 18px;
   border-radius: var(--radius-full);
   font-family: var(--font-mono);
@@ -90,5 +112,10 @@
   .toast.show {
     transform: translateX(-50%);
     opacity: 1;
+  }
+  .now-box .led.online,
+  .scroll-cue .line,
+  .hero-axolote {
+    animation: none;
   }
 }

@@ -46,12 +46,10 @@
 .nav-logo-img {
   display: block;
   width: auto;
-  height: 38px;
+  height: 34px;
+  object-fit: contain;
   border-radius: var(--radius-xs);
-  transition: transform var(--dur-fast) var(--ease-spring);
-}
-.nav-logo:hover .nav-logo-img {
-  transform: scale(1.04);
+  image-rendering: pixelated;
 }
 
 .nav-links {
@@ -212,6 +210,9 @@
   width: max-content;
   animation: marquee 48s linear infinite;
 }
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
 
 .marquee-chunk {
   display: flex;
@@ -288,22 +289,12 @@
   flex: none;
 }
 
-.footer-axo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  font-size: 30px;
-  line-height: 1;
-  border-radius: var(--radius-md);
-  background: var(--surface-strong);
-  border: 1px solid var(--border);
-  transition: transform 0.24s var(--ease-spring), border-color 0.24s ease;
-}
-.footer-axo:hover {
-  transform: scale(1.1) rotate(8deg);
-  border-color: var(--border-strong);
+.footer-axolote {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  image-rendering: auto;
 }
 
 .footer-title {
@@ -374,11 +365,6 @@
 .footer-copy {
   color: var(--text-faint);
   font-size: 0.82rem;
-}
-
-.footer-mystery {
-  color: var(--text-faint);
-  font-size: 0.7rem;
 }
 
 .footer-made {

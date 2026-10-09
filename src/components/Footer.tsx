@@ -1,21 +1,8 @@
 import { ArrowUpRight } from 'lucide-react'
-import { useState } from 'react'
 import { nav, links, site, socials } from '../data/site'
-import { eggMessages } from '../lib/easterEggs'
+import axolote from '../assets/axolote.png'
 
-type FooterProps = {
-  onEgg: (msg: string) => void
-}
-
-export function Footer({ onEgg }: FooterProps) {
-  const [clicks, setClicks] = useState(0)
-
-  const poke = () => {
-    const next = clicks + 1
-    setClicks(next)
-    if (next === 3) onEgg(eggMessages.footer)
-  }
-
+export function Footer() {
   return (
     <footer className="footer" id="rodape">
       <div className="container">
@@ -37,15 +24,15 @@ export function Footer({ onEgg }: FooterProps) {
 
         <div className="footer-grid">
           <div className="footer-brand">
-            <button
-              type="button"
-              className="footer-axo"
-              onClick={poke}
-              aria-label="axolote digital (ele gosta de atenção)"
-              title="🫟"
-            >
-              🫟
-            </button>
+            <img
+              src={axolote}
+              alt=""
+              width={40}
+              height={40}
+              className="footer-axolote"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="footer-title">{site.brand}</div>
             <p className="footer-tagline">{site.tagline}</p>
           </div>
@@ -92,7 +79,6 @@ export function Footer({ onEgg }: FooterProps) {
 
         <div className="footer-bottom">
           <p className="footer-copy">{site.copyright}</p>
-          <p className="footer-mystery mono">/dev/log: nada por aqui ainda. segura esse axolote.</p>
           <p className="footer-made mono">feito por gente, não por template.</p>
         </div>
       </div>
