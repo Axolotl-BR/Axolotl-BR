@@ -5,12 +5,10 @@ import { Toast } from './components/Toast'
 import { Marquee } from './components/Marquee'
 import { Hero } from './sections/Hero'
 import { Manifesto } from './sections/Manifesto'
-import { Community } from './sections/Community'
+import { About } from './sections/About'
 import { DiscordSection } from './sections/DiscordSection'
-import { Servers } from './sections/Servers'
-import { Wiki } from './sections/Wiki'
-import { AltBot } from './sections/AltBot'
-import { Owner } from './sections/Owner'
+import { Smp } from './sections/Smp'
+import { Fabi } from './sections/Fabi'
 import { NowPlaying } from './sections/NowPlaying'
 import { News } from './sections/News'
 import { useTypingEgg, consoleNote, eggMessages } from './lib/easterEggs'
@@ -39,12 +37,10 @@ export function App() {
         <Hero onEgg={showToast} />
         <Marquee />
         <Manifesto />
-        <Community />
+        <About />
         <DiscordSection />
-        <Servers />
-        <Wiki />
-        <AltBot />
-        <Owner />
+        <Smp />
+        <Fabi />
         <NowPlaying />
         <News />
       </main>

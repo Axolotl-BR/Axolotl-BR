@@ -276,201 +276,9 @@
   }
 }
 
-/* ───────── servidores ───────── */
-.smp-card {
-  padding: clamp(28px, 4vw, 44px);
-  max-width: 860px;
-}
 
-.smp-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-4);
-}
-.smp-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  letter-spacing: -0.03em;
-  font-weight: 800;
-}
-.smp-title-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-}
-.smp-state {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-}
-.smp-state-label {
-  color: var(--warning);
-  font-size: var(--text-xs);
-  letter-spacing: 0.12em;
-}
 
-.smp-desc {
-  color: var(--text-muted);
-  max-width: 60ch;
-  margin-bottom: var(--space-5);
-}
 
-.smp-feats {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-6);
-}
-
-.smp-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-}
-.smp-note {
-  color: var(--text-faint);
-  font-size: 0.7rem;
-  max-width: 40ch;
-}
-
-/* ───────── wiki — fileira de links internos ───────── */
-.wiki-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-  max-width: 860px;
-}
-.wiki-row {
-  display: grid;
-  grid-template-columns: 48px 1fr auto;
-  gap: var(--space-4);
-  align-items: baseline;
-  padding: 22px 4px;
-  border-bottom: 1px solid var(--border);
-  transition: border-color var(--dur-fast) var(--ease-out);
-}
-.wiki-row:hover {
-  border-bottom-color: var(--primary);
-}
-.wiki-index {
-  color: var(--primary-ink);
-  font-size: var(--text-xs);
-  letter-spacing: 0.12em;
-}
-.wiki-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.wiki-name {
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
-}
-.wiki-desc {
-  color: var(--text-muted);
-  font-size: 0.94rem;
-}
-.wiki-go {
-  color: var(--text-faint);
-  font-size: 1.2rem;
-  transition: color 0.16s ease, transform 0.16s var(--ease-out);
-}
-.wiki-row:hover .wiki-go {
-  color: var(--primary-ink);
-  transform: translateX(4px);
-}
-
-@media (max-width: 640px) {
-  .wiki-row {
-    grid-template-columns: 32px 1fr auto;
-    padding: 18px 0;
-  }
-}
-
-/* ───────── bot — cartão com avatar ───────── */
-.bot-card {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: var(--space-5);
-  padding: clamp(28px, 4vw, 44px);
-  max-width: 860px;
-}
-.bot-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-}
-.bot-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  min-width: 0;
-}
-.bot-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-}
-.bot-name {
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-}
-.bot-role {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-.bot-feats {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--border);
-  margin-top: var(--space-2);
-}
-.bot-feat {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-muted);
-  font-weight: 500;
-}
-.bot-num {
-  color: var(--primary-ink);
-  font-size: var(--text-xs);
-}
-.bot-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-  margin-top: var(--space-2);
-}
-.bot-note {
-  color: var(--text-faint);
-  font-size: 0.7rem;
-  max-width: 40ch;
-}
-
-@media (max-width: 640px) {
-  .bot-card {
-    grid-template-columns: 1fr;
-  }
-  .bot-feats {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 
@@ -537,14 +345,80 @@
   }
 }
 
+/* ───────── smp — vitrine com arte pixel ───────── */
+.smp-spot {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+}
+.smp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--warning);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 9px 18px;
+  margin-bottom: var(--space-5);
+}
+.smp-feats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.smp-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.smp-note {
+  color: var(--text-faint);
+  font-size: 0.7rem;
+  margin-top: var(--space-5);
+  max-width: 40ch;
+}
+.smp-art img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  image-rendering: pixelated;
+}
+
+@media (max-width: 760px) {
+  .smp-spot {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ───────── dono ───────── */
 .owner-card {
   padding: clamp(28px, 4vw, 44px);
   max-width: 860px;
 }
+.fabi-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+.fabi-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 28px;
+  object-fit: cover;
+  flex: none;
+  border: 1px solid var(--border-strong);
+}
 .owner-handle {
   color: var(--text-faint);
-  margin-bottom: var(--space-4);
 }
 .owner-facts {
   list-style: none;

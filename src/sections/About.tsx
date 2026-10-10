@@ -10,11 +10,11 @@ const vibe = [
   'amizade de internet',
 ]
 
-export function Community() {
+export function About() {
   return (
     <Section
-      id="comunidade"
-      eyebrow="comunidade"
+      id="sobre"
+      eyebrow="sobre nós"
       title={
         <>
           feito de <span className="text-accent">player para player.</span>

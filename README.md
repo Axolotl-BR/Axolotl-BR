@@ -9,13 +9,12 @@ Este site é o lugar digital onde o universo Axolotl BR vive: comunidade, jogos,
 ## o que tem aqui
 
 - **início** — identidade e a chamada pra entrar
-- **comunidade** — o discord e o que acontece lá
-- **smp** — o servidor de survival da comunidade
-- **wiki** — o mapa do servidor, regras e como entrar
-- **bot** — o ALT BOT, o bot do único servidor
-- **dono** — quem manda aqui
+- **sobre nós** — a comunidade e o que acontece lá
+- **smp** — a vitrine do servidor de survival
+- **eu** — a seção do fabi, com foto
 - **ouvindo** — tocando agora no spotify
 - **novidades** — a história conforme acontece
+- **/wiki/** — o site da wiki (pasta `public/wiki/`)
 
 ## rodando
 

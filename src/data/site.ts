@@ -19,47 +19,24 @@ export const links = {
 
 export const nav = [
   { label: 'INÍCIO', href: '#inicio' },
-  { label: 'COMUNIDADE', href: '#comunidade' },
-  { label: 'SMP', href: '#servidores' },
-  { label: 'WIKI', href: '#wiki' },
-  { label: 'BOT', href: '#bot' },
+  { label: 'SOBRE NÓS', href: '#sobre' },
+  { label: 'SMP', href: '#smp' },
   { label: 'NOVIDADES', href: '#novidades' },
 ] as const
 
-export type StatusState = 'online' | 'offline' | 'maintenance' | 'development'
+export const smp = {
+  name: 'AXOLOTL SMP',
+  state: 'em desenvolvimento',
+  desc: 'O servidor de survival da comunidade. Lore, eventos e construção coletiva · ainda em construção.',
+  features: ['minecraft · java', 'survival', 'lore', 'eventos', 'comunidade'],
+  note: 'o IP sai no Discord quando abrir.',
+} as const
 
 export const owner = {
   name: 'fabi café',
   handle: 'OFabiano1',
   since: '2020',
-  facts: ['fundou a comunidade em 2020', 'tá no Discord todo dia'],
-} as const
-
-export const stateLabel: Record<StatusState, string> = {
-  online: 'ONLINE',
-  offline: 'OFFLINE',
-  maintenance: 'MANUTENÇÃO',
-  development: 'EM DESENVOLVIMENTO',
-}
-
-export const servers = [
-  {
-    name: 'AXOLOTL SMP',
-    state: 'development' as StatusState,
-    version: null,
-    players: null,
-    desc: 'O servidor de Minecraft da comunidade. Survival com lore, eventos e construção coletiva · ainda em construção.',
-    features: ['lore', 'eventos', 'survival', 'comunidade'],
-  },
-] as const
-
-export const bot = {
-  name: 'ALT BOT',
-  role: 'o bot do único servidor',
-  desc: 'Moderação, economia, níveis e tickets · direto no Discord. Ainda ligando os fios.',
-  status: 'em breve',
-  features: ['moderação', 'economia', 'níveis', 'tickets'],
-  note: 'quando ligar, ele aparece no Discord. sem instalar nada.',
+  facts: ['fundei a comunidade em 2020', 'tô no Discord todo dia'],
 } as const
 
 export type NewsKind = 'NEWS' | 'UPDATE' | 'PROJECT' | 'EVENT' | 'COMMUNITY'
@@ -113,27 +90,18 @@ export const footerCols: readonly FooterCol[] = [
     head: 'navegar',
     links: [
       { label: 'Início', href: '#inicio' },
-      { label: 'Comunidade', href: '#comunidade' },
-      { label: 'SMP', href: '#servidores' },
-      { label: 'Wiki', href: '#wiki' },
-      { label: 'BOT', href: '#bot' },
+      { label: 'Sobre nós', href: '#sobre' },
+      { label: 'SMP', href: '#smp' },
       { label: 'Novidades', href: '#novidades' },
-    ],
-  },
-  {
-    head: 'servidor',
-    links: [
-      { label: 'Axolotl SMP', href: '/smp.html' },
-      { label: 'Wiki do SMP', href: '/wiki.html' },
-      { label: 'Regras', href: '/regras.html' },
-      { label: 'Status', href: '/status/' },
     ],
   },
   {
     head: 'comunidade',
     links: [
       { label: 'Discord', href: links.discord, external: true },
-      { label: 'ALT BOT', href: '#bot' },
+      { label: 'Wiki do SMP', href: '/wiki/' },
+      { label: 'Regras', href: '/regras.html' },
+      { label: 'Status', href: '/status/' },
       { label: 'Kit de mídia', href: '/midia.html' },
       { label: 'Todos os links', href: '/links.html' },
     ],

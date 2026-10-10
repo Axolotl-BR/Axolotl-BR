@@ -50,8 +50,8 @@ export function Hero({ onEgg }: HeroProps) {
           <a href={links.discord} target="_blank" rel="noreferrer" className="btn btn-primary hero-cta">
             entrar na comunidade <ArrowUpRight size={15} aria-hidden="true" />
           </a>
-          <a href="#comunidade" className="btn btn-ghost">
-            ver a comunidade
+          <a href="#sobre" className="btn btn-ghost">
+            sobre nós
           </a>
         </div>
 
