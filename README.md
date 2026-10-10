@@ -60,8 +60,9 @@ src/
 ## easter eggs
 
 - digite `axolote` em qualquer lugar
+- digite `3301` em qualquer lugar
 - clique no axolote (de novo e de novo)
-- leia o console
+- leia o console (e digite `cicada()` lá)
 
 ## deploy
 
