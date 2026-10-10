@@ -11,7 +11,13 @@ import { Smp } from './sections/Smp'
 import { Fabi } from './sections/Fabi'
 import { NowPlaying } from './sections/NowPlaying'
 import { News } from './sections/News'
-import { useTypingEgg, consoleNote, eggMessages } from './lib/easterEggs'
+import {
+  useTypingEgg,
+  consoleNote,
+  cicadaNote,
+  armCicadaConsole,
+  eggMessages,
+} from './lib/easterEggs'
 import { useToastTimer } from './hooks/useToastTimer'
 
 export function App() {
@@ -24,7 +30,14 @@ export function App() {
     consoleNote()
   }, [])
 
-  useTypingEgg(() => showToast(eggMessages.typing))
+  useTypingEgg('axolote', () => showToast(eggMessages.typing))
+  useTypingEgg('3301', () => {
+    cicadaNote()
+    showToast(eggMessages.cicada)
+  })
+
+  useEffect(() => armCicadaConsole(() => showToast(eggMessages.cicada)), [showToast])
+
   useToastTimer(toast, dismissToast)
 
   return (
