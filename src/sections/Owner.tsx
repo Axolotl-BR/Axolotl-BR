@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { owner, links } from '../data/site'
@@ -17,7 +16,7 @@ export function Owner() {
           <ul className="owner-facts">
             {owner.facts.map((f) => (
               <li key={f} className="owner-fact">
-                <span className="community-arrow mono" aria-hidden="true">
+                <span className="tick mono" aria-hidden="true">
                   ▸
                 </span>
                 {f}
@@ -30,7 +29,7 @@ export function Owner() {
             rel="noreferrer"
             className="btn btn-ghost owner-cta"
           >
-            falar com ele no discord <ArrowUpRight size={14} aria-hidden="true" />
+            falar com ele no discord
           </a>
         </div>
       </Reveal>

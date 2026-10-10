@@ -189,7 +189,7 @@
     background: var(--surface);
   }
   .nav-menu-link .mono {
-    color: var(--axo);
+    color: var(--primary-ink);
     font-size: 0.78rem;
   }
   .nav-menu-cta {
@@ -367,9 +367,19 @@
   font-size: 0.82rem;
 }
 
-.footer-made {
-  color: var(--axo);
+.footer-meta {
+  color: var(--text-faint);
   font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-top {
+  color: var(--text-muted);
+  transition: color 0.16s ease;
+}
+.footer-top:hover {
+  color: var(--primary-ink);
 }
 
 @media (max-width: 880px) {

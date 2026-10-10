@@ -1,8 +1,8 @@
-import { ArrowUpRight, ChevronDown } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
 import { site, links } from '../data/site'
 import { eggMessages } from '../lib/easterEggs'
-import axolote from '../assets/axolote.png'
+import axolote from '../assets/images/axolote.png'
 
 type HeroProps = {
   onEgg: (msg: string) => void
@@ -34,7 +34,7 @@ export function Hero({ onEgg }: HeroProps) {
         </button>
 
         <p className="hero-kicker mono reveal" style={{ ['--reveal-delay' as string]: '40ms' }}>
-          de player para player — desde 2020
+          de player para player · desde 2020
         </p>
 
         <h1 className="h1 hero-title reveal" style={{ ['--reveal-delay' as string]: '120ms' }}>
@@ -58,7 +58,6 @@ export function Hero({ onEgg }: HeroProps) {
         <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo">
           <span>desce</span>
           <span className="line" />
-          <ChevronDown size={14} />
         </a>
       </div>
     </section>

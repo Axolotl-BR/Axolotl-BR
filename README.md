@@ -10,9 +10,9 @@ Este site é o lugar digital onde o universo Axolotl BR vive: comunidade, jogos,
 
 - **início** — identidade e a chamada pra entrar
 - **comunidade** — o discord e o que acontece lá
-- **servidores** — smp e experiências de jogo
-- **projetos** — o que está sendo construído
-- **código** — repos abertos no github
+- **smp** — o servidor de survival da comunidade
+- **wiki** — o mapa do servidor, regras e como entrar
+- **bot** — o ALT BOT, o bot do único servidor
 - **dono** — quem manda aqui
 - **ouvindo** — tocando agora no spotify
 - **novidades** — a história conforme acontece
@@ -78,6 +78,6 @@ o passo a passo pra gerar o `refresh_token` (com a conta do fabi) tá no `FAZER.
 
 ---
 
-🫟 axolotl 
+axolotl br
 
 _de player pra player · feito na internet._

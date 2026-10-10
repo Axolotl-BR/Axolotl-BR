@@ -1,5 +1,6 @@
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
+import { links } from '../data/site'
 
 const vibe = [
   'conversa boa',
@@ -34,13 +35,23 @@ export function Community() {
               não é sobre ser o maior. é sobre ser um lugar onde dá vontade de ficar.
             </p>
           </Reveal>
+          <Reveal delay={160}>
+            <a
+              href={links.discord}
+              target="_blank"
+              rel="noreferrer"
+              className="community-cta mono"
+            >
+              entrar no discord
+            </a>
+          </Reveal>
         </div>
 
         <Reveal delay={150} className="community-lista-wrap">
           <ul className="community-lista">
             {vibe.map((item) => (
               <li key={item} className="community-item">
-                <span className="community-arrow mono" aria-hidden="true">
+                <span className="tick mono" aria-hidden="true">
                   ▸
                 </span>
                 {item}

@@ -17,7 +17,7 @@ export function Manifesto() {
         <Reveal delay={160}>
           <p className="manifesto-sub">
             O Axolotl BR começou em 2020 como um grupo de amigos no Discord. Hoje é Discord,
-            Minecraft, bots e código — e você entra por qualquer uma dessas portas.
+            Minecraft, bots e código · e você entra por qualquer uma dessas portas.
           </p>
         </Reveal>
 

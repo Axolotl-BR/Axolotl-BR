@@ -243,14 +243,13 @@ button {
 .led.warning {
   background: var(--warning);
 }
-.led.primary {
-  background: var(--primary);
-}
-.led.axo {
-  background: var(--axo);
-}
 .led.offline {
   background: var(--danger);
+}
+/* ── tick de lista ── */
+.tick {
+  color: var(--primary);
+  font-weight: 700;
 }
 /* ── chips / tags ── */
 .chip {

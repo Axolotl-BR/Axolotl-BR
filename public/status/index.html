@@ -10,44 +10,18 @@
       name="description"
       content="Estado real de cada parte do universo Axolotl BR: site, SMP, projetos e agora tocando."
     />
+    <link rel="icon" href="/axl.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/axolote.png" />
     <link rel="canonical" href="https://axolotl-br.shardweb.app/status/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared.css" />
     <style>
-      :root { color-scheme: dark; }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        background: #05060c;
-        color: #f5f3ff;
-        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-        display: flex;
-        justify-content: center;
-        padding: 56px 20px 64px;
-        line-height: 1.65;
-      }
-      main { width: min(720px, 100%); }
-      header { margin-bottom: 36px; }
-      .mono {
-        font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-      .eyebrow { color: #8f00ff; margin-bottom: 14px; display: block; }
-      h1 {
-        font-size: clamp(2.2rem, 7vw, 3.4rem);
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        line-height: 1.02;
-        margin-bottom: 12px;
-      }
-      header p { color: #a9a3c8; max-width: 52ch; }
-      section {
-        background: #0a0b16;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 20px;
-        padding: clamp(22px, 4vw, 34px);
-        margin-bottom: 20px;
-      }
       .row {
         display: flex;
         align-items: center;
@@ -71,27 +45,9 @@
         color: #a9a3c8;
         white-space: nowrap;
       }
-      .pill.ok { color: #52d6a8; }
+      .pill.ok { color: #c58bff; }
       .pill.warn { color: #ffb43e; }
       .pill.dim { color: #767099; }
-      .btn {
-        display: inline-flex;
-        text-decoration: none;
-        font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #fff;
-        background: #8f00ff;
-        padding: 14px 28px;
-        border-radius: 999px;
-      }
-      .btn:hover { background: #a845ff; }
-      .cta { text-align: center; }
-      .cta p { margin-bottom: 20px; color: #a9a3c8; font-size: 0.94rem; }
-      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
-      footer a { color: #a9a3c8; }
     </style>
   </head>
   <body>
@@ -99,33 +55,25 @@
       <header>
         <span class="mono eyebrow">// status</span>
         <h1>Tudo no ar?</h1>
-        <p>Estado real de cada parte do universo. Sem número inventado — o que não abriu, diz que não abriu.</p>
+        <p>Estado real de cada parte do universo. Sem número inventado · o que não abriu, diz que não abriu.</p>
       </header>
 
       <section aria-label="estado dos serviços">
         <div class="row">
-          <div><b>este site</b><small>a central — você está nela</small></div>
+          <div><b>este site</b><small>a central · você está nela</small></div>
           <span class="pill ok">no ar</span>
         </div>
         <div class="row">
-          <div><b>axolotl smp</b><small>survival com lore e eventos — ainda em construção</small></div>
+          <div><b>axolotl smp</b><small>survival com lore e eventos · ainda em construção</small></div>
           <span class="pill warn">em desenvolvimento</span>
         </div>
         <div class="row">
-          <div><b>f.r.i.d.a.y.</b><small>organizador de arquivos pra windows</small></div>
-          <span class="pill warn">em desenvolvimento</span>
-        </div>
-        <div class="row">
-          <div><b>axl bot</b><small>o bot do servidor</small></div>
+          <div><b>alt bot</b><small>o bot do único servidor</small></div>
           <span class="pill dim">em breve</span>
         </div>
         <div class="row">
-          <div><b>axolotl em 23 linguagens</b><small>o mesmo programa, 23 vezes</small></div>
+          <div><b>wiki do smp</b><small>o mapa do que vem aí</small></div>
           <span class="pill ok">online</span>
-        </div>
-        <div class="row">
-          <div><b>e3 do axolotl</b><small>o evento da comunidade</small></div>
-          <span class="pill dim">planejado</span>
         </div>
         <div class="row">
           <div><b id="now-label">agora tocando</b><small id="now-sub">o fabi não tá ouvindo nada agora.</small></div>
@@ -143,13 +91,15 @@
       </footer>
     </main>
     <script>
-      fetch('/api/now-playing')
+      var opts = {}
+      try { opts.signal = AbortSignal.timeout(8000) } catch (e) {}
+      fetch('/api/now-playing', opts)
         .then(function (r) { return r.ok ? r.json() : null })
         .then(function (d) {
           if (!d || !d.playing) return
           var sub = document.getElementById('now-sub')
           var pill = document.getElementById('now-pill')
-          if (sub) sub.textContent = (d.title || 'sem título') + ' — ' + (d.artist || 'desconhecido')
+          if (sub) sub.textContent = (d.title || 'sem título') + ' · ' + (d.artist || 'desconhecido')
           if (pill) { pill.textContent = 'tocando'; pill.className = 'pill ok' }
         })
         .catch(function () {})

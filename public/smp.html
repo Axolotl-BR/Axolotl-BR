@@ -8,64 +8,20 @@
     <title>axolotl smp · Axolotl BR</title>
     <meta
       name="description"
-      content="O servidor de Minecraft da comunidade Axolotl BR. Survival com lore, eventos e construção coletiva — em desenvolvimento."
+      content="O servidor de Minecraft da comunidade Axolotl BR. Survival com lore, eventos e construção coletiva · em desenvolvimento."
     />
+    <link rel="icon" href="/axl.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/axolote.png" />
     <link rel="canonical" href="https://axolotl-br.shardweb.app/smp.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared.css" />
     <style>
-      :root { color-scheme: dark; }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        background: #05060c;
-        color: #f5f3ff;
-        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-        display: flex;
-        justify-content: center;
-        padding: 56px 20px 64px;
-        line-height: 1.65;
-      }
-      main { width: min(720px, 100%); }
-      header { margin-bottom: 36px; }
-      .mono {
-        font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-      .eyebrow { color: #8f00ff; margin-bottom: 14px; display: block; }
-      h1 {
-        font-size: clamp(2.2rem, 7vw, 3.4rem);
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        line-height: 1.02;
-        margin-bottom: 12px;
-      }
-      header p { color: #a9a3c8; max-width: 52ch; }
-      .status {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 18px;
-        font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 12px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #ffb43e;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-        padding: 9px 18px;
-      }
-      .dot { width: 8px; height: 8px; border-radius: 50%; background: #ffb43e; flex: none; }
-      section {
-        background: #0a0b16;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 20px;
-        padding: clamp(22px, 4vw, 34px);
-        margin-bottom: 20px;
-      }
-      h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 6px; }
-      section > p { color: #a9a3c8; font-size: 0.94rem; margin-bottom: 18px; max-width: 56ch; }
-      section > p:last-child { margin-bottom: 0; }
       .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
       .chips li {
         font-family: 'JetBrains Mono', ui-monospace;
@@ -107,37 +63,7 @@
       }
       ol.steps b { color: #f5f3ff; }
       ol.steps a { color: #f5f3ff; }
-      details {
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 14px;
-        padding: 16px 18px;
-        margin-bottom: 10px;
-      }
-      details summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; list-style: none; }
-      details summary::-webkit-details-marker { display: none; }
-      details summary::before { content: '▸ '; color: #52d6a8; }
-      details[open] summary::before { content: '▾ '; }
-      details p { color: #a9a3c8; font-size: 0.9rem; margin-top: 8px; }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #fff;
-        background: #8f00ff;
-        padding: 14px 28px;
-        border-radius: 999px;
-      }
-      .btn:hover { background: #a845ff; }
-      .cta { text-align: center; }
       .cta p { margin-bottom: 20px; }
-      footer { margin-top: 28px; text-align: center; color: #767099; font-size: 0.8rem; }
-      footer a { color: #a9a3c8; }
     </style>
   </head>
   <body>
@@ -147,7 +73,7 @@
         <h1>Axolotl SMP.</h1>
         <p>
           O servidor de Minecraft da comunidade. Survival com lore, eventos e
-          construção coletiva — sem pay-to-win, sem wipe toda semana.
+          construção coletiva · sem pay-to-win, sem wipe toda semana.
         </p>
         <span class="status"><span class="dot" aria-hidden="true"></span> em desenvolvimento</span>
       </header>
@@ -172,9 +98,9 @@
         <h2 id="entrar">como entrar</h2>
         <p>O servidor ainda está em construção. Quando abrir, é assim que funciona:</p>
         <ol class="steps">
-          <li><span><b>Entra no Discord</b> — <a href="https://discord.gg/AxolotlBR">discord.gg/AxolotlBR</a>. Tudo passa por lá.</span></li>
-          <li><span><b>Acompanha os avisos</b> — data de abertura, IP e versão saem no canal de avisos.</span></li>
-          <li><span><b>Entra com o Java</b> — o SMP é Minecraft Java, no PC.</span></li>
+          <li><span><b>Entra no Discord</b> · <a href="https://discord.gg/AxolotlBR">discord.gg/AxolotlBR</a>. Tudo passa por lá.</span></li>
+          <li><span><b>Acompanha os avisos</b> · data de abertura, IP e versão saem no canal de avisos.</span></li>
+          <li><span><b>Entra com o Java</b> · o SMP é Minecraft Java, no PC.</span></li>
         </ol>
       </section>
 
@@ -183,7 +109,7 @@
         <p>Transparente desde já, pra ninguém entrar esperando outra coisa:</p>
         <details>
           <summary>Quando abre?</summary>
-          <p>Sem data marcada. O progresso sai no Discord — quando tiver IP, você vai saber.</p>
+          <p>Sem data marcada. O progresso sai no Discord · quando tiver IP, você vai saber.</p>
         </details>
         <details>
           <summary>Vai ter wipe?</summary>
@@ -195,7 +121,7 @@
         </details>
         <details>
           <summary>Precisa ser bom de Minecraft?</summary>
-          <p>Não. Precisa ser gente boa no Discord — o resto se aprende jogando junto.</p>
+          <p>Não. Precisa ser gente boa no Discord · o resto se aprende jogando junto.</p>
         </details>
         <details>
           <summary>Bedrock (celular/console) entra?</summary>

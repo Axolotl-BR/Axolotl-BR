@@ -3,29 +3,26 @@
 // links, nomes e status reais. nada inventado.
 // ─────────────────────────────────────────────
 
+
 export const site = {
   brand: 'AXOLOTL BR',
   product: 'Axolotl BR',
   tagline: 'Sua comunidade na internet. De player para player.',
   url: 'https://axolotl-br.shardweb.app/',
   year: 2026,
-  copyright: '© 2020 – 2026 axolotl br • de player pra player — by fabi',
+  copyright: '© 2020 – 2026 axolotl br • de player pra player · by fabi',
 } as const
 
 export const links = {
   discord: 'https://discord.gg/AxolotlBR',
-  githubOrg: 'https://github.com/Axolotl-BR',
-  githubSite: 'https://github.com/Axolotl-BR/Axolotl-BR',
-  githubAxolotlLang: 'https://github.com/Axolotl-BR/Axolotl',
-  githubSiteBeta: 'https://github.com/Axolotl-BR/Axolotl-site-beta',
 } as const
 
 export const nav = [
   { label: 'INÍCIO', href: '#inicio' },
   { label: 'COMUNIDADE', href: '#comunidade' },
-  { label: 'DONO', href: '#dono' },
-  { label: 'SERVIDORES', href: '#servidores' },
-  { label: 'PROJETOS', href: '#projetos' },
+  { label: 'SMP', href: '#servidores' },
+  { label: 'WIKI', href: '#wiki' },
+  { label: 'BOT', href: '#bot' },
   { label: 'NOVIDADES', href: '#novidades' },
 ] as const
 
@@ -51,55 +48,19 @@ export const servers = [
     state: 'development' as StatusState,
     version: null,
     players: null,
-    desc: 'O servidor de Minecraft da comunidade. Survival com lore, eventos e construção coletiva — ainda em construção.',
+    desc: 'O servidor de Minecraft da comunidade. Survival com lore, eventos e construção coletiva · ainda em construção.',
     features: ['lore', 'eventos', 'survival', 'comunidade'],
   },
 ] as const
 
-export type LabStatus = 'em desenvolvimento' | 'em breve' | 'online' | 'planejado'
-
-export type LabProject = {
-  name: string
-  concept?: string
-  role: string
-  desc: string
-  status: LabStatus
-  tags: string[]
-  href?: string
-}
-
-export const labProjects: readonly LabProject[] = [
-  {
-    name: 'F.R.I.D.A.Y.',
-    concept: 'File Retrieval, Indexing, Directory & Archiving Y-system',
-    role: 'organizador de arquivos para Windows',
-    desc: 'Entende antes de mexer. Nada é apagado, tudo dá pra desfazer. Roda 100% no seu PC.',
-    status: 'em desenvolvimento',
-    tags: ['python', 'windows', 'local', 'reversível'],
-  },
-  {
-    name: 'AXL BOT',
-    role: 'o bot do servidor',
-    desc: 'Moderação, economia e utilidades pro Discord. Sai em breve.',
-    status: 'em breve',
-    tags: ['discord', 'moderação', 'economia'],
-  },
-  {
-    name: 'axolotl poliglota',
-    role: 'o mesmo programa, várias vezes',
-    desc: 'A mesma ideia escrita em várias linguagens. Não pergunta por quê.',
-    status: 'online',
-    tags: ['código aberto', 'várias linguagens'],
-    href: links.githubAxolotlLang,
-  },
-  {
-    name: 'E3 do Axolotl',
-    role: 'o evento da comunidade',
-    desc: 'Um dia pra mostrar tudo que saiu do papel: SMP, bots, jogos e o resto. Ainda no planejamento.',
-    status: 'planejado',
-    tags: ['evento'],
-  },
-] as const
+export const bot = {
+  name: 'ALT BOT',
+  role: 'o bot do único servidor',
+  desc: 'Moderação, economia, níveis e tickets · direto no Discord. Ainda ligando os fios.',
+  status: 'em breve',
+  features: ['moderação', 'economia', 'níveis', 'tickets'],
+  note: 'quando ligar, ele aparece no Discord. sem instalar nada.',
+} as const
 
 export type NewsKind = 'NEWS' | 'UPDATE' | 'PROJECT' | 'EVENT' | 'COMMUNITY'
 
@@ -136,53 +97,47 @@ export const news = [
   },
 ] as const
 
-export const changelog = [
-  {
-    version: 'v1.0',
-    date: 'set 2026',
-    title: 'site v1.0',
-    changes: ['casa nova da comunidade', 'código aberto desde o dia um'],
-  },
-] as const
+export type FooterLink = {
+  label: string
+  href: string
+  external?: boolean
+}
 
-export const socials = [
-  {
-    name: 'Discord',
-    handle: 'AxolotlBR',
-    desc: 'o ponto de encontro',
-    href: links.discord,
-  },
-  {
-    name: 'GitHub',
-    handle: 'Axolotl-BR',
-    desc: 'código e experimentos em público',
-    href: links.githubOrg,
-  },
-  {
-    name: 'Site',
-    handle: 'Axolotl-BR',
-    desc: 'a central — você está aqui',
-    href: site.url,
-  },
-] as const
+export type FooterCol = {
+  head: string
+  links: readonly FooterLink[]
+}
 
-export const githubRepos = [
+export const footerCols: readonly FooterCol[] = [
   {
-    name: 'Axolotl-BR',
-    desc: 'este site, de verdade',
-    lang: 'HTML',
-    href: links.githubSite,
+    head: 'navegar',
+    links: [
+      { label: 'Início', href: '#inicio' },
+      { label: 'Comunidade', href: '#comunidade' },
+      { label: 'SMP', href: '#servidores' },
+      { label: 'Wiki', href: '#wiki' },
+      { label: 'BOT', href: '#bot' },
+      { label: 'Novidades', href: '#novidades' },
+    ],
   },
   {
-    name: 'Axolotl',
-    desc: 'o mesmo programa em várias linguagens',
-    lang: 'várias',
-    href: links.githubAxolotlLang,
+    head: 'servidor',
+    links: [
+      { label: 'Axolotl SMP', href: '/smp.html' },
+      { label: 'Wiki do SMP', href: '/wiki.html' },
+      { label: 'Regras', href: '/regras.html' },
+      { label: 'Status', href: '/status/' },
+    ],
   },
   {
-    name: 'Axolotl-site-beta',
-    desc: 'testes e rascunhos do site',
-    lang: 'HTML',
-    href: links.githubSiteBeta,
+    head: 'comunidade',
+    links: [
+      { label: 'Discord', href: links.discord, external: true },
+      { label: 'ALT BOT', href: '#bot' },
+      { label: 'Kit de mídia', href: '/midia.html' },
+      { label: 'Todos os links', href: '/links.html' },
+    ],
   },
-] as const
+]
+
+
