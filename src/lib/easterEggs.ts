@@ -11,7 +11,7 @@ export function useTypingEgg(secret: string, onTrigger: () => void): void {
     const onKey = (e: KeyboardEvent) => {
       if (e.key.length !== 1) return
       const target = e.target as HTMLElement | null
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return
       buffer.current = (buffer.current + e.key.toLowerCase()).slice(-secret.length)
       if (buffer.current === secret) {
         buffer.current = ''
