@@ -35,7 +35,10 @@ export function useNowPlaying(): TrackState {
     const refresh = () => {
       fetchTrack(ctrl.signal)
         .then(setTrack)
-        .catch(() => setTrack({ state: 'idle' }))
+        .catch((err) => {
+          if (err instanceof DOMException && err.name === 'AbortError') return
+          setTrack({ state: 'idle' })
+        })
     }
     refresh()
     const timer = setInterval(refresh, POLL_MS)
