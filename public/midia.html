@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#05060c" />
+    <meta name="theme-color" content="#09090d" />
     <title>kit de mídia · Axolotl BR</title>
     <meta
       name="description"
@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/shared.css" />
@@ -28,9 +28,9 @@
       .logo-box {
         width: 112px;
         height: 112px;
-        border-radius: 20px;
-        background: #05060c;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        background: #09090d;
+        border: 1px solid #292933;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -39,31 +39,31 @@
       .logo-box img { width: 72px; height: 72px; }
       .logo-box.wide img { width: auto; max-width: 160px; height: 48px; }
       .dl-row { display: flex; gap: 12px; flex-wrap: wrap; }
-      .btn.small { padding: 13px 24px; }
+      .btn.small { min-height: 40px; padding: 0 16px; }
       .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
-      .sw { border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px; overflow: hidden; }
+      .sw { border: 1px solid #20202a; border-radius: 10px; overflow: hidden; }
       .sw i { display: block; height: 64px; }
       .sw div { padding: 10px 12px; }
       .sw strong { display: block; font-size: 0.85rem; }
-      .sw span { font-family: 'JetBrains Mono', ui-monospace; font-size: 11px; color: #a9a3c8; }
+      .sw span { font-family: 'JetBrains Mono', ui-monospace; font-size: 11px; color: #90909d; }
       .type-sample { border-left: 2px solid #8f00ff; padding-left: 16px; margin-bottom: 14px; }
       .type-sample:last-child { margin-bottom: 0; }
-      .type-sample .t1 { font-size: 1.4rem; font-weight: 800; }
-      .type-sample .t2 { font-family: 'JetBrains Mono', ui-monospace; font-size: 0.85rem; color: #a9a3c8; }
-      .type-sample small { color: #767099; font-size: 0.75rem; }
+      .type-sample .t1 { font-size: 1.4rem; font-weight: 700; }
+      .type-sample .t2 { font-family: 'JetBrains Mono', ui-monospace; font-size: 0.85rem; color: #90909d; }
+      .type-sample small { color: #666674; font-size: 0.75rem; }
       ul.rules { list-style: none; display: flex; flex-direction: column; }
       ul.rules li {
         padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-        color: #a9a3c8;
-        font-size: 0.94rem;
+        border-bottom: 1px solid #20202a;
+        color: #90909d;
+        font-size: 0.875rem;
         display: flex;
         gap: 12px;
       }
       ul.rules li:last-child { border-bottom: none; }
-      ul.rules b { color: #f5f3ff; font-weight: 600; }
-      .no { color: #ff5d7a; flex: none; }
-      .yes { color: #c58bff; flex: none; }
+      ul.rules b { color: #f0f0f4; font-weight: 600; }
+      .no { color: #ef4444; flex: none; }
+      .yes { color: #a34aff; flex: none; }
     </style>
   </head>
   <body>
@@ -108,16 +108,16 @@
         <p>Fundo escuro sempre. Um roxo de acento. Só.</p>
         <div class="swatches">
           <div class="sw">
-            <i style="background: #05060c; border-bottom: 1px solid rgba(255,255,255,0.09)"></i>
-            <div><strong>fundo</strong><span>#05060C</span></div>
+            <i style="background: #09090d; border-bottom: 1px solid #20202a"></i>
+            <div><strong>fundo</strong><span>#09090D</span></div>
           </div>
           <div class="sw">
             <i style="background: #8f00ff"></i>
             <div><strong>roxo axolotl</strong><span>#8F00FF</span></div>
           </div>
           <div class="sw">
-            <i style="background: #f5f3ff"></i>
-            <div><strong>texto</strong><span>#F5F3FF</span></div>
+            <i style="background: #f0f0f4"></i>
+            <div><strong>texto</strong><span>#F0F0F4</span></div>
           </div>
         </div>
       </section>
@@ -126,12 +126,12 @@
         <h2 id="tipos">a tipografia</h2>
         <p>Duas fontes, cada uma no seu papel. As duas são gratuitas no Google Fonts.</p>
         <div class="type-sample">
-          <div class="t1">Space Grotesk · títulos e texto</div>
-          <small>800 nos títulos, 400 no corpo</small>
+          <div class="t1">Inter · títulos e texto</div>
+          <small>700 nos títulos, 400 no corpo</small>
         </div>
         <div class="type-sample">
           <div class="t2">JetBrains Mono · rótulos e código</div>
-          <small>caixa alta, espaçamento largo</small>
+          <small>caixa alta, espaçamento curto</small>
         </div>
       </section>
 

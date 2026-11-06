@@ -18,10 +18,10 @@ export const links = {
 } as const
 
 export const nav = [
-  { label: 'INÍCIO', href: '#inicio' },
-  { label: 'SOBRE NÓS', href: '#sobre' },
+  { label: 'Início', href: '#inicio' },
+  { label: 'Sobre nós', href: '#sobre' },
   { label: 'SMP', href: '#smp' },
-  { label: 'NOVIDADES', href: '#novidades' },
+  { label: 'Novidades', href: '#novidades' },
 ] as const
 
 export const smp = {

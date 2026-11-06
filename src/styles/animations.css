@@ -1,14 +1,14 @@
 /* ── reveal on scroll ── */
 .reveal {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
 }
 .reveal.is-in {
   opacity: 1;
   transform: none;
   transition:
-    opacity 0.5s var(--ease-out),
-    transform 0.5s var(--ease-out);
+    opacity var(--motion-moderate) var(--ease-out),
+    transform var(--motion-moderate) var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -26,10 +26,11 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.24em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-faint);
-  transition: color var(--dur-fast) var(--ease-out);
+  transition: color var(--motion-fast) var(--ease-standard);
 }
 .scroll-cue:hover {
   color: var(--text-muted);
@@ -94,12 +95,12 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: var(--bg-2);
+  background: var(--bg-3);
   border: 1px solid var(--border-strong);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  padding: 12px 18px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-mono);
+  box-shadow: var(--shadow-2);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--text);
   max-width: min(90vw, 460px);
@@ -114,8 +115,7 @@
     opacity: 1;
   }
   .now-box .led.online,
-  .scroll-cue .line,
-  .hero-axolote {
+  .scroll-cue .line {
     animation: none;
   }
 }

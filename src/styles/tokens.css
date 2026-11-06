@@ -1,53 +1,103 @@
+/* AXOLOTL BR — tokens.
+   Valores vêm do Prism (prism/tokens). Este é o único arquivo do site com hex.
+   Componentes leem papéis, nunca hex. */
+
 :root {
   color-scheme: dark;
 
-  /* ── cores ── */
-  --bg: #05060c;
-  --bg-2: #0a0b16;
-  --bg-3: #101124;
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-hover: rgba(255, 255, 255, 0.075);
-  --surface-strong: rgba(255, 255, 255, 0.055);
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  /* Prism — rampa da marca */
+  --prism-purple-50: #f5ebff;
+  --prism-purple-100: #ebd6ff;
+  --prism-purple-200: #d7adff;
+  --prism-purple-300: #c085ff;
+  --prism-purple-400: #a34aff;
+  --prism-purple-500: #8f00ff;
+  --prism-purple-600: #7a00db;
+  --prism-purple-700: #6400b4;
+  --prism-purple-800: #4e008c;
+  --prism-purple-900: #380064;
+  --prism-purple-950: #2a004f;
 
-  --text: #f5f3ff;
-  --text-muted: #a9a3c8;
-  --text-faint: #767099;
+  /* Prism — rampa neutra */
+  --prism-neutral-100: #f0f0f4;
+  --prism-neutral-200: #dededf;
+  --prism-neutral-300: #b9b9c4;
+  --prism-neutral-400: #90909d;
+  --prism-neutral-500: #666674;
+  --prism-neutral-600: #41414d;
+  --prism-neutral-700: #292933;
+  --prism-neutral-800: #1c1c25;
+  --prism-neutral-850: #15151c;
+  --prism-neutral-900: #101015;
+  --prism-neutral-950: #09090d;
 
-  --primary: #8f00ff;
-  --primary-hover: #a845ff;
-  --primary-ink: #c58bff;
-  --primary-dim: rgba(143, 0, 255, 0.1);
+  /* marca */
+  --primary: var(--prism-purple-500);
+  --primary-hover: var(--prism-purple-400);
+  --primary-active: var(--prism-purple-600);
+  --primary-ink: var(--prism-purple-300);
+  --primary-dim: color-mix(in srgb, var(--primary) 14%, transparent);
+  --primary-border: color-mix(in srgb, var(--primary) 45%, transparent);
+  --on-primary: #ffffff;
 
-  --success: #4be08b;
-  --warning: #ffb43e;
-  --danger: #ff5d7a;
+  /* fundo e superfície */
+  --bg: var(--prism-neutral-950);
+  --bg-2: var(--prism-neutral-900);
+  --bg-3: var(--prism-neutral-850);
+  --surface: var(--prism-neutral-800);
+  --surface-hover: var(--prism-neutral-700);
+  --surface-strong: var(--prism-neutral-850);
 
-  /* ── tipografia ── */
-  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  /* texto */
+  --text: var(--prism-neutral-100);
+  --text-muted: var(--prism-neutral-400);
+  --text-faint: var(--prism-neutral-500);
+
+  /* bordas */
+  --border: #20202a;
+  --border-strong: var(--prism-neutral-600);
+
+  /* estado */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --success-soft: color-mix(in srgb, var(--success) 14%, transparent);
+  --warning-soft: color-mix(in srgb, var(--warning) 14%, transparent);
+  --danger-soft: color-mix(in srgb, var(--danger) 14%, transparent);
+  --success-border: color-mix(in srgb, var(--success) 42%, transparent);
+  --warning-border: color-mix(in srgb, var(--warning) 42%, transparent);
+  --danger-border: color-mix(in srgb, var(--danger) 42%, transparent);
+
+  /* foco e seleção */
+  --focus-ring: var(--prism-purple-400);
+  --selection: color-mix(in srgb, var(--primary) 32%, transparent);
+
+  /* tipografia */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', monospace;
+  --font-display: var(--font-sans);
 
-  --text-xs: 0.7rem;
-  --text-sm: 0.84rem;
-  --text-base: 1rem;
-  --text-md: 1.125rem;
-  --text-lg: 1.3rem;
-  --text-xl: 1.6rem;
-  --text-2xl: 2.1rem;
-  --text-3xl: 3rem;
-  --text-hero: clamp(3.4rem, 11vw, 7.2rem);
+  --text-xs: 11px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+  --text-hero: clamp(3.2rem, 10vw, 6.4rem);
 
-  /* ── radius ── */
-  --radius-xs: 8px;
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 26px;
-  --radius-full: 999px;
+  /* raio — escala Prism */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
 
-  /* ── layout ── */
-  --container: 1160px;
-  --gutter: clamp(20px, 5vw, 48px);
+  /* layout — ritmo em múltiplos de 4 */
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 32px);
   --nav-h: 72px;
   --space-1: 4px;
   --space-2: 8px;
@@ -59,13 +109,23 @@
   --space-8: 72px;
   --space-9: 120px;
 
-  /* ── motion ── */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --dur-fast: 160ms;
-  --dur: 320ms;
-  --dur-slow: 640ms;
+  /* movimento — Prism */
+  --motion-instant: 100ms;
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --motion-moderate: 300ms;
+  --motion-slow: 500ms;
+  --ease-standard: ease-in-out;
+  --ease-out: ease-out;
+  --ease-io: ease-in-out;
+  --dur-fast: var(--motion-fast);
+  --dur: var(--motion-normal);
+  --dur-slow: var(--motion-slow);
+
+  /* elevação — preta, nunca colorida */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 24%);
+  --shadow-2: 0 4px 12px -2px rgb(0 0 0 / 32%), 0 1px 2px rgb(0 0 0 / 24%);
+  --shadow-3: 0 16px 40px -12px rgb(0 0 0 / 45%), 0 2px 6px rgb(0 0 0 / 28%);
 }
 
 @media (prefers-reduced-motion: reduce) {

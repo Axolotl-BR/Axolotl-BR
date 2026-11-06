@@ -27,7 +27,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           onClick={onClose}
           className="nav-menu-link nav-menu-cta"
         >
-          DISCORD
+          Discord
         </a>
       </nav>
     </div>

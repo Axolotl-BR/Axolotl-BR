@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#05060c" />
+    <meta name="theme-color" content="#09090d" />
     <title>404 · você saiu do mapa · Axolotl BR</title>
     <meta
       name="description"
@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/shared.css" />
@@ -28,51 +28,56 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #05060c;
-        color: #f5f3ff;
-        font-family: 'Space Grotesk', system-ui, sans-serif;
+        background: #09090d;
+        color: #f0f0f4;
+        font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
         text-align: center;
         padding: 24px;
       }
       .mono {
         font-family: 'JetBrains Mono', ui-monospace, monospace;
-        font-size: 12px;
-        letter-spacing: 0.2em;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         color: #8f00ff;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
       .brand {
-        font-size: 13px;
-        letter-spacing: 0.28em;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #767099;
-        margin-bottom: 26px;
+        color: #666674;
+        margin-bottom: 24px;
       }
-      h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
-      p { color: #a9a3c8; margin-bottom: 28px; max-width: 420px; line-height: 1.6; }
-      .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 26px; }
+      h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 12px; }
+      p { color: #90909d; margin-bottom: 28px; max-width: 420px; line-height: 1.6; }
+      .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
       a {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 8px;
         text-decoration: none;
-        font-weight: 600;
+        font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 500;
         font-size: 14px;
-        letter-spacing: 0.05em;
-        padding: 14px 28px;
-        border-radius: 999px;
-        transition: background 0.16s ease, border-color 0.16s ease;
+        letter-spacing: 0;
+        min-height: 44px;
+        padding: 0 20px;
+        border-radius: 10px;
+        transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
       }
       a.solid { color: white; background: #8f00ff; }
-      a.solid:hover { background: #a845ff; }
-      a.line { color: #f5f3ff; border: 1px solid rgba(255, 255, 255, 0.18); }
-      a.line:hover { border-color: rgba(255, 255, 255, 0.35); }
-      a:focus-visible { outline: 2px solid #f5f3ff; outline-offset: 3px; }
+      a.solid:hover { background: #a34aff; }
+      a.line { color: #f0f0f4; border: 1px solid #41414d; }
+      a.line:hover { border-color: #666674; }
+      a:focus-visible { outline: 2px solid #a34aff; outline-offset: 2px; }
       .ax img { width: 72px; height: 72px; margin: 0 auto 12px; }
-      .mini { font-size: 0.82rem; color: #767099; }
-      .mini a { color: #a9a3c8; text-decoration: none; padding: 0; background: none; border: none; border-radius: 0; font-weight: 400; letter-spacing: 0; font-size: 0.82rem; display: inline; }
-      .mini a:hover { color: #f5f3ff; }
+      .mini { font-size: 0.8125rem; color: #666674; }
+      .mini a { color: #90909d; text-decoration: none; padding: 0; background: none; border: none; border-radius: 0; font-weight: 400; letter-spacing: 0; font-size: 0.8125rem; display: inline; min-height: 0; }
+      .mini a:hover { color: #f0f0f4; }
     </style>
   </head>
   <body>

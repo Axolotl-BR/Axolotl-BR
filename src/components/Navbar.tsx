@@ -65,7 +65,7 @@ export function Navbar() {
           rel="noreferrer"
           className="btn btn-primary nav-cta"
         >
-          DISCORD
+          Discord
         </a>
         <button
           className="nav-toggle"
