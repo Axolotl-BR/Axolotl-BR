@@ -24,7 +24,7 @@
   gap: var(--space-5);
   padding-block: 16px;
   height: var(--nav-h);
-  transition: height 0.24s ease;
+  transition: height var(--motion-normal) var(--ease-standard);
 }
 .nav-scrolled .nav-inner {
   height: 60px;

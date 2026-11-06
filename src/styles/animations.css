@@ -83,8 +83,8 @@
   transform: translateX(-50%) translateY(20px);
   opacity: 0;
   transition:
-    transform 0.34s var(--ease-out),
-    opacity 0.34s var(--ease-out);
+    transform var(--motion-moderate) var(--ease-out),
+    opacity var(--motion-moderate) var(--ease-out);
   pointer-events: none;
 }
 .toast.show {

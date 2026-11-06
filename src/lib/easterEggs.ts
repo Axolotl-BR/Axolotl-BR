@@ -30,8 +30,8 @@ export function consoleNote(): void {
     `%cAXOLOTL BR%c
 // você achou o primeiro easter egg.
 // tem mais coisa por aí. digita "axolote" e descobre.`,
-    'color:#a845ff;font-weight:800;font-size:16px',
-    'color:#7c7398;font-family:monospace;font-size:12px',
+    'color:#a34aff;font-weight:700;font-size:16px',
+    'color:#90909d;font-family:monospace;font-size:12px',
   )
 }
 

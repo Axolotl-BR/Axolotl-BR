@@ -44,8 +44,8 @@
   --bg: var(--prism-neutral-950);
   --bg-2: var(--prism-neutral-900);
   --bg-3: var(--prism-neutral-850);
-  --surface: var(--prism-neutral-800);
-  --surface-hover: var(--prism-neutral-700);
+  --surface: var(--prism-neutral-900);
+  --surface-hover: var(--prism-neutral-800);
   --surface-strong: var(--prism-neutral-850);
 
   /* texto */
