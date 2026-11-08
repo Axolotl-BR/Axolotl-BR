@@ -74,46 +74,7 @@
   position: relative;
 }
 
-/* ── toast de easter egg ── */
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 28px;
-  z-index: 1500;
-  transform: translateX(-50%) translateY(20px);
-  opacity: 0;
-  transition:
-    transform var(--motion-moderate) var(--ease-out),
-    opacity var(--motion-moderate) var(--ease-out);
-  pointer-events: none;
-}
-.toast.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-}
-.toast-inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--bg-3);
-  border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow-2);
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  color: var(--text);
-  max-width: min(90vw, 460px);
-  text-align: left;
-}
 @media (prefers-reduced-motion: reduce) {
-  .toast {
-    transition: none;
-  }
-  .toast.show {
-    transform: translateX(-50%);
-    opacity: 1;
-  }
   .now-box .led.online,
   .scroll-cue .line {
     animation: none;

@@ -1,82 +1,26 @@
-/* AXOLOTL BR — tokens.
-   Valores vêm do Prism (prism/tokens). Este é o único arquivo do site com hex.
-   Componentes leem papéis, nunca hex. */
+/* AXOLOTL BR — pegada do site.
+   A camada visual (rampas, papéis de cor, fontes, raio, sombra, movimento) vem
+   do pacote prism, importado em src/main.tsx como 'prism/styles.css'. Este arquivo
+   não redeclara --prism-*; aqui ficam os aliases semânticos do site sobre os papéis
+   do pacote (escopo: .axl-root, dentro do DesignSystemProvider) e o ritmo de layout
+   próprio do site. Hex só no shell fora do provider, espelhando o pacote. */
 
 :root {
   color-scheme: dark;
 
-  /* Prism — rampa da marca */
-  --prism-purple-50: #f5ebff;
-  --prism-purple-100: #ebd6ff;
-  --prism-purple-200: #d7adff;
-  --prism-purple-300: #c085ff;
-  --prism-purple-400: #a34aff;
-  --prism-purple-500: #8f00ff;
-  --prism-purple-600: #7a00db;
-  --prism-purple-700: #6400b4;
-  --prism-purple-800: #4e008c;
-  --prism-purple-900: #380064;
-  --prism-purple-950: #2a004f;
+  /* shell fora do provider: canvas e scrollbar-document. Espelham
+     --background (#09090d) e --border-strong (#41414d) dos tokens prism */
+  --shell-bg: #09090d;
+  --shell-scroll: #41414d;
+  --shell-scroll-hover: #666674;
+  --shell-text: #f0f0f4;
 
-  /* Prism — rampa neutra */
-  --prism-neutral-100: #f0f0f4;
-  --prism-neutral-200: #dededf;
-  --prism-neutral-300: #b9b9c4;
-  --prism-neutral-400: #90909d;
-  --prism-neutral-500: #666674;
-  --prism-neutral-600: #41414d;
-  --prism-neutral-700: #292933;
-  --prism-neutral-800: #1c1c25;
-  --prism-neutral-850: #15151c;
-  --prism-neutral-900: #101015;
-  --prism-neutral-950: #09090d;
+  /* layout — container e peso do chrome */
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 32px);
+  --nav-h: 72px;
 
-  /* marca */
-  --primary: var(--prism-purple-500);
-  --primary-hover: var(--prism-purple-400);
-  --primary-active: var(--prism-purple-600);
-  --primary-ink: var(--prism-purple-300);
-  --primary-dim: color-mix(in srgb, var(--primary) 14%, transparent);
-  --primary-border: color-mix(in srgb, var(--primary) 45%, transparent);
-  --on-primary: #ffffff;
-
-  /* fundo e superfície */
-  --bg: var(--prism-neutral-950);
-  --bg-2: var(--prism-neutral-900);
-  --bg-3: var(--prism-neutral-850);
-  --surface: var(--prism-neutral-900);
-  --surface-hover: var(--prism-neutral-800);
-  --surface-strong: var(--prism-neutral-850);
-
-  /* texto */
-  --text: var(--prism-neutral-100);
-  --text-muted: var(--prism-neutral-400);
-  --text-faint: var(--prism-neutral-500);
-
-  /* bordas */
-  --border: #20202a;
-  --border-strong: var(--prism-neutral-600);
-
-  /* estado */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --success-soft: color-mix(in srgb, var(--success) 14%, transparent);
-  --warning-soft: color-mix(in srgb, var(--warning) 14%, transparent);
-  --danger-soft: color-mix(in srgb, var(--danger) 14%, transparent);
-  --success-border: color-mix(in srgb, var(--success) 42%, transparent);
-  --warning-border: color-mix(in srgb, var(--warning) 42%, transparent);
-  --danger-border: color-mix(in srgb, var(--danger) 42%, transparent);
-
-  /* foco e seleção */
-  --focus-ring: var(--prism-purple-400);
-  --selection: color-mix(in srgb, var(--primary) 32%, transparent);
-
-  /* tipografia */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', monospace;
-  --font-display: var(--font-sans);
-
+  /* tipografia do site — escala própria; as fontes vêm do pacote pela raiz do provider */
   --text-xs: 11px;
   --text-sm: 14px;
   --text-base: 16px;
@@ -87,18 +31,49 @@
   --text-3xl: 40px;
   --text-hero: clamp(3.2rem, 10vw, 6.4rem);
 
-  /* raio — escala Prism */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
-  --radius-full: 9999px;
+  /* movimento — nomes e pesos que só o site usa; --motion-* e --ease-standard vêm do pacote */
+  --ease-out: ease-out;
+  --ease-io: ease-in-out;
+  --dur-fast: var(--motion-fast);
+  --dur: var(--motion-normal);
+  --dur-slow: var(--motion-slow);
+}
 
-  /* layout — ritmo em múltiplos de 4 */
-  --container: 1200px;
-  --gutter: clamp(20px, 4vw, 32px);
-  --nav-h: 72px;
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur: 1ms;
+    --dur-slow: 1ms;
+  }
+}
+
+/* Dentro do provider: aliases que renomeiam papéis do pacote para os nomes
+   que o CSS do site já lê. Papéis de mesmo nome (--success, --focus-ring,
+   --surface-hover, --border-strong, --selection, --font-sans, --font-mono,
+   --radius-*, --motion-*, --shadow-*) não são redeclarados — vêm herdando. */
+.axl-root {
+  /* marca */
+  --primary: var(--prism-primary);
+  --primary-hover: var(--prism-primary-hover);
+  --primary-active: var(--prism-primary-active);
+  --primary-dim: var(--prism-primary-soft);
+  --on-primary: var(--prism-on-primary);
+
+  /* fundo e superfície */
+  --bg: var(--background);
+  --bg-2: var(--surface);
+  --bg-3: var(--surface-elevated);
+  --surface-strong: var(--surface-elevated);
+
+  /* texto */
+  --text: var(--text-primary);
+  --text-muted: var(--text-secondary);
+  --text-faint: var(--text-muted);
+
+  /* bordas */
+  --border: var(--border-subtle);
+
+  /* ritmo do site — escala própria, mais larga que a escala de componente do pacote */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -108,30 +83,4 @@
   --space-7: 48px;
   --space-8: 72px;
   --space-9: 120px;
-
-  /* movimento — Prism */
-  --motion-instant: 100ms;
-  --motion-fast: 150ms;
-  --motion-normal: 200ms;
-  --motion-moderate: 300ms;
-  --motion-slow: 500ms;
-  --ease-standard: ease-in-out;
-  --ease-out: ease-out;
-  --ease-io: ease-in-out;
-  --dur-fast: var(--motion-fast);
-  --dur: var(--motion-normal);
-  --dur-slow: var(--motion-slow);
-
-  /* elevação — preta, nunca colorida */
-  --shadow-1: 0 1px 2px rgb(0 0 0 / 24%);
-  --shadow-2: 0 4px 12px -2px rgb(0 0 0 / 32%), 0 1px 2px rgb(0 0 0 / 24%);
-  --shadow-3: 0 16px 40px -12px rgb(0 0 0 / 45%), 0 2px 6px rgb(0 0 0 / 28%);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --dur-fast: 1ms;
-    --dur: 1ms;
-    --dur-slow: 1ms;
-  }
 }

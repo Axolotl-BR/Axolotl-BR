@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
+import { useToast } from 'prism'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
-import { Toast } from './components/Toast'
 import { Marquee } from './components/Marquee'
 import { Hero } from './sections/Hero'
 import { Manifesto } from './sections/Manifesto'
@@ -12,23 +12,24 @@ import { Fabi } from './sections/Fabi'
 import { NowPlaying } from './sections/NowPlaying'
 import { News } from './sections/News'
 import { useTypingEgg, consoleNote, eggMessages } from './lib/easterEggs'
-import { useToastTimer } from './hooks/useToastTimer'
 
 export function App() {
-  const [toast, setToast] = useState<string | null>(null)
-
-  const showToast = useCallback((msg: string) => setToast(msg), [])
-  const dismissToast = useCallback(() => setToast(null), [])
+  const { show } = useToast()
+  const showToast = useCallback(
+    (msg: string) => {
+      show({ title: msg, tone: 'neutral' })
+    },
+    [show],
+  )
 
   useEffect(() => {
     consoleNote()
   }, [])
 
   useTypingEgg(() => showToast(eggMessages.typing))
-  useToastTimer(toast, dismissToast)
 
   return (
-    <>
+    <div className="axl-root">
       <a href="#inicio" className="skip-link">
         pular para o conteúdo
       </a>
@@ -45,7 +46,6 @@ export function App() {
         <News />
       </main>
       <Footer />
-      <Toast message={toast} />
-    </>
+    </div>
   )
 }

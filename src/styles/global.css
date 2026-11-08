@@ -9,7 +9,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 24px);
-  scrollbar-color: var(--border-strong) transparent;
+  background: var(--shell-bg);
+  scrollbar-color: var(--shell-scroll) transparent;
   scrollbar-width: thin;
 }
 
@@ -26,10 +27,12 @@ html {
   }
 }
 
+/* Shell fora da raiz do provider (fundo + fallback tipográfico espelham --background
+   e --font-sans do pacote prism). Dentro do provider quem pinta é a raiz do provider. */
 body {
-  font-family: var(--font-display);
-  background: var(--bg);
-  color: var(--text);
+  font-family: 'Prism Inter', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--shell-bg);
+  color: var(--shell-text);
   line-height: 1.6;
   font-size: var(--text-base);
   -webkit-font-smoothing: antialiased;
@@ -52,6 +55,21 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-faint);
+}
+/* barra do documento (html) fica fora do provider: shells literais */
+:root::-webkit-scrollbar {
+  background: var(--shell-bg);
+}
+:root::-webkit-scrollbar-track {
+  background: var(--shell-bg);
+  border-color: var(--shell-bg);
+}
+:root::-webkit-scrollbar-thumb {
+  background: var(--shell-scroll);
+  border-color: var(--shell-bg);
+}
+:root::-webkit-scrollbar-thumb:hover {
+  background: var(--shell-scroll-hover);
 }
 
 ::selection {
