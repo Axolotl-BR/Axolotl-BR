@@ -1,86 +1,23 @@
 /* AXOLOTL BR — pegada do site.
-   A camada visual (rampas, papéis de cor, fontes, raio, sombra, movimento) vem
-   do pacote prism, importado em src/main.tsx como 'prism/styles.css'. Este arquivo
-   não redeclara --prism-*; aqui ficam os aliases semânticos do site sobre os papéis
-   do pacote (escopo: .axl-root, dentro do DesignSystemProvider) e o ritmo de layout
-   próprio do site. Hex só no shell fora do provider, espelhando o pacote. */
+   Cor, tipo, espaço, raio, sombra e movimento vêm do pacote prism
+   ('prism/styles.css' em src/main.tsx) e o CSS do site lê os papéis dele direto.
+   Aqui só fica o que o Prism deixa para o app: layout de página e o shell fora
+   do provider. Nada de --prism-*, --space-*, --text-* ou alias redeclarado:
+   isso desalinharia os componentes Prism que rodam dentro do site. */
 
 :root {
   color-scheme: dark;
 
-  /* shell fora do provider: canvas e scrollbar-document. Espelham
-     --background (#09090d) e --border-strong (#41414d) dos tokens prism */
+  /* shell fora do provider (canvas e scrollbar do documento). O provider não
+     toca em :root, então estes espelham --background, --border-strong,
+     --text-muted e --text-primary do tema escuro do Prism. */
   --shell-bg: #09090d;
   --shell-scroll: #41414d;
   --shell-scroll-hover: #666674;
   --shell-text: #f0f0f4;
 
-  /* layout — container e peso do chrome */
+  /* layout de página — responsabilidade do app (Prism FUNDAMENTOS > Layout) */
   --container: 1200px;
   --gutter: clamp(20px, 4vw, 32px);
   --nav-h: 72px;
-
-  /* tipografia do site — escala própria; as fontes vêm do pacote pela raiz do provider */
-  --text-xs: 11px;
-  --text-sm: 14px;
-  --text-base: 16px;
-  --text-md: 18px;
-  --text-lg: 20px;
-  --text-xl: 24px;
-  --text-2xl: 32px;
-  --text-3xl: 40px;
-  --text-hero: clamp(3.2rem, 10vw, 6.4rem);
-
-  /* movimento — nomes e pesos que só o site usa; --motion-* e --ease-standard vêm do pacote */
-  --ease-out: ease-out;
-  --ease-io: ease-in-out;
-  --dur-fast: var(--motion-fast);
-  --dur: var(--motion-normal);
-  --dur-slow: var(--motion-slow);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --dur-fast: 1ms;
-    --dur: 1ms;
-    --dur-slow: 1ms;
-  }
-}
-
-/* Dentro do provider: aliases que renomeiam papéis do pacote para os nomes
-   que o CSS do site já lê. Papéis de mesmo nome (--success, --focus-ring,
-   --surface-hover, --border-strong, --selection, --font-sans, --font-mono,
-   --radius-*, --motion-*, --shadow-*) não são redeclarados — vêm herdando. */
-.axl-root {
-  /* marca */
-  --primary: var(--prism-primary);
-  --primary-hover: var(--prism-primary-hover);
-  --primary-active: var(--prism-primary-active);
-  --primary-dim: var(--prism-primary-soft);
-  --on-primary: var(--prism-on-primary);
-
-  /* fundo e superfície */
-  --bg: var(--background);
-  --bg-2: var(--surface);
-  --bg-3: var(--surface-elevated);
-  --surface-strong: var(--surface-elevated);
-
-  /* texto */
-  --text: var(--text-primary);
-  --text-muted: var(--text-secondary);
-  --text-faint: var(--text-muted);
-
-  /* bordas */
-  --border: var(--border-subtle);
-
-  /* ritmo do site — escala própria, mais larga que a escala de componente do pacote */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 72px;
-  --space-9: 120px;
 }

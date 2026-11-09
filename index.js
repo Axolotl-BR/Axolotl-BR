@@ -5,6 +5,7 @@
 // localhost:4173, que é a causa raiz do 502.
 //
 // Só stdlib — nenhuma dependência nova. Lógica mora em server/.
+import './server/env.js' // antes de tudo: spotify.js lê process.env ao carregar
 import { createServer } from 'node:http'
 import { join } from 'node:path'
 import {

@@ -1,3 +1,4 @@
+import { Badge } from 'prism'
 import { Reveal } from '../components/Reveal'
 
 export function Manifesto() {
@@ -22,15 +23,11 @@ export function Manifesto() {
         </Reveal>
 
         <div className="manifesto-chips">
-          <Reveal delay={200}>
-            <span className="chip">brasileiro</span>
-          </Reveal>
-          <Reveal delay={260}>
-            <span className="chip">desde 2020</span>
-          </Reveal>
-          <Reveal delay={320}>
-            <span className="chip">de player para player</span>
-          </Reveal>
+          {['brasileiro', 'desde 2020', 'de player para player'].map((label, i) => (
+            <Reveal key={label} delay={200 + i * 60}>
+              <Badge label={label} />
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

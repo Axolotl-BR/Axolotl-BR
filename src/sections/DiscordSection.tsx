@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Badge, Button } from 'prism'
 import { Reveal } from '../components/Reveal'
 import { links } from '../data/site'
 
@@ -19,15 +20,16 @@ export function DiscordSection() {
               </div>
 
               <div className="discord-enter">
-                <div className="discord-status">aberto pra todo mundo</div>
-                <a
+                <Badge label="aberto pra todo mundo" tone="success" dot />
+                <Button
                   href={links.discord}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-primary discord-cta"
-                >
-                  entrar no discord <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
+                  external
+                  size="lg"
+                  fullWidth
+                  label="entrar no discord"
+                  icon={ArrowUpRight}
+                  iconPosition="end"
+                />
                 <p className="mono discord-hint">{links.discord.replace('https://', '')}</p>
               </div>
             </div>

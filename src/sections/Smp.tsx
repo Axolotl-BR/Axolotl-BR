@@ -1,3 +1,4 @@
+import { Badge, Button } from 'prism'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { smp, links } from '../data/site'
@@ -14,29 +15,24 @@ export function Smp() {
     >
       <div className="smp-spot">
         <Reveal className="smp-copy">
-          <p className="mono smp-status">
-            <span className="led warning" aria-hidden="true" />
-            {smp.state}
-          </p>
+          <div className="smp-status">
+            <Badge label={smp.state} tone="warning" dot />
+          </div>
           <ul className="smp-feats">
             {smp.features.map((feat) => (
-              <li key={feat} className="chip">
-                {feat}
+              <li key={feat}>
+                <Badge label={feat} size="sm" />
               </li>
             ))}
           </ul>
           <div className="smp-actions">
-            <a href="/wiki/" className="btn btn-primary">
-              abrir a wiki
-            </a>
-            <a
+            <Button href="/wiki/" label="abrir a wiki" />
+            <Button
               href={links.discord}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-ghost"
-            >
-              acompanhar no discord
-            </a>
+              external
+              variant="secondary"
+              label="acompanhar no discord"
+            />
           </div>
           <p className="mono smp-note">{smp.note}</p>
         </Reveal>

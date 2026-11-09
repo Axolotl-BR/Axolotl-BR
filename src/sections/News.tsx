@@ -1,3 +1,4 @@
+import { Badge } from 'prism'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { news } from '../data/site'
@@ -15,9 +16,7 @@ export function News() {
             <Reveal delay={i * 70}>
               <article className="news-item">
                 <div className="news-meta">
-                  <span className="tag" data-kind={item.kind}>
-                    {item.kind}
-                  </span>
+                  <Badge label={item.kind} tone={item.kind === 'UPDATE' ? 'brand' : 'neutral'} size="sm" />
                   <span className="mono news-date">{item.date}</span>
                 </div>
                 <div className="news-body">

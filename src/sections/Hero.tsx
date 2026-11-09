@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
+import { Button } from 'prism'
 import { site, links } from '../data/site'
 import { eggMessages } from '../lib/easterEggs'
 import axolote from '../assets/images/axolote.png'
@@ -47,12 +48,15 @@ export function Hero({ onEgg }: HeroProps) {
         </p>
 
         <div className="hero-actions reveal" style={{ ['--reveal-delay' as string]: '300ms' }}>
-          <a href={links.discord} target="_blank" rel="noreferrer" className="btn btn-primary hero-cta">
-            entrar na comunidade <ArrowUpRight size={15} aria-hidden="true" />
-          </a>
-          <a href="#sobre" className="btn btn-ghost">
-            sobre nós
-          </a>
+          <Button
+            href={links.discord}
+            external
+            size="lg"
+            label="entrar na comunidade"
+            icon={ArrowUpRight}
+            iconPosition="end"
+          />
+          <Button href="#sobre" size="lg" variant="secondary" label="sobre nós" />
         </div>
 
         <a href="#identidade" className="scroll-cue hero-scroll" aria-label="role para baixo">

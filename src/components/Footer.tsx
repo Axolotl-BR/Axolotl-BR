@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Button } from 'prism'
 import { links, site, footerCols } from '../data/site'
 import type { FooterCol } from '../data/site'
 import axolote from '../assets/images/axolote.png'
@@ -32,14 +33,14 @@ export function Footer() {
             <br />
             na internet.
           </h2>
-          <a
+          <Button
             href={links.discord}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary footer-giant-cta"
-          >
-            entrar no discord <ArrowUpRight size={15} aria-hidden="true" />
-          </a>
+            external
+            size="lg"
+            label="entrar no discord"
+            icon={ArrowUpRight}
+            iconPosition="end"
+          />
         </div>
 
         <div className="footer-grid">

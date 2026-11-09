@@ -38,16 +38,13 @@ async function fetchPlayerState(access) {
   })
 }
 
-function toTrackView(data) {
-  const item = data && data.item
-  if (!data || data.is_playing !== true || !item) return { playing: false }
+function trackFields(item) {
   const artist = item.type === 'episode'
     ? (item.show && item.show.name) || 'podcast'
     : (item.artists || []).map((a) => a.name).join(', ') || 'desconhecido'
   const cover = (item.album && item.album.images && item.album.images[1])
     || (item.images && item.images[1]) || null
   return {
-    playing: true,
     title: item.name || 'sem título',
     artist,
     image: cover ? cover.url : null,
@@ -55,14 +52,35 @@ function toTrackView(data) {
   }
 }
 
+function toTrackView(data) {
+  const item = data && data.item
+  if (!data || data.is_playing !== true || !item) return null
+  return { playing: true, ...trackFields(item) }
+}
+
+// Nada tocando: mostra a última faixa ouvida em vez de um vazio.
+async function loadLastPlayed(access) {
+  const res = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
+    headers: { Authorization: `Bearer ${access}` },
+  })
+  if (!res.ok) return { playing: false }
+  const data = await res.json()
+  const last = data && data.items && data.items[0]
+  if (!last || !last.track) return { playing: false }
+  return { playing: false, last: { ...trackFields(last.track), playedAt: last.played_at || null } }
+}
+
 async function loadNowPlaying() {
   if (trackCache && trackCache.expiresAt > Date.now()) return trackCache.view
-  let res = await fetchPlayerState(await refreshAccessToken())
+  let access = await refreshAccessToken()
+  let res = await fetchPlayerState(access)
   if (res.status === 401) {
     tokenCache = null
-    res = await fetchPlayerState(await refreshAccessToken())
+    access = await refreshAccessToken()
+    res = await fetchPlayerState(access)
   }
-  const view = res.status === 204 || !res.ok ? { playing: false } : toTrackView(await res.json())
+  const playing = res.status === 200 ? toTrackView(await res.json()) : null
+  const view = playing || (await loadLastPlayed(access))
   trackCache = { view, expiresAt: Date.now() + TRACK_TTL_MS }
   return view
 }

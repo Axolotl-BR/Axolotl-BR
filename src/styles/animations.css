@@ -7,11 +7,22 @@
   opacity: 1;
   transform: none;
   transition:
-    opacity var(--motion-moderate) var(--ease-out),
-    transform var(--motion-moderate) var(--ease-out);
+    opacity var(--motion-moderate) var(--ease-enter),
+    transform var(--motion-moderate) var(--ease-enter);
   transition-delay: var(--reveal-delay, 0ms);
 }
+/* hero não passa pelo <Reveal> (já está na tela): entra sozinho no load */
+.hero .reveal {
+  animation: reveal-in var(--motion-moderate) var(--ease-enter) var(--reveal-delay, 0ms) both;
+}
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
 @media (prefers-reduced-motion: reduce) {
+  .hero .reveal {
+    animation: none;
+  }
   .reveal {
     opacity: 1;
     transform: none;
@@ -25,22 +36,22 @@
   align-items: flex-start;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--font-size-overline);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--text-muted);
   transition: color var(--motion-fast) var(--ease-standard);
 }
 .scroll-cue:hover {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 .scroll-cue .line {
   width: 1px;
   height: 40px;
   background: var(--border-strong);
   transform-origin: top;
-  animation: cue-drop 2.2s var(--ease-io) infinite;
+  animation: cue-drop 2.2s ease-in-out infinite;
 }
 @keyframes cue-drop {
   0% { transform: scaleY(0.3); opacity: 0.4; }
@@ -55,17 +66,8 @@
   left: 0;
   height: 2px;
   border-radius: var(--radius-full);
-  background: var(--primary);
+  background: var(--prism-primary);
   pointer-events: none;
-}
-
-/* ── now-playing pulse — só o ponto online ── */
-.now-box .led.online {
-  animation: led-pulse 2s ease-in-out infinite;
-}
-@keyframes led-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
 }
 
 /* ── links com sweep ── */
@@ -75,7 +77,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .now-box .led.online,
   .scroll-cue .line {
     animation: none;
   }

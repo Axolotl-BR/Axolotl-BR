@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Button } from 'prism'
 import { nav, links, site } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { useScrolled } from '../hooks/useScrolled'
@@ -59,14 +60,9 @@ export function Navbar() {
           />
         </a>
         <DesktopLinks active={active} />
-        <a
-          href={links.discord}
-          target="_blank"
-          rel="noreferrer"
-          className="btn btn-primary nav-cta"
-        >
-          Discord
-        </a>
+        <span className="nav-cta">
+          <Button href={links.discord} external size="sm" label="Discord" />
+        </span>
         <button
           className="nav-toggle"
           aria-expanded={open}
