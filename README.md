@@ -1,6 +1,6 @@
-# AXOLOTL BR
+# Axolotl BR by fab!*
 
-**A central oficial do universo Axolotl BR.**
+**A central oficial do Axolotl BR.**
 
 > Sua comunidade na internet. De player para player.
 
