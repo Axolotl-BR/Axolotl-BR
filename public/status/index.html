@@ -87,19 +87,6 @@
         <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/wiki/">wiki do smp</a></p>
       </footer>
     </main>
-    <script>
-      var opts = {}
-      try { opts.signal = AbortSignal.timeout(8000) } catch (e) {}
-      fetch('/api/now-playing', opts)
-        .then(function (r) { return r.ok ? r.json() : null })
-        .then(function (d) {
-          if (!d || !d.playing) return
-          var sub = document.getElementById('now-sub')
-          var pill = document.getElementById('now-pill')
-          if (sub) sub.textContent = (d.title || 'sem título') + ' · ' + (d.artist || 'desconhecido')
-          if (pill) { pill.textContent = 'tocando'; pill.className = 'pill ok' }
-        })
-        .catch(function () {})
-    </script>
+    <script src="/status/status.js"></script>
   </body>
 </html>
