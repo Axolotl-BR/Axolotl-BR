@@ -4,16 +4,16 @@ import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Marquee } from './components/Marquee'
 import { Hero } from './sections/Hero'
-import { Manifesto } from './sections/Manifesto'
 import { About } from './sections/About'
 import { DiscordSection } from './sections/DiscordSection'
 import { Smp } from './sections/Smp'
 import { Fabi } from './sections/Fabi'
-import { NowPlaying } from './sections/NowPlaying'
-import { News } from './sections/News'
+import { Timeline } from './sections/Timeline'
+import { useLang } from './lib/i18n'
 import { useTypingEgg, consoleNote, eggMessages } from './lib/easterEggs'
 
 export function App() {
+  const { c } = useLang()
   const { show } = useToast()
   const showToast = useCallback(
     (msg: string) => {
@@ -31,19 +31,17 @@ export function App() {
   return (
     <div className="axl-root">
       <a href="#inicio" className="skip-link">
-        pular para o conteúdo
+        {c.skip}
       </a>
       <Navbar />
       <main id="inicio">
         <Hero onEgg={showToast} />
         <Marquee />
-        <Manifesto />
         <About />
         <DiscordSection />
         <Smp />
         <Fabi />
-        <NowPlaying />
-        <News />
+        <Timeline />
       </main>
       <Footer />
     </div>

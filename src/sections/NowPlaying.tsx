@@ -1,86 +1,79 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Badge, Card, Skeleton } from 'prism'
-import { Reveal } from '../components/Reveal'
+import { Badge, Skeleton } from 'prism'
 import { useNowPlaying } from '../hooks/useNowPlaying'
 import type { Track } from '../hooks/useNowPlaying'
+import { useLang } from '../lib/i18n'
+import type { Copy } from '../data/copy'
 
-function ago(iso: string | null): string {
+function ago(iso: string | null, f: Copy['fabi']): string {
   if (!iso) return ''
   const min = Math.floor((Date.now() - new Date(iso).getTime()) / 60_000)
-  if (!Number.isFinite(min) || min < 1) return 'agora há pouco'
-  if (min < 60) return `há ${min} min`
+  if (!Number.isFinite(min) || min < 1) return f.justNow
+  if (min < 60) return f.ago(min, 'min')
   const h = Math.floor(min / 60)
-  return h < 24 ? `há ${h} h` : `há ${Math.floor(h / 24)} d`
+  return h < 24 ? f.ago(h, 'h') : f.ago(Math.floor(h / 24), 'd')
 }
 
-function TrackRow({ track, live, when }: { track: Track; live: boolean; when?: string }) {
+function TrackRow({ track, live, when, f }: { track: Track; live: boolean; when?: string; f: Copy['fabi'] }) {
   return (
-    <Card variant="compact">
-      <div className="now-box">
-        {track.image ? (
-          <img
-            src={track.image}
-            alt={`capa de ${track.title}`}
-            width={64}
-            height={64}
-            className="now-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        ) : null}
-        <div className="now-info">
-          <p className="now-track">{track.title}</p>
-          <p className="mono now-artist">{track.artist}</p>
-        </div>
-        <Badge
-          label={live ? 'tocando' : when || 'última'}
-          tone={live ? 'success' : 'neutral'}
-          size="sm"
-          dot={live}
+    <div className="now-box">
+      {track.image ? (
+        <img
+          src={track.image}
+          alt={f.coverAlt(track.title)}
+          width={64}
+          height={64}
+          className="now-cover"
+          loading="lazy"
+          decoding="async"
         />
-        {track.url ? (
-          <a
-            href={track.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="now-link"
-            aria-label={`abrir ${track.title} no spotify`}
-          >
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
-        ) : null}
+      ) : null}
+      <div className="now-info">
+        <p className="now-track">{track.title}</p>
+        <p className="mono now-artist">{track.artist}</p>
       </div>
-    </Card>
+      <Badge
+        label={live ? f.badgePlaying : when || f.badgeLast}
+        tone={live ? 'success' : 'neutral'}
+        size="sm"
+        dot={live}
+      />
+      {track.url ? (
+        <a
+          href={track.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="now-link"
+          aria-label={f.openAria(track.title)}
+        >
+          <ArrowUpRight size={16} aria-hidden="true" />
+        </a>
+      ) : null}
+    </div>
   )
 }
 
+// vive dentro do card do fabi (sem seção própria)
 export function NowPlaying() {
   const track = useNowPlaying()
-  const title = track.state === 'last' ? 'última que tocou.' : 'tocando agora.'
+  const { c } = useLang()
+  const f = c.fabi
 
   return (
-    <section id="ouvindo" className="section now-section">
-      <div className="container">
-        <Reveal>
-          <span className="eyebrow">spotify do fabi</span>
-        </Reveal>
-        <Reveal delay={80}>
-          <h2 className="h2 now-title">{title}</h2>
-        </Reveal>
-        <Reveal delay={160}>
-          <div className="now-slot" aria-live="polite">
-            {track.state === 'loading' ? (
-              <Skeleton shape="block" />
-            ) : track.state === 'playing' ? (
-              <TrackRow track={track} live />
-            ) : track.state === 'last' ? (
-              <TrackRow track={track} live={false} when={ago(track.playedAt)} />
-            ) : (
-              <p className="mono now-idle">nada tocando agora.</p>
-            )}
-          </div>
-        </Reveal>
+    <div className="now-section">
+      <p className="eyebrow mono">{f.spotify}</p>
+      <h3 className="now-title">{track.state === 'playing' ? f.playing : f.last}</h3>
+      <div className="now-slot" aria-live="polite">
+        {track.state === 'loading' ? (
+          <Skeleton shape="block" />
+        ) : track.state === 'playing' ? (
+          <TrackRow track={track} live f={f} />
+        ) : track.state === 'last' ? (
+          <TrackRow track={track} live={false} when={ago(track.playedAt, f)} f={f} />
+        ) : (
+          <p className="mono now-idle">{f.idle}</p>
+        )}
       </div>
-    </section>
+    </div>
   )
 }

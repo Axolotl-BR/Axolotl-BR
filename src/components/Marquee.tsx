@@ -1,12 +1,12 @@
-import { news } from '../data/site'
+import { useLang } from '../lib/i18n'
 
-// Fita honesta estilo marquee: só novidade real do site.ts.
+// Fita honesta: só a linha do tempo real do copy.ts.
 // Passa duas vezes pra costurar o loop infinito.
-const items = news.map((n) => `${n.date} · ${n.title}`)
-
 export function Marquee() {
+  const { c } = useLang()
+  const items = c.timeline.items.map((n) => `${n.next ? 'NEXT — ' : ''}${n.date} · ${n.title}`)
   return (
-    <div className="marquee" role="marquee" aria-label="novidades da comunidade">
+    <div className="marquee" role="marquee" aria-label={c.marqueeAria}>
       <div className="marquee-track">
         {[0, 1].map((copy) => (
           <div key={copy} className="marquee-chunk" aria-hidden={copy === 1}>

@@ -1,4 +1,5 @@
-import { nav, links } from '../data/site'
+import { links } from '../data/site'
+import { useLang } from '../lib/i18n'
 
 type MobileMenuProps = {
   open: boolean
@@ -6,10 +7,11 @@ type MobileMenuProps = {
 }
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const { c } = useLang()
   return (
     <div id="nav-menu" className={`nav-menu ${open ? 'is-open' : ''}`}>
-      <nav aria-label="Navegação mobile">
-        {nav.map((item, i) => (
+      <nav aria-label={c.navAria}>
+        {c.nav.map((item, i) => (
           <a
             key={item.href}
             href={item.href}

@@ -1,22 +1,23 @@
 import { Badge } from 'prism'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
-import { news } from '../data/site'
+import { useLang } from '../lib/i18n'
 
-export function News() {
+export function Timeline() {
+  const { c } = useLang()
   return (
-    <Section
-      id="novidades"
-      eyebrow="novidades"
-      title={<>o que já rolou.</>}
-    >
+    <Section id="novidades" title={<>{c.timeline.title}</>}>
       <ol className="news-list">
-        {news.map((item, i) => (
-          <li key={`${item.kind}-${item.date}`}>
+        {c.timeline.items.map((item, i) => (
+          <li key={`${item.kind}-${item.date}`} className={item.next ? 'is-next' : undefined}>
             <Reveal delay={i * 70}>
               <article className="news-item">
                 <div className="news-meta">
-                  <Badge label={item.kind} tone={item.kind === 'UPDATE' ? 'brand' : 'neutral'} size="sm" />
+                  <Badge
+                    label={item.kind}
+                    tone={item.kind === 'UPDATE' || item.next ? 'brand' : 'neutral'}
+                    size="sm"
+                  />
                   <span className="mono news-date">{item.date}</span>
                 </div>
                 <div className="news-body">
@@ -28,12 +29,6 @@ export function News() {
           </li>
         ))}
       </ol>
-
-      <Reveal delay={400}>
-        <div className="news-foot mono">
-          <span className="text-faint">// continua.</span>
-        </div>
-      </Reveal>
     </Section>
   )
 }

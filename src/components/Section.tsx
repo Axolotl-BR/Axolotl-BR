@@ -3,20 +3,20 @@ import { Reveal } from './Reveal'
 
 type SectionProps = {
   id: string
-  eyebrow: string
   title: ReactNode
+  eyebrow?: string
   lead?: ReactNode
   children: ReactNode
   className?: string
 }
 
-export function Section({ id, eyebrow, title, lead, children, className }: SectionProps) {
+export function Section({ id, title, eyebrow, lead, children, className }: SectionProps) {
   return (
     <section id={id} className={`section ${className ?? ''}`}>
       <div className="container">
         <Reveal>
           <div className="section-head">
-            <span className="eyebrow">{eyebrow}</span>
+            {eyebrow ? <p className="eyebrow mono">{eyebrow}</p> : null}
             <h2 className="h2">{title}</h2>
             {lead ? <p className="lead">{lead}</p> : null}
           </div>

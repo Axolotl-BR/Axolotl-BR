@@ -1,0 +1,309 @@
+// ─────────────────────────────────────────────
+// Todo texto traduzível do site. pt = fonte; en deve ter a mesma forma.
+// Nada de número ou status inventado: só o que já existe.
+// ─────────────────────────────────────────────
+export type Lang = 'pt' | 'en'
+
+type NavItem = { label: string; href: string }
+type FooterLink = { label: string; href: string; external?: boolean }
+type TimelineItem = { kind: string; date: string; title: string; desc: string; next?: boolean }
+
+const pt = {
+  skip: 'pular para o conteúdo',
+  langLabel: 'idioma',
+  nav: [
+    { label: 'Início', href: '#inicio' },
+    { label: 'Sobre nós', href: '#sobre' },
+    { label: 'SMP', href: '#smp' },
+    { label: 'Fabi', href: '#fabi' },
+    { label: 'Linha do tempo', href: '#novidades' },
+  ] as NavItem[],
+  navAria: 'Navegação principal',
+  menuOpen: 'Abrir menu',
+  menuClose: 'Fechar menu',
+  copyright: '© 2020 – 2026 axolotl br • de player pra player · by @ofabiano1x',
+  hero: {
+    kicker: 'desde 2020',
+    tagline: 'Sua comunidade na internet. De player para player.',
+    join: 'entrar na comunidade',
+    about: 'sobre nós',
+    scroll: 'desce',
+    scrollAria: 'role para baixo',
+    mascotAria: 'o axolote da comunidade (ele gosta de atenção)',
+  },
+  marqueeAria: 'linha do tempo da comunidade',
+  about: {
+    eyebrow: 'sobre nós',
+    title: ['feito de ', 'player para player.'],
+    p1: 'O Axolotl BR é uma comunidade feita por pessoas que gostam de jogar, criar projetos, trocar ideias e conhecer gente nova.',
+    p2: 'Sem empresa por trás, sem fórmula pronta e sem precisar ser alguém importante. Só pessoas construindo um espaço que também podem chamar de seu.',
+    strong: 'Aqui, todo mundo pode participar, criar, compartilhar e fazer parte do que vem pela frente.',
+    note: 'Não queremos ser a maior comunidade da internet. Queremos ser uma comunidade que vale a pena encontrar.',
+    items: [
+      'conversas e amizades',
+      'jogos e experiências',
+      'eventos e campeonatos',
+      'projetos e criatividade',
+      'espaço para novas ideias',
+    ],
+    cta: 'conhecer a comunidade',
+  },
+  discord: {
+    eyebrow: 'discord',
+    title: 'onde tudo se conecta.',
+    p1: 'O Discord é o coração do Axolotl BR. É onde a comunidade se encontra, conversa, organiza partidas, participa de eventos e acompanha tudo o que acontece.',
+    p2: 'Chega, escolhe um canal, manda um oi e fica à vontade.',
+    strong: 'não precisa de convite especial. só vontade de participar.',
+    badge: 'aberto para novos membros',
+    cta: 'entrar na comunidade',
+  },
+  smp: {
+    title: 'axolotl smp.',
+    state: 'em desenvolvimento',
+    desc: 'O servidor de survival da comunidade. Lore, eventos e construção coletiva · ainda em construção.',
+    features: ['minecraft · java', 'survival', 'lore', 'eventos', 'comunidade'],
+    note: 'o IP sai no Discord quando abrir.',
+    wiki: 'abrir a wiki',
+    follow: 'acompanhar no discord',
+    alt: 'axolote pixelado do Axolotl SMP',
+  },
+  fabi: {
+    eyebrow: 'eu',
+    title: 'fab!* café.',
+    lead: 'Fundei essa comunidade em 2020 e tô no Discord todo dia. Se algo quebrou, a culpa é minha. Se funciona, também.',
+    photoAlt: 'foto do fab!*',
+    facts: ['fundei a comunidade em 2020', 'tô no Discord todo dia'],
+    cta: 'fala comigo no discord',
+    spotify: 'spotify do fabi',
+    last: 'última que tocou.',
+    playing: 'tocando agora.',
+    badgePlaying: 'tocando',
+    badgeLast: 'última',
+    idle: 'nada tocando agora.',
+    justNow: 'agora há pouco',
+    ago: (n: number, unit: 'min' | 'h' | 'd') => `há ${n} ${unit}`,
+    coverAlt: (t: string) => `capa de ${t}`,
+    openAria: (t: string) => `abrir ${t} no spotify`,
+  },
+  timeline: {
+    title: 'o que vem por aí?',
+    items: [
+      {
+        kind: 'NEXT',
+        date: '2027',
+        title: 'o próximo capítulo',
+        desc: 'Ainda não tem data nem detalhe. Quando tiver, o aviso sai no Discord.',
+        next: true,
+      },
+      {
+        kind: 'UPDATE',
+        date: '2026',
+        title: 'uma nova fase',
+        desc: 'Uma nova casa para a comunidade. Uma identidade mais definida e vários projetos ganhando forma.',
+      },
+      {
+        kind: 'UPDATE',
+        date: '2025',
+        title: 'mão na massa',
+        desc: 'Site, bots e labs saindo do papel.',
+      },
+      {
+        kind: 'PROJECT',
+        date: '2023 – 2024',
+        title: 'a coisa cresce',
+        desc: 'Bot próprio, ideias de jogo e os primeiros rascunhos do SMP.',
+      },
+      {
+        kind: 'EVENT',
+        date: '2021 – 2022',
+        title: 'primeiros eventos',
+        desc: 'Campeonatinhos internos, testes de servidor e os primeiros traços da identidade.',
+      },
+      {
+        kind: 'COMMUNITY',
+        date: '2020',
+        title: 'o começo',
+        desc: 'Um grupo de amigos monta um servidor no Discord. Sem plano, sem nome chique.',
+      },
+    ] as TimelineItem[],
+  },
+  footer: {
+    title: ['Sua comunidade', 'na internet.'],
+    join: 'entrar no discord',
+    top: 'voltar ao topo ↑',
+    cols: [
+      {
+        head: 'navegar',
+        links: [
+          { label: 'Início', href: '#inicio' },
+          { label: 'Sobre nós', href: '#sobre' },
+          { label: 'SMP', href: '#smp' },
+          { label: 'Linha do tempo', href: '#novidades' },
+        ] as FooterLink[],
+      },
+      {
+        head: 'comunidade',
+        links: [
+          { label: 'Discord', href: 'DISCORD', external: true },
+          { label: 'Wiki do SMP', href: '/wiki/' },
+          { label: 'Regras', href: '/regras.html' },
+          { label: 'Status', href: '/status/' },
+          { label: 'Kit de mídia', href: '/midia.html' },
+          { label: 'Todos os links', href: '/links.html' },
+        ] as FooterLink[],
+      },
+    ],
+  },
+}
+
+export type Copy = typeof pt
+
+const en: Copy = {
+  skip: 'skip to content',
+  langLabel: 'language',
+  nav: [
+    { label: 'Home', href: '#inicio' },
+    { label: 'About us', href: '#sobre' },
+    { label: 'SMP', href: '#smp' },
+    { label: 'Fabi', href: '#fabi' },
+    { label: 'Timeline', href: '#novidades' },
+  ],
+  navAria: 'Main navigation',
+  menuOpen: 'Open menu',
+  menuClose: 'Close menu',
+  copyright: '© 2020 – 2026 axolotl br • from player to player · by @ofabiano1x',
+  hero: {
+    kicker: 'since 2020',
+    tagline: 'Your community on the internet. From player to player.',
+    join: 'join the community',
+    about: 'about us',
+    scroll: 'scroll',
+    scrollAria: 'scroll down',
+    mascotAria: 'the community axolotl (it likes attention)',
+  },
+  marqueeAria: 'community timeline',
+  about: {
+    eyebrow: 'about us',
+    title: ['made from ', 'player to player.'],
+    p1: 'Axolotl BR is a community made by people who like to play, build projects, trade ideas and meet new people.',
+    p2: 'No company behind it, no ready-made formula, and no need to be somebody important. Just people building a space they can call their own.',
+    strong: 'Here, everyone can take part, create, share and be part of what comes next.',
+    note: "We don't want to be the biggest community on the internet. We want to be one worth finding.",
+    items: [
+      'conversations and friendships',
+      'games and experiences',
+      'events and tournaments',
+      'projects and creativity',
+      'room for new ideas',
+    ],
+    cta: 'meet the community',
+  },
+  discord: {
+    eyebrow: 'discord',
+    title: 'where everything connects.',
+    p1: 'Discord is the heart of Axolotl BR. It is where the community meets, talks, sets up matches, joins events and keeps up with everything going on.',
+    p2: 'Come in, pick a channel, say hi and make yourself at home.',
+    strong: 'no special invite needed. just the will to take part.',
+    badge: 'open to new members',
+    cta: 'join the community',
+  },
+  smp: {
+    title: 'axolotl smp.',
+    state: 'in development',
+    desc: "The community's survival server. Lore, events and collective building · still under construction.",
+    features: ['minecraft · java', 'survival', 'lore', 'events', 'community'],
+    note: 'the IP drops on Discord when it opens.',
+    wiki: 'open the wiki',
+    follow: 'follow on discord',
+    alt: 'pixel axolotl from Axolotl SMP',
+  },
+  fabi: {
+    eyebrow: 'me',
+    title: 'fab!* café.',
+    lead: "I founded this community in 2020 and I'm on Discord every day. If something broke, it's on me. If it works, also on me.",
+    photoAlt: 'photo of fab!*',
+    facts: ['founded the community in 2020', "I'm on Discord every day"],
+    cta: 'talk to me on discord',
+    spotify: "fabi's spotify",
+    last: 'last played.',
+    playing: 'playing now.',
+    badgePlaying: 'playing',
+    badgeLast: 'last',
+    idle: 'nothing playing right now.',
+    justNow: 'just now',
+    ago: (n, unit) => `${n} ${unit} ago`,
+    coverAlt: (t) => `cover of ${t}`,
+    openAria: (t) => `open ${t} on spotify`,
+  },
+  timeline: {
+    title: "what's coming?",
+    items: [
+      {
+        kind: 'NEXT',
+        date: '2027',
+        title: 'the next chapter',
+        desc: 'No date or details yet. When there are, the news drops on Discord.',
+        next: true,
+      },
+      {
+        kind: 'UPDATE',
+        date: '2026',
+        title: 'a new phase',
+        desc: 'A new home for the community. A sharper identity and several projects taking shape.',
+      },
+      {
+        kind: 'UPDATE',
+        date: '2025',
+        title: 'hands on',
+        desc: 'Site, bots and labs leaving the drawing board.',
+      },
+      {
+        kind: 'PROJECT',
+        date: '2023 – 2024',
+        title: 'it grows',
+        desc: 'Our own bot, game ideas and the first drafts of the SMP.',
+      },
+      {
+        kind: 'EVENT',
+        date: '2021 – 2022',
+        title: 'first events',
+        desc: 'Small internal tournaments, server tests and the first traces of an identity.',
+      },
+      {
+        kind: 'COMMUNITY',
+        date: '2020',
+        title: 'the beginning',
+        desc: 'A group of friends sets up a Discord server. No plan, no fancy name.',
+      },
+    ],
+  },
+  footer: {
+    title: ['Your community', 'on the internet.'],
+    join: 'join discord',
+    top: 'back to top ↑',
+    cols: [
+      {
+        head: 'navigate',
+        links: [
+          { label: 'Home', href: '#inicio' },
+          { label: 'About us', href: '#sobre' },
+          { label: 'SMP', href: '#smp' },
+          { label: 'Timeline', href: '#novidades' },
+        ],
+      },
+      {
+        head: 'community',
+        links: [
+          { label: 'Discord', href: 'DISCORD', external: true },
+          { label: 'SMP wiki', href: '/wiki/' },
+          { label: 'Rules', href: '/regras.html' },
+          { label: 'Status', href: '/status/' },
+          { label: 'Media kit', href: '/midia.html' },
+          { label: 'All links', href: '/links.html' },
+        ],
+      },
+    ],
+  },
+}
+
+export const copy: Record<Lang, Copy> = { pt, en }

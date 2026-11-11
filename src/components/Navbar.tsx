@@ -1,7 +1,9 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from 'prism'
-import { nav, links, site } from '../data/site'
+import { links, site } from '../data/site'
+import { useLang } from '../lib/i18n'
+import { LangSwitch } from './LangSwitch'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { useScrolled } from '../hooks/useScrolled'
 import { useEscapeKey } from '../hooks/useEscapeKey'
@@ -11,9 +13,10 @@ import { MobileMenu } from './MobileMenu'
 import wordmark from '../assets/images/wordmark.png'
 
 function DesktopLinks({ active }: { active: string }) {
+  const { c } = useLang()
   return (
-    <nav className="nav-links" aria-label="Navegação principal">
-      {nav.map((item) => {
+    <nav className="nav-links" aria-label={c.navAria}>
+      {c.nav.map((item) => {
         const id = item.href.slice(1)
         const isActive = active === id
         return (
@@ -33,9 +36,10 @@ function DesktopLinks({ active }: { active: string }) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const { c } = useLang()
   const scrolled = useScrolled()
   const progress = useScrollProgress()
-  const ids = useMemo(() => nav.map((n) => n.href.slice(1)), [])
+  const ids = useMemo(() => c.nav.map((n) => n.href.slice(1)), [c])
   const active = useScrollSpy(ids)
 
   const close = useCallback(() => setOpen(false), [])
@@ -60,6 +64,7 @@ export function Navbar() {
           />
         </a>
         <DesktopLinks active={active} />
+        <LangSwitch />
         <span className="nav-cta">
           <Button href={links.discord} external size="sm" label="Discord" />
         </span>
@@ -67,7 +72,7 @@ export function Navbar() {
           className="nav-toggle"
           aria-expanded={open}
           aria-controls="nav-menu"
-          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+          aria-label={open ? c.menuClose : c.menuOpen}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={20} /> : <Menu size={20} />}

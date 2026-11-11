@@ -1,59 +1,48 @@
+import { ArrowUpRight } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
 import { links } from '../data/site'
-
-const vibe = [
-  'conversa boa',
-  'jogos juntos',
-  'eventos',
-  'ajuda quando precisa',
-  'amizade de internet',
-]
+import { useLang } from '../lib/i18n'
 
 export function About() {
+  const { c } = useLang()
+  const a = c.about
   return (
     <Section
       id="sobre"
-      eyebrow="sobre nós"
+      className="about"
+      eyebrow={a.eyebrow}
       title={
         <>
-          feito de <span className="text-accent">player para player.</span>
+          {a.title[0]}
+          <span className="text-accent">{a.title[1]}</span>
         </>
       }
-      lead="Sem empresa por trás, sem roteiro. Gente que joga junto, cria coisa e aparece todo dia."
     >
       <div className="community-grid">
         <div className="community-copy">
           <Reveal>
-            <p className="lead">
-              Todo mundo pode entrar, todo mundo pode criar, e ninguém precisa pedir permissão pra
-              ter ideia.
-            </p>
+            <p className="lead">{a.p1}</p>
           </Reveal>
           <Reveal delay={100}>
-            <p className="community-note">
-              não é sobre ser o maior. é sobre ser um lugar onde dá vontade de ficar.
-            </p>
+            <p className="community-p">{a.p2}</p>
           </Reveal>
-          <Reveal delay={160}>
-            <a
-              href={links.discord}
-              target="_blank"
-              rel="noreferrer"
-              className="community-cta mono"
-            >
-              entrar no discord
+          <Reveal delay={200}>
+            <p className="community-strong">{a.strong}</p>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="community-note">{a.note}</p>
+            <a href={links.discord} target="_blank" rel="noreferrer" className="community-cta">
+              {a.cta} <ArrowUpRight size={14} aria-hidden="true" />
             </a>
           </Reveal>
         </div>
 
         <Reveal delay={150} className="community-lista-wrap">
           <ul className="community-lista">
-            {vibe.map((item) => (
-              <li key={item} className="community-item">
-                <span className="tick mono" aria-hidden="true">
-                  ▸
-                </span>
+            {a.items.map((item, i) => (
+              <li key={item} className="community-item" style={{ ['--i' as string]: i }}>
+                <span className="tick" aria-hidden="true" />
                 {item}
               </li>
             ))}
