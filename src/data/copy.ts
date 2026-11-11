@@ -69,7 +69,7 @@ const pt = {
   },
   fabi: {
     eyebrow: 'eu',
-    title: 'fab!* café.',
+    title: 'fab!*',
     lead: 'Fundei essa comunidade em 2020 e tô no Discord todo dia. Se algo quebrou, a culpa é minha. Se funciona, também.',
     photoAlt: 'foto do fab!*',
     facts: ['fundei a comunidade em 2020', 'tô no Discord todo dia'],
@@ -92,7 +92,7 @@ const pt = {
         kind: 'NEXT',
         date: '2027',
         title: 'o próximo capítulo',
-        desc: 'Ainda não tem data nem detalhe. Quando tiver, o aviso sai no Discord.',
+        desc: 'Ainda não sabemos o que vem pela frente. O próximo capítulo está em aberto.',
         next: true,
       },
       {
@@ -219,7 +219,7 @@ const en: Copy = {
   },
   fabi: {
     eyebrow: 'me',
-    title: 'fab!* café.',
+    title: 'fab!*',
     lead: "I founded this community in 2020 and I'm on Discord every day. If something broke, it's on me. If it works, also on me.",
     photoAlt: 'photo of fab!*',
     facts: ['founded the community in 2020', "I'm on Discord every day"],
@@ -242,7 +242,7 @@ const en: Copy = {
         kind: 'NEXT',
         date: '2027',
         title: 'the next chapter',
-        desc: 'No date or details yet. When there are, the news drops on Discord.',
+        desc: 'We don’t know what comes next yet. The next chapter is still unwritten.',
         next: true,
       },
       {
