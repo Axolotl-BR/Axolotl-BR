@@ -11,6 +11,8 @@ type TimelineItem = { kind: string; date: string; title: string; desc: string; n
 const pt = {
   skip: 'pular para o conteúdo',
   langLabel: 'idioma',
+  themeLight: 'modo claro',
+  themeDark: 'modo escuro',
   nav: [
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre nós', href: '#sobre' },
@@ -161,6 +163,8 @@ export type Copy = typeof pt
 const en: Copy = {
   skip: 'skip to content',
   langLabel: 'language',
+  themeLight: 'light mode',
+  themeDark: 'dark mode',
   nav: [
     { label: 'Home', href: '#inicio' },
     { label: 'About us', href: '#sobre' },

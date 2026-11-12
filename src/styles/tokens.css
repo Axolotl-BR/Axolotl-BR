@@ -21,3 +21,12 @@
   --gutter: clamp(20px, 4vw, 32px);
   --nav-h: 72px;
 }
+
+/* claro: espelha --background, --border-strong, --text-muted e --text-primary do Prism light */
+html[data-scheme='light'] {
+  color-scheme: light;
+  --shell-bg: #fafafc;
+  --shell-scroll: #bdbdc8;
+  --shell-scroll-hover: #6f6f7a;
+  --shell-text: #0b0b10;
+}

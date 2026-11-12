@@ -201,7 +201,9 @@ button {
 }
 
 /* ── versão em inglês: preto e branco ── */
-html[data-lang='en'] {
+/* só o conteúdo: a barra de cima fica colorida pra não perder o PT/EN e o sol/lua */
+html[data-lang='en'] .axl-root > main,
+html[data-lang='en'] .axl-root > footer {
   filter: grayscale(1);
 }
 
@@ -218,18 +220,22 @@ html[data-lang='en'] {
 /* ── troca de idioma ── */
 .lang-switch {
   display: inline-flex;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-full);
-  padding: 2px;
+  padding: 3px;
+  background: var(--surface);
 }
 .lang-btn {
-  padding: 4px 10px;
+  min-width: 40px;
+  height: 28px;
+  padding: 0 12px;
   border-radius: var(--radius-full);
-  font-size: var(--font-size-overline);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  cursor: pointer;
   transition: color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
 }
 .lang-btn:hover {
@@ -237,9 +243,42 @@ html[data-lang='en'] {
 }
 .lang-btn[aria-pressed='true'] {
   background: var(--prism-primary);
-  color: var(--text-on-primary, #fff);
+  color: #fff;
 }
 .lang-btn:focus-visible {
   outline: 2px solid var(--prism-primary-hover);
   outline-offset: 2px;
+}
+
+/* ── troca de tema ── */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--prism-primary-hover);
+  cursor: pointer;
+  transition: color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+.theme-btn svg {
+  width: 18px;
+  height: 18px;
+}
+.theme-btn:hover {
+  border-color: var(--prism-primary);
+  transform: rotate(18deg);
+}
+.theme-btn:focus-visible {
+  outline: 2px solid var(--prism-primary-hover);
+  outline-offset: 2px;
+}
+
+.nav-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }
