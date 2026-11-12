@@ -34,6 +34,7 @@ const pt = {
     mascotAria: 'o axolote da comunidade (ele gosta de atenção)',
   },
   marqueeAria: 'linha do tempo da comunidade',
+  chips: ['discord', 'minecraft', 'bots', 'código'],
   about: {
     eyebrow: 'sobre nós',
     title: ['feito de ', 'player para player.'],
@@ -186,6 +187,7 @@ const en: Copy = {
     mascotAria: 'the community axolotl (it likes attention)',
   },
   marqueeAria: 'community timeline',
+  chips: ['discord', 'minecraft', 'bots', 'code'],
   about: {
     eyebrow: 'about us',
     title: ['made from ', 'player to player.'],

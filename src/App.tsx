@@ -3,12 +3,9 @@ import { useToast } from 'prism'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Marquee } from './components/Marquee'
-import { Hero } from './sections/Hero'
-import { About } from './sections/About'
-import { DiscordSection } from './sections/DiscordSection'
-import { Smp } from './sections/Smp'
-import { Fabi } from './sections/Fabi'
-import { Timeline } from './sections/Timeline'
+import { HeroV2 } from './v2/HeroV2'
+import { Bento } from './v2/Bento'
+import { TimelineV2 } from './v2/TimelineV2'
 import { useLang } from './lib/i18n'
 import { useTypingEgg, consoleNote, eggMessages } from './lib/easterEggs'
 
@@ -35,13 +32,10 @@ export function App() {
       </a>
       <Navbar />
       <main id="inicio">
-        <Hero onEgg={showToast} />
+        <HeroV2 onEgg={showToast} />
         <Marquee />
-        <About />
-        <DiscordSection />
-        <Smp />
-        <Fabi />
-        <Timeline />
+        <Bento />
+        <TimelineV2 />
       </main>
       <Footer />
     </div>
