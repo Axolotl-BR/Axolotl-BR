@@ -145,6 +145,7 @@ const pt = {
         head: 'comunidade',
         links: [
           { label: 'Discord', href: 'DISCORD', external: true },
+          { label: 'Projetos', href: '/projetos.html' },
           { label: 'Wiki do SMP', href: '/wiki/' },
           { label: 'Regras', href: '/regras.html' },
           { label: 'Status', href: '/status/' },
@@ -295,6 +296,7 @@ const en: Copy = {
         head: 'community',
         links: [
           { label: 'Discord', href: 'DISCORD', external: true },
+          { label: 'Projects', href: '/projetos.html' },
           { label: 'SMP wiki', href: '/wiki/' },
           { label: 'Rules', href: '/regras.html' },
           { label: 'Status', href: '/status/' },

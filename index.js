@@ -26,19 +26,21 @@ import {
 } from './server/respond.js'
 import { resolvePath, findFile, serveFile, serveError } from './server/static.js'
 import { handleNowPlaying } from './server/spotify.js'
+import { handleStatus } from './server/status.js'
 
 const checkApi = createRateLimiter(apiRateLimit)
 const checkStatic = createRateLimiter(staticRateLimit)
 const guard = createRequestGuard(MAX_CONNECTIONS)
 
 function handleApi(req, res, route) {
-  if (route !== '/api/health' && route !== '/api/now-playing') return false
+  if (route !== '/api/health' && route !== '/api/now-playing' && route !== '/api/status') return false
   const wait = checkApi.check(clientIp(req))
   if (wait > 0) {
     respondTooManyRequests(res, wait)
     return true
   }
   if (route === '/api/health') respondJson(res, { ok: true }, req.method)
+  else if (route === '/api/status') handleStatus(res, req.method)
   else handleNowPlaying(res, req.method)
   return true
 }

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#09090d" />
+    <title>projetos · Axolotl BR</title>
+    <meta
+      name="description"
+      content="O que o Axolotl BR está construindo: o ALT Bot, o Axolotl SMP de Minecraft e este site, com código aberto na org do GitHub."
+    />
+    <link rel="icon" href="/axl.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/axolote.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/projetos.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Axolotl BR" />
+    <meta property="og:title" content="projetos · Axolotl BR" />
+    <meta property="og:description" content="O que o Axolotl BR está construindo: o ALT Bot, o Axolotl SMP de Minecraft e este site, com código aberto na org do GitHub." />
+    <meta property="og:url" content="https://axolotl-br.shardweb.app/projetos.html" />
+    <meta property="og:image" content="https://axolotl-br.shardweb.app/axolote.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="projetos · Axolotl BR" />
+    <meta name="twitter:description" content="O que o Axolotl BR está construindo: o ALT Bot, o Axolotl SMP de Minecraft e este site, com código aberto na org do GitHub." />
+    <meta name="twitter:image" content="https://axolotl-br.shardweb.app/axolote.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared.css" />
+    <style>
+      body { min-height: 100vh; line-height: 1.6; }
+      main { width: min(560px, 100%); }
+      header { text-align: center; margin-bottom: 36px; }
+      .ax img { width: 72px; height: 72px; margin: 0 auto 10px; }
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 6px;
+      }
+      .sub { color: #90909d; font-size: 0.95rem; margin-bottom: 4px; }
+      nav { display: flex; flex-direction: column; gap: 12px; }
+      a.card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: inherit;
+        background: #101015;
+        border: 1px solid #20202a;
+        border-radius: 14px;
+        padding: 16px 20px;
+        transition: border-color 150ms ease-in-out;
+      }
+      a.card:hover { border-color: #41414d; }
+      .tag {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #8f00ff;
+        border-radius: 6px;
+        padding: 4px 8px;
+        flex: none;
+      }
+      .txt { flex: 1; min-width: 0; }
+      .txt strong { display: block; font-size: 1rem; }
+      .txt span { display: block; color: #90909d; font-size: 0.85rem; }
+      .go { color: #666674; font-size: 1.2rem; flex: none; }
+      a.card:hover .go { color: #f0f0f4; }
+      h3 { font-size: 1.05rem; margin-bottom: 2px; }
+      details { background: #101015; }
+      .faq { margin-top: 36px; }
+      .faq h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 14px; }
+      .divulga { color: #90909d; font-size: 0.94rem; max-width: 60ch; }
+      .divulga a { color: #f0f0f4; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="ax" aria-hidden="true"><img src="/axolote.png" alt="" width="72" height="72" /></div>
+        <span class="mono eyebrow">// projetos</span>
+        <h1>O que a gente constrói</h1>
+        <p class="sub">Bot, servidor e site · feitos pela comunidade, de player pra player.</p>
+      </header>
+
+      <section class="faq" aria-label="ALT Bot">
+        <h2>ALT Bot</h2>
+        <p class="divulga">O bot oficial do Axolotl BR no Discord. Comandos com <code>&gt;</code> e <code>/</code>, níveis e XP, economia, loja, jogos, perfil de Deadlock, Minecraft e osu!, e tickets. Feito em Python (discord.py) com SQLite. Usa o <code>&gt;ajuda</code> no Discord pra ver tudo por categoria.</p>
+      </section>
+
+      <section class="faq" aria-label="Axolotl SMP">
+        <h2>Axolotl SMP</h2>
+        <p class="divulga">O servidor de Minecraft da comunidade: survival com lore, eventos e construção coletiva. Status: <b>em desenvolvimento</b>. Quando abrir, o IP sai no Discord. Enquanto isso, a <a href="/wiki/">wiki</a> já mostra o que vem aí.</p>
+      </section>
+
+      <section class="faq" aria-label="Este site">
+        <h2>Este site</h2>
+        <p class="divulga">A central do Axolotl BR. React, TypeScript e Vite, com o design system Prism. O código fica na <a href="https://github.com/Axolotl-BR">org do GitHub</a> e o estado dos serviços na página de <a href="/status/">status</a>.</p>
+      </section>
+
+      <nav aria-label="Ir para" style="margin-top:36px">
+        <a class="card" href="https://discord.gg/AxolotlBR">
+          <span class="tag">entra</span>
+          <span class="txt">
+            <strong>Discord</strong>
+            <span>onde tudo acontece · conversa, eventos e avisos</span>
+          </span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+        <a class="card" href="https://github.com/Axolotl-BR">
+          <span class="tag">code</span>
+          <span class="txt">
+            <strong>GitHub da org</strong>
+            <span>código e experimentos em público</span>
+          </span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+        <a class="card" href="/status/">
+          <span class="tag">status</span>
+          <span class="txt">
+            <strong>Status</strong>
+            <span>o que está no ar agora</span>
+          </span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/links.html">todos os links</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
