@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://axolotl-br.shardweb.app/sitemap.xml
