@@ -28,6 +28,21 @@ export function App() {
 
   useTypingEgg(() => showToast(eggMessages.typing))
 
+  // spotlight roxo seguindo o cursor nos cards (só com mouse e sem reduced-motion)
+  useEffect(() => {
+    const ok = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches
+    if (!ok) return
+    const onMove = (e: PointerEvent) => {
+      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.discord-door, .news-item, .smp-art')
+      if (!card) return
+      const r = card.getBoundingClientRect()
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`)
+      card.style.setProperty('--my', `${e.clientY - r.top}px`)
+    }
+    document.addEventListener('pointermove', onMove, { passive: true })
+    return () => document.removeEventListener('pointermove', onMove)
+  }, [])
+
   return (
     <div className="axl-root">
       <a href="#inicio" className="skip-link">

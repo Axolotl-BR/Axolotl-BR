@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from 'prism'
+import { SparklesSticker } from 'stick-it-up'
 import { site, links } from '../data/site'
 import { useLang } from '../lib/i18n'
 import { eggMessages } from '../lib/easterEggs'
@@ -35,6 +36,7 @@ export function Hero({ onEgg }: HeroProps) {
           aria-label={h.mascotAria}
         >
           <img src={axolote} alt="" width={88} height={88} loading="eager" decoding="async" />
+          <SparklesSticker className="hero-sticker" size={40} aria-hidden="true" />
         </button>
 
         <p className="hero-kicker mono reveal" style={{ ['--reveal-delay' as string]: '40ms' }}>

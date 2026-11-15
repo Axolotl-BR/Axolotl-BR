@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Badge, Button } from 'prism'
+import { SparkleTrioSticker } from 'stick-it-up'
 import { Reveal } from '../components/Reveal'
 import { DiscordIcon } from '../components/DiscordIcon'
 import { links } from '../data/site'
@@ -14,6 +15,7 @@ export function DiscordSection() {
         <Reveal>
           <div className="discord-door">
             <div className="discord-inner">
+              <SparkleTrioSticker className="discord-sticker" size={44} peel aria-hidden="true" />
               <div className="discord-info">
                 <span className="discord-icon">
                   <DiscordIcon size={28} />

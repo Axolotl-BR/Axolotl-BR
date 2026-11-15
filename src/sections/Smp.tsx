@@ -4,12 +4,14 @@ import { Reveal } from '../components/Reveal'
 import { links } from '../data/site'
 import { useLang } from '../lib/i18n'
 import smpArt from '../assets/images/smp.png'
+import smpLogo from '../assets/images/smp-logo.png'
+import { StarBurstSticker } from 'stick-it-up'
 
 export function Smp() {
   const { c } = useLang()
   const s = c.smp
   return (
-    <Section id="smp" title={<>{s.title}</>} lead={s.desc} className="smp">
+    <Section id="smp" title={<img className="smp-logo" src={smpLogo} alt={s.title} width={1013} height={128} />} lead={s.desc} className="smp">
       <div className="smp-spot">
         <Reveal className="smp-copy">
           <div className="smp-status">
@@ -30,6 +32,7 @@ export function Smp() {
         </Reveal>
         <Reveal delay={120} className="smp-art">
           <img src={smpArt} alt={s.alt} loading="lazy" decoding="async" />
+          <StarBurstSticker className="smp-sticker" size={64} peel aria-hidden="true" />
         </Reveal>
       </div>
     </Section>

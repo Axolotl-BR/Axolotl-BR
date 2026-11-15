@@ -181,3 +181,47 @@ html[data-lang] .axl-root {
   from { opacity: 0.4; }
   to { opacity: 1; }
 }
+
+/* ── spotlight roxo no cursor + stickers ── */
+.discord-door,
+.news-item,
+.smp-art {
+  position: relative;
+}
+.discord-door::after,
+.news-item::after,
+.smp-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--prism-primary) 22%, transparent),
+    transparent 70%
+  );
+  transition: opacity var(--motion-normal) var(--ease-standard);
+}
+.discord-door:hover::after,
+.news-item:hover::after,
+.smp-art:hover::after {
+  opacity: 1;
+}
+.discord-sticker {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+}
+.smp-sticker {
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .discord-door::after,
+  .news-item::after,
+  .smp-art::after {
+    display: none;
+  }
+}

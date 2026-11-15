@@ -28,6 +28,7 @@
 }
 
 .hero-axolote {
+  position: relative;
   margin: 0 0 var(--space-6);
   padding: 0;
   border-radius: var(--radius-xl);
@@ -44,6 +45,13 @@
   display: block;
   width: 88px;
   height: 88px;
+}
+
+.hero-sticker {
+  position: absolute;
+  top: -10px;
+  right: -14px;
+  pointer-events: none;
 }
 
 .hero-kicker {
@@ -343,6 +351,22 @@
   font-size: var(--font-size-overline);
   margin-top: var(--space-6);
   max-width: 40ch;
+}
+.smp-logo {
+  display: block;
+  width: min(520px, 100%);
+  height: auto;
+  image-rendering: pixelated;
+}
+.smp-art {
+  position: relative;
+  justify-self: center;
+  width: min(260px, 100%);
+}
+.smp-sticker {
+  position: absolute;
+  top: -18px;
+  right: -18px;
 }
 .smp-art img {
   width: 100%;

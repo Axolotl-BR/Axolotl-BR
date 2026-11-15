@@ -82,6 +82,9 @@
       .faq h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 14px; }
       .divulga { color: #90909d; font-size: 0.94rem; max-width: 60ch; }
       .divulga a { color: #f0f0f4; }
+      .changelog { list-style: none; display: grid; gap: 10px; margin-bottom: 12px; }
+      .changelog li { background: #101015; border: 1px solid #20202a; border-radius: 10px; padding: 10px 14px; font-size: 0.94rem; }
+      .changelog small { display: block; color: #666674; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; }
     </style>
   </head>
   <body>
@@ -106,6 +109,12 @@
       <section class="faq" aria-label="Este site">
         <h2>Este site</h2>
         <p class="divulga">A central do Axolotl BR. React, TypeScript e Vite, com o design system Prism. O código fica na <a href="https://github.com/Axolotl-BR">org do GitHub</a> e o estado dos serviços na página de <a href="/status/">status</a>.</p>
+      </section>
+
+      <section class="faq" aria-label="Changelog do ALT">
+        <h2>Changelog do ALT</h2>
+        <ol class="changelog" id="changelog"><li>carregando…</li></ol>
+        <p class="divulga">Direto dos commits do <a href="https://github.com/OFabiano1/ALT-BOT">repositório do ALT</a>.</p>
       </section>
 
       <nav aria-label="Ir para" style="margin-top:36px">
@@ -139,5 +148,6 @@
         <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/links.html">todos os links</a></p>
       </footer>
     </main>
+    <script src="/projetos.js"></script>
   </body>
 </html>
