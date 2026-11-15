@@ -3,7 +3,7 @@
 ## Como funciona
 - `npm run build` faz o build, gera o bundle SSR e roda `scripts/prerender.mjs`, que grava o HTML renderizado da home em `dist/index.html` (crawlers veem o conteúdo sem JS). Se o prerender falhar, o site segue como SPA.
 - Páginas estáticas ficam em `public/` (cada uma com title, description, canonical, og e BreadcrumbList próprios).
-- Imagem de compartilhamento: `public/og.png` (1200×630).
+- Imagem de compartilhamento: `public/og-v2.png` (1200×630).
 - Página nova: criar o html em `public/`, copiar o `<head>` de outra, e adicionar a URL em `public/sitemap.xml`.
 
 ## Pendências do proprietário
