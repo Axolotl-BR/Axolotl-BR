@@ -1,11 +1,19 @@
 import { useEffect, useRef } from 'react'
 
-// Dois canvases num loop só: partículas roxas no fundo e bolhas que sobem do cursor
-// (axolote vive na água). Nada roda com reduced-motion; bolhas só com mouse.
+// Dois canvases num loop só: partículas roxas no fundo e um axolote em pixel
+// que nada atrás do cursor (corpo em segmentos que seguem o líder, guelras que
+// abanam). Nada roda com reduced-motion; o axolote só existe com mouse.
 type Dot = { x: number; y: number; r: number; a: number; vy: number; ph: number }
-type Bubble = { x: number; y: number; r: number; vy: number; ph: number; born: number; life: number }
 
 const PURPLE = '179,102,255'
+const BODY = '#f7a8c4'
+const GILL = '#e0608f'
+const EYE = '#1b1020'
+const G = 3 // grade do pixel
+const SEGS = 12
+const GAP = 10
+
+const snap = (v: number) => Math.round(v / G) * G
 
 export function Fx() {
   const bg = useRef<HTMLCanvasElement>(null)
@@ -24,8 +32,13 @@ export function Fx() {
     let w = 0
     let h = 0
     let dots: Dot[] = []
-    const bubbles: Bubble[] = []
     let raf = 0
+
+    // axolote: seg[0] é a cabeça
+    const seg = Array.from({ length: SEGS }, () => ({ x: 0, y: 0 }))
+    const target = { x: 0, y: 0 }
+    let awake = false
+    let flare = 0
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -48,30 +61,83 @@ export function Fx() {
       }))
     }
 
-    const spawn = (x: number, y: number) => {
-      if (bubbles.length > 60) return
-      bubbles.push({
-        x: x + (Math.random() - 0.5) * 8,
-        y,
-        r: 2.5 + Math.random() * 6,
-        vy: 0.35 + Math.random() * 0.8,
-        ph: Math.random() * Math.PI * 2,
-        born: performance.now(),
-        life: 900 + Math.random() * 900,
-      })
-    }
-
-    let lx = -1
-    let ly = -1
     const onMove = (e: PointerEvent) => {
-      if (lx < 0 || Math.hypot(e.clientX - lx, e.clientY - ly) > 22) {
-        spawn(e.clientX, e.clientY)
-        lx = e.clientX
-        ly = e.clientY
+      target.x = e.clientX
+      target.y = e.clientY
+      if (!awake) {
+        awake = true
+        for (const s of seg) {
+          s.x = e.clientX - 40
+          s.y = e.clientY + 30
+        }
       }
     }
-    const onDown = (e: PointerEvent) => {
-      for (let i = 0; i < 6; i++) spawn(e.clientX, e.clientY)
+    const onDown = () => {
+      flare = 1
+    }
+    const onLeave = () => {
+      awake = false
+    }
+
+    const drawAxolotl = (t: number) => {
+      // cabeça nada até ficar a ~38px do cursor, devagar e sem colar nele
+      const dx = target.x - seg[0].x
+      const dy = target.y - seg[0].y
+      const dist = Math.hypot(dx, dy)
+      const speed = dist > 38 ? Math.min((dist - 38) * 0.07, 6) : 0
+      if (dist > 0) {
+        seg[0].x += (dx / dist) * speed
+        seg[0].y += (dy / dist) * speed
+      }
+      for (let i = 1; i < SEGS; i++) {
+        const ex = seg[i - 1].x - seg[i].x
+        const ey = seg[i - 1].y - seg[i].y
+        const d = Math.hypot(ex, ey) || 1
+        seg[i].x = seg[i - 1].x - (ex / d) * GAP
+        seg[i].y = seg[i - 1].y - (ey / d) * GAP
+      }
+      const swim = 1.4 + speed * 0.7 // ondulação cresce com a velocidade
+      flare *= 0.94
+
+      // posições com ondulação perpendicular ao corpo
+      const pts = seg.map((s, i) => {
+        const prev = seg[Math.max(i - 1, 0)]
+        const next = seg[Math.min(i + 1, SEGS - 1)]
+        const ang = Math.atan2(prev.y - next.y, prev.x - next.x)
+        const wob = Math.sin(t / 170 - i * 0.75) * swim * (i / SEGS + 0.25)
+        return { x: s.x - Math.sin(ang) * wob, y: s.y + Math.cos(ang) * wob, ang }
+      })
+
+      // corpo: do rabo para a cabeça, quadrados chapados que afinam
+      for (let i = SEGS - 1; i >= 0; i--) {
+        const size = i === 0 ? 15 : Math.max(G, snap(12 - i * 0.75))
+        fctx.fillStyle = BODY
+        fctx.fillRect(snap(pts[i].x - size / 2), snap(pts[i].y - size / 2), size, size)
+      }
+
+      // guelras: 3 de cada lado da cabeça
+      const hd = pts[0]
+      const px = -Math.sin(hd.ang)
+      const py = Math.cos(hd.ang)
+      const fx = Math.cos(hd.ang)
+      const fy = Math.sin(hd.ang)
+      fctx.fillStyle = GILL
+      for (const side of [-1, 1]) {
+        for (let k = 0; k < 3; k++) {
+          const along = -2 + k * 4
+          const out = 12 + k * 3 + Math.sin(t / 140 + k + side) * 2 + flare * 5
+          const gx = hd.x + fx * along * -1 + px * side * out
+          const gy = hd.y + fy * along * -1 + py * side * out
+          fctx.fillRect(snap(gx) - 1, snap(gy) - 1, G, G)
+          fctx.fillRect(snap(hd.x + px * side * (9 + k * 1.5)) - 1, snap(hd.y + py * side * (9 + k * 1.5)) - 1, G, G)
+        }
+      }
+
+      // olhos
+      fctx.fillStyle = EYE
+      for (const side of [-1, 1]) {
+        fctx.fillRect(snap(hd.x + fx * 3 + px * side * 3) - 1, snap(hd.y + fy * 3 + py * side * 3) - 1, G, G)
+      }
     }
 
     const frame = (t: number) => {
@@ -90,39 +156,7 @@ export function Fx() {
       }
 
       fctx.clearRect(0, 0, w, h)
-      const now = performance.now()
-      for (let i = bubbles.length - 1; i >= 0; i--) {
-        const b = bubbles[i]
-        const k = (now - b.born) / b.life
-        if (k >= 1.12) {
-          bubbles.splice(i, 1)
-          continue
-        }
-        b.y -= b.vy
-        const x = b.x + Math.sin(now / 380 + b.ph) * 4
-        if (k < 1) {
-          // corpo da bolha: aro + brilho pequeno, sem preenchimento chamativo
-          fctx.strokeStyle = `rgba(${PURPLE},${0.75 * (1 - k)})`
-          fctx.fillStyle = `rgba(${PURPLE},${0.07 * (1 - k)})`
-          fctx.lineWidth = 1.2
-          fctx.beginPath()
-          fctx.arc(x, b.y, b.r, 0, Math.PI * 2)
-          fctx.fill()
-          fctx.stroke()
-          fctx.strokeStyle = `rgba(255,255,255,${0.7 * (1 - k)})`
-          fctx.beginPath()
-          fctx.arc(x, b.y, b.r * 0.6, Math.PI * 1.15, Math.PI * 1.5)
-          fctx.stroke()
-        } else {
-          // estoura: aro abre e some
-          const p = (k - 1) / 0.12
-          fctx.strokeStyle = `rgba(${PURPLE},${0.6 * (1 - p)})`
-          fctx.lineWidth = 1
-          fctx.beginPath()
-          fctx.arc(x, b.y, b.r * (1 + p * 0.7), 0, Math.PI * 2)
-          fctx.stroke()
-        }
-      }
+      if (mouse && awake) drawAxolotl(t)
       raf = requestAnimationFrame(frame)
     }
 
@@ -138,6 +172,7 @@ export function Fx() {
     if (mouse) {
       window.addEventListener('pointermove', onMove, { passive: true })
       window.addEventListener('pointerdown', onDown, { passive: true })
+      document.documentElement.addEventListener('pointerleave', onLeave)
     }
     return () => {
       cancelAnimationFrame(raf)
@@ -145,6 +180,7 @@ export function Fx() {
       document.removeEventListener('visibilitychange', onVis)
       window.removeEventListener('pointermove', onMove)
       window.removeEventListener('pointerdown', onDown)
+      document.documentElement.removeEventListener('pointerleave', onLeave)
     }
   }, [])
 

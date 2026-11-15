@@ -245,98 +245,67 @@ html[data-lang] .axl-root {
   z-index: 1;
 }
 
-/* ── sobre: terminal digitando + cards ── */
-.term {
-  max-width: 760px;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  overflow: hidden;
-}
-.term-bar {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-size: var(--font-size-overline);
-}
-.term-dots {
-  display: inline-flex;
-  gap: 6px;
-}
-.term-dots i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--border-strong);
-}
-.term-body {
-  padding: clamp(18px, 3vw, 32px);
-  min-height: 17rem;
-}
-.term-prompt {
-  color: var(--prism-primary-hover);
-  margin-bottom: var(--space-4);
-  font-size: var(--font-size-body-sm);
-}
-.term-line {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-body-sm);
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-3);
-  min-height: 1.7em;
-}
-.term-line.is-lead {
-  color: var(--text-primary);
-}
-.term-caret {
-  display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 2px;
-  vertical-align: text-bottom;
-  background: var(--prism-primary);
-  animation: term-blink 1s steps(1) infinite;
-}
-@keyframes term-blink {
-  50% { opacity: 0; }
-}
-.about-cards {
+/* ── projetos: cards com entrada em sequência ── */
+.proj-grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-4);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
 }
-.about-card {
+.proj-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
   height: 100%;
-  padding: var(--space-5);
+  padding: var(--space-6);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   background: var(--surface);
-  color: var(--prism-primary-hover);
   transition:
     transform var(--motion-normal) var(--ease-standard),
     border-color var(--motion-normal) var(--ease-standard);
 }
-.about-card:hover {
+.proj-card:hover {
   transform: translateY(-4px);
   border-color: var(--prism-primary);
 }
-.about-card p {
-  color: var(--text-primary);
-  font-weight: 600;
+.proj-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
 }
-.about-card-n {
+.proj-kind {
   color: var(--text-muted);
   font-size: var(--font-size-overline);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.proj-name {
+  font-size: var(--font-size-h4);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.proj-desc {
+  color: var(--text-secondary);
+  font-size: var(--font-size-body-sm);
+  flex: 1;
+}
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--prism-primary-hover);
+  font-weight: 600;
+  font-size: var(--font-size-body-sm);
+}
+.proj-foot {
+  margin-top: var(--space-6);
+  font-size: var(--font-size-overline);
+}
+.proj-foot a {
+  color: var(--text-muted);
 }
 
 /* ── navegação: sublinhado que desenha e some ── */
@@ -427,9 +396,6 @@ html[data-lang] .axl-root {
   }
   .prism-button {
     translate: none;
-  }
-  .term-caret {
-    animation: none;
   }
   ::view-transition-old(root),
   ::view-transition-new(root) {

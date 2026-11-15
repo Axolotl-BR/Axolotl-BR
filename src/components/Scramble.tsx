@@ -62,9 +62,6 @@ export function Scramble({ text, on = 'view' }: Props) {
   }, [text, on, run])
 
   return (
-    <span ref={ref}>
-      <span aria-hidden="true">{shown}</span>
-      <span className="visually-hidden">{text}</span>
-    </span>
+    <span ref={ref}>{shown}</span>
   )
 }

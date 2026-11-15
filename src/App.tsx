@@ -8,6 +8,7 @@ import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { DiscordSection } from './sections/DiscordSection'
 import { Smp } from './sections/Smp'
+import { Projects } from './sections/Projects'
 import { Fabi } from './sections/Fabi'
 import { Timeline } from './sections/Timeline'
 import { useLang } from './lib/i18n'
@@ -34,7 +35,7 @@ export function App() {
     const ok = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches
     if (!ok) return
     const onMove = (e: PointerEvent) => {
-      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.discord-door, .news-item, .smp-art, .about-card')
+      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.discord-door, .news-item, .smp-art, .proj-card')
       if (!card) return
       const r = card.getBoundingClientRect()
       card.style.setProperty('--mx', `${e.clientX - r.left}px`)
@@ -81,6 +82,7 @@ export function App() {
         <About />
         <DiscordSection />
         <Smp />
+        <Projects />
         <Fabi />
         <Timeline />
       </main>
