@@ -4,6 +4,7 @@ import { Button } from 'prism'
 import { links, site } from '../data/site'
 import { useLang } from '../lib/i18n'
 import { LangSwitch } from './LangSwitch'
+import { Scramble } from './Scramble'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { useScrolled } from '../hooks/useScrolled'
 import { useEscapeKey } from '../hooks/useEscapeKey'
@@ -26,7 +27,7 @@ function DesktopLinks({ active }: { active: string }) {
             className={`nav-link ${isActive ? 'is-active' : ''}`}
             aria-current={isActive ? 'location' : undefined}
           >
-            {item.label}
+            <Scramble text={item.label} on="hover" />
           </a>
         )
       })}

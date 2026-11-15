@@ -1,8 +1,11 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Gamepad2, Lightbulb, MessageCircle, Palette, Trophy } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
+import { Typed } from '../components/Typed'
 import { links } from '../data/site'
 import { useLang } from '../lib/i18n'
+
+const icons = [MessageCircle, Gamepad2, Trophy, Palette, Lightbulb]
 
 export function About() {
   const { c } = useLang()
@@ -19,36 +22,30 @@ export function About() {
         </>
       }
     >
-      <div className="community-grid">
-        <div className="community-copy">
-          <Reveal>
-            <p className="lead">{a.p1}</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="community-p">{a.p2}</p>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="community-strong">{a.strong}</p>
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="community-note">{a.note}</p>
-            <a href={links.discord} target="_blank" rel="noreferrer" className="community-cta">
-              {a.cta} <ArrowUpRight size={14} aria-hidden="true" />
-            </a>
-          </Reveal>
-        </div>
+      <Reveal>
+        <Typed file={a.file} lines={[a.p1, a.p2, a.strong, a.note]} />
+      </Reveal>
 
-        <Reveal delay={150} className="community-lista-wrap">
-          <ul className="community-lista">
-            {a.items.map((item, i) => (
-              <li key={item} className="community-item" style={{ ['--i' as string]: i }}>
-                <span className="tick" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </div>
+      <ul className="about-cards">
+        {a.items.map((item, i) => {
+          const Icon = icons[i % icons.length]
+          return (
+            <li key={item}>
+              <Reveal delay={i * 90}>
+                <div className="about-card">
+                  <span className="about-card-n mono">0{i + 1}</span>
+                  <Icon size={22} aria-hidden="true" />
+                  <p>{item}</p>
+                </div>
+              </Reveal>
+            </li>
+          )
+        })}
+      </ul>
+
+      <a href={links.discord} target="_blank" rel="noreferrer" className="community-cta">
+        {a.cta} <ArrowUpRight size={14} aria-hidden="true" />
+      </a>
     </Section>
   )
 }

@@ -34,6 +34,7 @@ const pt = {
   marqueeAria: 'linha do tempo da comunidade',
   about: {
     eyebrow: 'sobre nós',
+    file: 'sobre.txt',
     title: ['feito de ', 'player para player.'],
     p1: 'O Axolotl BR é uma comunidade feita por pessoas que gostam de jogar, criar projetos, trocar ideias e conhecer gente nova.',
     p2: 'Sem empresa por trás, sem fórmula pronta e sem precisar ser alguém importante. Só pessoas construindo um espaço que também podem chamar de seu.',
@@ -185,6 +186,7 @@ const en: Copy = {
   marqueeAria: 'community timeline',
   about: {
     eyebrow: 'about us',
+    file: 'about.txt',
     title: ['made from ', 'player to player.'],
     p1: 'Axolotl BR is a community made by people who like to play, build projects, trade ideas and meet new people.',
     p2: 'No company behind it, no ready-made formula, and no need to be somebody important. Just people building a space they can call their own.',

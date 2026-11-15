@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useToast } from 'prism'
 import { Navbar } from './components/Navbar'
+import { Fx } from './components/Fx'
 import { Footer } from './components/Footer'
 import { Marquee } from './components/Marquee'
 import { Hero } from './sections/Hero'
@@ -33,18 +34,43 @@ export function App() {
     const ok = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches
     if (!ok) return
     const onMove = (e: PointerEvent) => {
-      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.discord-door, .news-item, .smp-art')
+      const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.discord-door, .news-item, .smp-art, .about-card')
       if (!card) return
       const r = card.getBoundingClientRect()
       card.style.setProperty('--mx', `${e.clientX - r.left}px`)
       card.style.setProperty('--my', `${e.clientY - r.top}px`)
     }
     document.addEventListener('pointermove', onMove, { passive: true })
-    return () => document.removeEventListener('pointermove', onMove)
+
+    // botões magnéticos: seguem o mouse de leve e voltam ao soltar
+    let mag: HTMLElement | null = null
+    const release = () => {
+      if (!mag) return
+      mag.classList.add('is-magnet-out')
+      mag.style.setProperty('--tx', '0px')
+      mag.style.setProperty('--ty', '0px')
+      mag = null
+    }
+    const onMag = (e: PointerEvent) => {
+      const btn = (e.target as HTMLElement | null)?.closest<HTMLElement>('.prism-button')
+      if (btn !== mag) release()
+      if (!btn) return
+      mag = btn
+      btn.classList.remove('is-magnet-out')
+      const r = btn.getBoundingClientRect()
+      btn.style.setProperty('--tx', `${(e.clientX - (r.left + r.width / 2)) * 0.22}px`)
+      btn.style.setProperty('--ty', `${(e.clientY - (r.top + r.height / 2)) * 0.32}px`)
+    }
+    document.addEventListener('pointermove', onMag, { passive: true })
+    return () => {
+      document.removeEventListener('pointermove', onMove)
+      document.removeEventListener('pointermove', onMag)
+    }
   }, [])
 
   return (
     <div className="axl-root">
+      <Fx />
       <a href="#inicio" className="skip-link">
         {c.skip}
       </a>

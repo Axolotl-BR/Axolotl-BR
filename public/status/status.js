@@ -8,6 +8,14 @@ fetch('/api/status', opts)
     if (!pill || !d) return
     pill.textContent = d.discord ? 'no ar' : 'fora do ar'
     pill.className = d.discord ? 'pill ok' : 'pill warn'
+    var sub = document.getElementById('discord-sub')
+    if (sub && typeof d.online === 'number') sub.textContent = d.online + ' pessoas online agora'
+    var alt = document.getElementById('alt-pill')
+    if (alt) {
+      if (d.alt === true) { alt.textContent = 'online'; alt.className = 'pill ok' }
+      else if (d.alt === false) { alt.textContent = 'offline'; alt.className = 'pill warn' }
+      else { alt.textContent = 'sem checagem'; alt.className = 'pill dim' }
+    }
   })
   .catch(function () {})
 

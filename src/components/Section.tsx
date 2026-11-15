@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Reveal } from './Reveal'
+import { Scramble } from './Scramble'
 
 type SectionProps = {
   id: string
@@ -16,7 +17,7 @@ export function Section({ id, title, eyebrow, lead, children, className }: Secti
       <div className="container">
         <Reveal>
           <div className="section-head">
-            {eyebrow ? <p className="eyebrow mono">{eyebrow}</p> : null}
+            {eyebrow ? <p className="eyebrow mono"><Scramble text={eyebrow} /></p> : null}
             <h2 className="h2">{title}</h2>
             {lead ? <p className="lead">{lead}</p> : null}
           </div>
