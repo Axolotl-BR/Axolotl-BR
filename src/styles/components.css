@@ -306,13 +306,6 @@
   margin-top: var(--space-4);
 }
 
-.footer-tagline {
-  color: var(--text-secondary);
-  font-size: var(--font-size-body-sm);
-  margin-top: var(--space-2);
-  max-width: 32ch;
-}
-
 .footer-head {
   font-family: var(--font-mono);
   font-size: var(--font-size-overline);

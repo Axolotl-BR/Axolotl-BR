@@ -308,6 +308,46 @@ html[data-lang] .axl-root {
   color: var(--text-muted);
 }
 
+/* ── atualizações reais (commits) ── */
+.upd-list {
+  list-style: none;
+  max-width: 760px;
+}
+.upd-item {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: var(--space-5);
+  align-items: baseline;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+.upd-list li:first-child .upd-item {
+  border-top: none;
+}
+.upd-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.upd-ver,
+.upd-date {
+  color: var(--text-muted);
+  font-size: var(--font-size-overline);
+}
+.upd-msg {
+  color: var(--text-primary);
+  font-size: var(--font-size-body-sm);
+}
+.upd-more {
+  margin-top: var(--space-6);
+}
+@media (max-width: 640px) {
+  .upd-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
 /* ── navegação: sublinhado que desenha e some ── */
 .nav-link::before {
   content: '';

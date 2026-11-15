@@ -5,7 +5,7 @@ fetch('/api/changelog')
   .then(function (d) {
     if (!list) return
     list.textContent = ''
-    var items = (d && d.items) || []
+    var items = (d && d.alt) || []
     if (!items.length) {
       var li = document.createElement('li')
       li.textContent = 'não deu pra carregar agora · veja no GitHub.'

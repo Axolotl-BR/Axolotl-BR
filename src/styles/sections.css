@@ -3,10 +3,6 @@
   color: var(--prism-primary-hover);
 }
 
-.text-faint {
-  color: var(--text-muted);
-}
-
 /* ───────── hero — editorial minimalista, roxo como foco ───────── */
 .hero {
   min-height: 100svh;
@@ -114,32 +110,6 @@
   .hero-scroll {
     bottom: 14px;
   }
-}
-
-/* ───────── manifesto ───────── */
-.manifesto {
-  padding-block: clamp(72px, 10vw, 128px);
-}
-
-.manifesto-line {
-  font-size: clamp(var(--font-size-h3), 4.4vw, var(--font-size-display));
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  max-width: 24ch;
-  text-wrap: balance;
-}
-.manifesto-line em {
-  font-style: normal;
-  color: var(--prism-primary-hover);
-}
-
-.manifesto-sub {
-  margin-top: var(--space-6);
-  color: var(--text-secondary);
-  max-width: 60ch;
-  font-size: var(--font-size-body);
-  line-height: 1.6;
 }
 
 /* ───────── comunidade ───────── */

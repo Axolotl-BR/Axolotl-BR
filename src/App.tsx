@@ -9,6 +9,7 @@ import { About } from './sections/About'
 import { DiscordSection } from './sections/DiscordSection'
 import { Smp } from './sections/Smp'
 import { Projects } from './sections/Projects'
+import { Updates } from './sections/Updates'
 import { Fabi } from './sections/Fabi'
 import { Timeline } from './sections/Timeline'
 import { useLang } from './lib/i18n'
@@ -83,6 +84,7 @@ export function App() {
         <DiscordSection />
         <Smp />
         <Projects />
+        <Updates />
         <Fabi />
         <Timeline />
       </main>

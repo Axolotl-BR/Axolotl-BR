@@ -49,11 +49,11 @@
         font-weight: 500;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #666674;
+        color: #8a8a98;
         margin-bottom: 24px;
       }
       h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 12px; }
-      p { color: #90909d; margin-bottom: 28px; max-width: 420px; line-height: 1.6; }
+      p { color: #90909d; margin: 0 auto 28px; max-width: 420px; line-height: 1.6; }
       .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
       a {
         display: inline-flex;
@@ -73,20 +73,24 @@
       a.solid { color: white; background: #8f00ff; }
       a.solid:hover { background: #a34aff; }
       a.line { color: #f0f0f4; border: 1px solid #41414d; }
-      a.line:hover { border-color: #666674; }
+      a.line:hover { border-color: #8a8a98; }
       a:focus-visible { outline: 2px solid #a34aff; outline-offset: 2px; }
-      .ax img { width: 72px; height: 72px; margin: 0 auto 12px; }
-      .mini { font-size: 0.8125rem; color: #666674; }
+      .sprite { display: block; width: 120px; height: 80px; margin: 0 auto 16px; image-rendering: pixelated; cursor: pointer; animation: bob 3s ease-in-out infinite; }
+      .note { min-height: 1.2em; margin-bottom: 12px; font-size: 12px; color: #a34aff; }
+      @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+      @media (prefers-reduced-motion: reduce) { .sprite { animation: none; } }
+      .mini { font-size: 0.8125rem; color: #8a8a98; }
       .mini a { color: #90909d; text-decoration: none; padding: 0; background: none; border: none; border-radius: 0; font-weight: 400; letter-spacing: 0; font-size: 0.8125rem; display: inline; min-height: 0; }
       .mini a:hover { color: #f0f0f4; }
     </style>
   </head>
   <body>
     <main>
-      <div class="ax" aria-hidden="true"><img src="/axolote.png" alt="" width="72" height="72" /></div>
+      <canvas id="sprite" class="sprite" width="120" height="80" role="img" aria-label="axolote em pixel (clique nele)"></canvas>
       <div class="brand">axolotl br</div>
       <div class="mono">// 404</div>
-      <h1>você saiu do mapa.</h1>
+      <h1 id="msg">você saiu do mapa.</h1>
+      <p class="note mono" id="note" aria-live="polite"></p>
       <p>Esse lugar não existe (ainda). O axolote confirmou. Volta pra central ou entra no Discord.</p>
       <div class="row">
         <a class="solid" href="/">VOLTAR AO INÍCIO</a>
@@ -102,5 +106,6 @@
         <a href="/midia.html">kit de mídia</a>
       </nav>
     </main>
+    <script src="/404.js"></script>
   </body>
 </html>

@@ -102,6 +102,14 @@ const pt = {
       },
     ],
   },
+  updates: {
+    eyebrow: 'atualizações',
+    title: 'o que mudou por aqui.',
+    lead: 'Direto dos commits reais do site e do ALT. Sem enfeite, sem atividade inventada.',
+    site: 'site',
+    alt: 'ALT bot',
+    more: 'ver tudo no GitHub',
+  },
   fabi: {
     eyebrow: 'eu',
     title: 'fab!*',
@@ -287,6 +295,14 @@ const en: Copy = {
         link: 'see on GitHub',
       },
     ],
+  },
+  updates: {
+    eyebrow: 'updates',
+    title: "what's changed around here.",
+    lead: 'Straight from the real commits of the site and ALT. No fluff, no made-up activity.',
+    site: 'site',
+    alt: 'ALT bot',
+    more: 'see everything on GitHub',
   },
   fabi: {
     eyebrow: 'me',
