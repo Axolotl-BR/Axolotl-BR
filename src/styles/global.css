@@ -200,11 +200,6 @@ button {
   border: 0;
 }
 
-/* ── versão em inglês: preto e branco ── */
-html[data-lang='en'] {
-  filter: grayscale(1);
-}
-
 /* ── rótulo pequeno acima de título ── */
 .eyebrow {
   font-size: var(--font-size-overline);
