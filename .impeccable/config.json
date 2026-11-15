@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-15T06:51:15.955Z",
+        "reason": "Inter é a tipografia do design system Prism e do site Axolotl BR (trocada de Space Grotesk em sessão anterior); decisão de projeto registrada no repo, não confirmada de novo nesta sessão"
+      }
+    ]
+  }
+}
