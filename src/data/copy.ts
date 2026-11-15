@@ -174,6 +174,7 @@ const pt = {
     title: ['Sua comunidade', 'na internet.'],
     join: 'entrar no discord',
     top: 'voltar ao topo ↑',
+    about: 'Axolotl BR é uma comunidade brasileira de player para player: servidor de Discord, Axolotl SMP de Minecraft, bot com perfis de Deadlock e osu!, wiki, regras e projetos abertos.',
     cols: [
       {
         head: 'navegar',
@@ -368,6 +369,7 @@ const en: Copy = {
     title: ['Your community', 'on the internet.'],
     join: 'join discord',
     top: 'back to top ↑',
+    about: 'Axolotl BR is a Brazilian player-to-player community: Discord server, Axolotl SMP Minecraft server, a bot with Deadlock and osu! profiles, wiki, rules and open projects.',
     cols: [
       {
         head: 'navigate',

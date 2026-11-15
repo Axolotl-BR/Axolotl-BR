@@ -14,6 +14,8 @@ export default defineConfig({
     // navegador, então o vite spawna `xdg-open` e morre com ENOENT.
     open: false,
   },
+  // prerender: o SSR precisa empacotar o prism (css/ESM) em vez de importar do node_modules
+  ssr: { noExternal: ['prism', 'stick-it-up', 'lucide-react'] },
   build: {
     // teto de aviso do bundle; falha o build se estourar
     chunkSizeWarningLimit: 800,

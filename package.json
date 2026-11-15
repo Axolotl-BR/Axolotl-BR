@@ -3,11 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "A central oficial do universo Axolotl BR. Comunidade, jogos, servidores, projetos e experiências de player para player.",
+  "description": "A central oficial do universo Axolotl BR. Comunidade, jogos, servidores, projetos e experi\u00c3\u00aancias de player para player.",
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "start": "npm run build && node index.js"
   },
   "dependencies": {

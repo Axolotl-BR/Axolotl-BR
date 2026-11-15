@@ -344,6 +344,13 @@
   color: var(--text-primary);
 }
 
+.footer-about {
+  color: var(--text-muted);
+  font-size: var(--font-size-body-sm);
+  max-width: 60ch;
+  margin-top: var(--space-8);
+}
+
 .footer-rule {
   margin-block: var(--space-8);
 }

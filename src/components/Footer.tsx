@@ -64,6 +64,8 @@ export function Footer() {
           ))}
         </div>
 
+        <p className="footer-about">{f.about}</p>
+
         <hr className="rule footer-rule" />
 
         <div className="footer-bottom">
