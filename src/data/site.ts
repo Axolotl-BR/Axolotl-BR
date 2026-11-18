@@ -12,7 +12,7 @@ export const site = {
 } as const
 
 export const links = {
-  discord: 'https://discord.gg/AxolotlBR',
+  discord: 'https://discord.gg/8WtmZTySdB',
 } as const
 
 export const owner = {
