@@ -21,3 +21,14 @@ npm-debug.log*
 
 # local: checklist pessoal (nunca commitar)
 FAZER.txt
+
+# local: notas e ferramentas (ficam só na máquina)
+SEO.md
+AGENTS.md
+CLAUDE.md
+prism.md
+.impeccable/
+.opencode/
+.claude/
+.superpowers/
+docs/superpowers/
