@@ -11,6 +11,7 @@
   position: relative;
   padding-block: 120px 96px;
   overflow: hidden;
+  background: url('../assets/images/wallpaper.jpg') center bottom / cover no-repeat;
 }
 
 .hero-inner {
