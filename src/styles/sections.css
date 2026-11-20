@@ -11,7 +11,36 @@
   position: relative;
   padding-block: 120px 96px;
   overflow: hidden;
-  background: url('../assets/images/wallpaper.jpg') center bottom / cover no-repeat;
+  isolation: isolate;
+  /* painel com cantos de baixo arredondados, descolado das bordas da tela */
+  margin-inline: clamp(6px, 1vw, 12px);
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+  --hero-grid: rgb(255 255 255 / 0.06);
+  --hero-cue: var(--prism-purple-950);
+  /* escuro: preto em cima, brilho roxo subindo de baixo */
+  background: url('../assets/images/wallpaper.jpg') center bottom / cover no-repeat, #000;
+}
+/* claro: lilás quase branco em cima, roxo da marca crescendo embaixo */
+[data-theme='light'] .hero {
+  --hero-grid: color-mix(in srgb, var(--prism-purple-800) 9%, transparent);
+  --hero-cue: #fff;
+  background:
+    radial-gradient(90% 42% at 50% 100%, var(--prism-purple-500) 0%, color-mix(in srgb, var(--prism-purple-400) 55%, transparent) 45%, transparent 100%),
+    linear-gradient(180deg, var(--prism-purple-50) 0%, #fff 32%, var(--prism-purple-50) 62%, var(--prism-purple-200) 100%);
+}
+/* grade fina que some nas bordas */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hero-grid) 1px, transparent 1px);
+  background-size: 160px 160px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 35%, transparent 100%);
 }
 
 .hero-inner {
@@ -102,6 +131,14 @@
   position: absolute;
   bottom: 28px;
   left: var(--gutter);
+  /* fica sobre a parte mais clara/forte do brilho: cor própria pra contraste */
+  color: var(--hero-cue);
+}
+.hero-scroll:hover {
+  color: var(--hero-cue);
+}
+.hero-scroll .line {
+  background: var(--hero-cue);
 }
 
 @media (max-width: 720px) {

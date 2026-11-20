@@ -4,6 +4,7 @@ import { Button } from 'prism'
 import { links, site } from '../data/site'
 import { useLang } from '../lib/i18n'
 import { LangSwitch } from './LangSwitch'
+import { ThemeSwitch } from './ThemeSwitch'
 import { Scramble } from './Scramble'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { useScrolled } from '../hooks/useScrolled'
@@ -65,6 +66,7 @@ export function Navbar() {
           />
         </a>
         <DesktopLinks active={active} />
+        <ThemeSwitch />
         <LangSwitch />
         <span className="nav-cta">
           <Button href={links.discord} external size="sm" label="Discord" />
