@@ -2,6 +2,7 @@ import { useCallback, useEffect } from 'react'
 import { useToast } from 'prism'
 import { Navbar } from './components/Navbar'
 import { Fx } from './components/Fx'
+import { Mascot } from './components/Mascot'
 import { Footer } from './components/Footer'
 import { Marquee } from './components/Marquee'
 import { Hero } from './sections/Hero'
@@ -89,6 +90,7 @@ export function App() {
         <Timeline />
       </main>
       <Footer />
+      <Mascot />
     </div>
   )
 }
