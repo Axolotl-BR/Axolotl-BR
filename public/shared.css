@@ -129,9 +129,3 @@ summary:focus-visible {
 @keyframes vt-in {
   from { opacity: 0; transform: translateY(8px); }
 }
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-  }
-}

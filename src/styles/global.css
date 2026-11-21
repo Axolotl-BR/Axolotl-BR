@@ -14,19 +14,6 @@ html {
   scrollbar-width: thin;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
 /* Shell fora da raiz do provider (fundo + fallback tipográfico espelham --background
    e --font-sans do pacote prism). Dentro do provider quem pinta é a raiz do provider. */
 body {

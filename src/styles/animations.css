@@ -19,15 +19,6 @@
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero .reveal {
-    animation: none;
-  }
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
 
 /* ── scroll cue ── */
 .scroll-cue {
@@ -76,13 +67,8 @@
   position: relative;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .scroll-cue .line {
-    animation: none;
-  }
-}
 
-/* ── mais vida: tudo respeita reduced-motion (regra global em global.css) ── */
+/* ── mais vida ── */
 .hero-axolote img {
   animation: axl-float 5s ease-in-out infinite;
 }
@@ -217,13 +203,6 @@ html[data-lang] .axl-root {
 }
 .smp-sticker {
   z-index: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .discord-door::after,
-  .news-item::after,
-  .smp-art::after {
-    display: none;
-  }
 }
 
 /* ── canvases: partículas ao fundo, bolhas no cursor ── */
@@ -430,18 +409,6 @@ html[data-lang] .axl-root {
   from { opacity: 0; transform: translateY(8px); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .news-item {
-    opacity: 1;
-  }
-  .prism-button {
-    translate: none;
-  }
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-  }
-}
 
 /* ── mascote: axolote andando no rodapé, clica e segura = balde ── */
 .mascot {

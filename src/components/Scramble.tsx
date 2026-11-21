@@ -12,7 +12,6 @@ export function Scramble({ text, on = 'view' }: Props) {
   const [shown, setShown] = useState(text)
 
   const run = useCallback(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     window.clearInterval(timer.current)
     const start = performance.now()
     timer.current = window.setInterval(() => {

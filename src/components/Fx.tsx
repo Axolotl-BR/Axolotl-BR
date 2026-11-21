@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react'
 
 // Dois canvases num loop só: partículas roxas no fundo e um axolote em pixel
 // que nada atrás do cursor (corpo em segmentos que seguem o líder, guelras que
-// abanam). Nada roda com reduced-motion; o axolote só existe com mouse.
+// abanam). No celular ele segue o dedo. Roda pra todo mundo, inclusive com
+// "reduzir movimento" ligado no sistema (decisão do dono do site).
 type Dot = { x: number; y: number; r: number; a: number; vy: number; ph: number }
 
 const PURPLE = '179,102,255'
@@ -20,14 +21,12 @@ export function Fx() {
   const fg = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const bgc = bg.current
     const fgc = fg.current
     if (!bgc || !fgc) return
     const bctx = bgc.getContext('2d')
     const fctx = fgc.getContext('2d')
     if (!bctx || !fctx) return
-    const mouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
     let w = 0
     let h = 0
@@ -61,22 +60,30 @@ export function Fx() {
       }))
     }
 
-    const onMove = (e: PointerEvent) => {
-      target.x = e.clientX
-      target.y = e.clientY
+    const follow = (x: number, y: number) => {
+      target.x = x
+      target.y = y
       if (!awake) {
         awake = true
         for (const s of seg) {
-          s.x = e.clientX - 40
-          s.y = e.clientY + 30
+          s.x = x - 40
+          s.y = y + 30
         }
       }
     }
-    const onDown = () => {
+    const onMove = (e: PointerEvent) => follow(e.clientX, e.clientY)
+    // no celular o navegador cancela o pointermove quando começa a rolar; o touchmove continua
+    const onTouch = (e: TouchEvent) => {
+      const t = e.touches[0]
+      if (t) follow(t.clientX, t.clientY)
+    }
+    const onDown = (e: PointerEvent) => {
+      follow(e.clientX, e.clientY)
       flare = 1
     }
-    const onLeave = () => {
-      awake = false
+    // no toque o pointerleave dispara a cada vez que solta o dedo; aí o axolote fica onde está
+    const onLeave = (e: PointerEvent) => {
+      if (e.pointerType === 'mouse') awake = false
     }
 
     const drawAxolotl = (t: number) => {
@@ -156,7 +163,7 @@ export function Fx() {
       }
 
       fctx.clearRect(0, 0, w, h)
-      if (mouse && awake) drawAxolotl(t)
+      if (awake) drawAxolotl(t)
       raf = requestAnimationFrame(frame)
     }
 
@@ -169,17 +176,17 @@ export function Fx() {
     raf = requestAnimationFrame(frame)
     window.addEventListener('resize', resize)
     document.addEventListener('visibilitychange', onVis)
-    if (mouse) {
-      window.addEventListener('pointermove', onMove, { passive: true })
-      window.addEventListener('pointerdown', onDown, { passive: true })
-      document.documentElement.addEventListener('pointerleave', onLeave)
-    }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    window.addEventListener('pointerdown', onDown, { passive: true })
+    window.addEventListener('touchmove', onTouch, { passive: true })
+    document.documentElement.addEventListener('pointerleave', onLeave)
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', onVis)
       window.removeEventListener('pointermove', onMove)
       window.removeEventListener('pointerdown', onDown)
+      window.removeEventListener('touchmove', onTouch)
       document.documentElement.removeEventListener('pointerleave', onLeave)
     }
   }, [])

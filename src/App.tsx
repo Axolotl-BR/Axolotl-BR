@@ -32,9 +32,9 @@ export function App() {
 
   useTypingEgg(() => showToast(eggMessages.typing))
 
-  // spotlight roxo seguindo o cursor nos cards (só com mouse e sem reduced-motion)
+  // spotlight roxo seguindo o cursor nos cards (só com mouse: sem cursor não tem o que seguir)
   useEffect(() => {
-    const ok = window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches
+    const ok = window.matchMedia('(hover: hover)').matches
     if (!ok) return
     const onMove = (e: PointerEvent) => {
       const card = (e.target as HTMLElement | null)?.closest<HTMLElement>('.discord-door, .news-item, .smp-art, .proj-card')

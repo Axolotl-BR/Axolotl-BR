@@ -4,25 +4,19 @@ import bucketGif from '../assets/images/axolote-balde.gif'
 
 // Axolote de pixel que anda de um lado pro outro no rodapé da tela.
 // Clicou e segurou: vai pro balde e para; soltou: volta a andar.
-// Some com reduced-motion (os GIFs animam sozinhos).
 const SPEED = 38 // px/s
 // largura de cada GIF em pixels da arte (o balde é mais estreito e mais alto)
 const WALK_W = 23
 const BUCKET_W = 18
 
 export function Mascot() {
-  const [on, setOn] = useState(false)
   const [held, setHeld] = useState(false)
   const el = useRef<HTMLDivElement>(null)
   const heldRef = useRef(false)
 
   useEffect(() => {
-    setOn(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  }, [])
-
-  useEffect(() => {
     const node = el.current
-    if (!on || !node) return
+    if (!node) return
     let x = Math.random() * (window.innerWidth - 80)
     let dir = Math.random() < 0.5 ? -1 : 1
     let last = 0
@@ -42,9 +36,7 @@ export function Mascot() {
     }
     raf = requestAnimationFrame(step)
     return () => cancelAnimationFrame(raf)
-  }, [on])
-
-  if (!on) return null
+  }, [])
 
   const grab = (e: React.PointerEvent) => {
     e.preventDefault()

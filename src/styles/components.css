@@ -245,12 +245,6 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-}
-
 /* ───────── footer v2 ───────── */
 .footer {
   border-top: 1px solid var(--border-subtle);

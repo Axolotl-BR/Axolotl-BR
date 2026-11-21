@@ -1,8 +1,20 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
+
+// O site mostra as animações pra todo mundo, mesmo com "reduzir movimento" ligado
+// no sistema. O prism zera tudo com !important nesse caso (CSS) e no toast (hook),
+// então a media query dele vira "not all", que nunca casa.
+const ignorePrismReducedMotion: Plugin = {
+  name: 'ignore-prism-reduced-motion',
+  enforce: 'pre',
+  transform(code, id) {
+    if (!id.includes('/node_modules/prism/') || !code.includes('prefers-reduced-motion: reduce')) return
+    return { code: code.replaceAll('(prefers-reduced-motion: reduce)', 'not all'), map: null }
+  },
+}
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [ignorePrismReducedMotion, react()],
   // base absoluta: host próprio na raiz (estilo duneco.gg), sem subpasta
   base: '/',
   server: {
