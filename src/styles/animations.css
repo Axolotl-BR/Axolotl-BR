@@ -205,7 +205,7 @@ html[data-lang] .axl-root {
   z-index: 1;
 }
 
-/* ── canvases: partículas ao fundo, bolhas no cursor ── */
+/* ── canvas: partículas + glow do cursor ao fundo ── */
 .fx {
   position: fixed;
   inset: 0;
@@ -215,9 +215,6 @@ html[data-lang] .axl-root {
 }
 .fx-bg {
   z-index: 0;
-}
-.fx-fg {
-  z-index: 60;
 }
 .axl-root {
   position: relative;
