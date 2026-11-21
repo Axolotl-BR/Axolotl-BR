@@ -10,6 +10,8 @@ const GLOW_R = 260
 
 export function Fx() {
   const bg = useRef<HTMLCanvasElement>(null)
+  const dot = useRef<HTMLDivElement>(null)
+  const ring = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const c = bg.current
@@ -56,7 +58,17 @@ export function Fx() {
         }
       }
     }
-    const onMove = (e: PointerEvent) => follow(e.clientX, e.clientY)
+    const onMove = (e: PointerEvent) => {
+      follow(e.clientX, e.clientY)
+      if (e.pointerType !== 'mouse') return
+      const d = dot.current
+      const r = ring.current
+      if (!d || !r) return
+      document.documentElement.classList.add('has-cur')
+      d.style.transform = `translate(${e.clientX}px,${e.clientY}px)`
+      r.style.transform = `translate(${e.clientX}px,${e.clientY}px)`
+      r.classList.toggle('is-hot', !!(e.target as Element).closest?.('a,button,[role="button"],input,textarea,select,label,summary'))
+    }
     // no celular o navegador cancela o pointermove quando começa a rolar; o touchmove continua
     const onTouch = (e: TouchEvent) => {
       const t = e.touches[0]
@@ -65,10 +77,14 @@ export function Fx() {
     const onDown = (e: PointerEvent) => {
       follow(e.clientX, e.clientY)
       flare = 1
+      ring.current?.classList.add('is-down')
     }
+    const onUp = () => ring.current?.classList.remove('is-down')
     // no toque o pointerleave dispara a cada vez que solta o dedo; aí o glow fica onde está
     const onLeave = (e: PointerEvent) => {
-      if (e.pointerType === 'mouse') awake = false
+      if (e.pointerType !== 'mouse') return
+      awake = false
+      document.documentElement.classList.remove('has-cur') // mouse saiu: devolve o cursor nativo
     }
 
     const drawGlow = () => {
@@ -114,6 +130,7 @@ export function Fx() {
     document.addEventListener('visibilitychange', onVis)
     window.addEventListener('pointermove', onMove, { passive: true })
     window.addEventListener('pointerdown', onDown, { passive: true })
+    window.addEventListener('pointerup', onUp, { passive: true })
     window.addEventListener('touchmove', onTouch, { passive: true })
     document.documentElement.addEventListener('pointerleave', onLeave)
     return () => {
@@ -122,10 +139,18 @@ export function Fx() {
       document.removeEventListener('visibilitychange', onVis)
       window.removeEventListener('pointermove', onMove)
       window.removeEventListener('pointerdown', onDown)
+      window.removeEventListener('pointerup', onUp)
+      document.documentElement.classList.remove('has-cur')
       window.removeEventListener('touchmove', onTouch)
       document.documentElement.removeEventListener('pointerleave', onLeave)
     }
   }, [])
 
-  return <canvas ref={bg} className="fx fx-bg" aria-hidden="true" />
+  return (
+    <>
+      <canvas ref={bg} className="fx fx-bg" aria-hidden="true" />
+      <div ref={ring} className="cur-ring" aria-hidden="true" />
+      <div ref={dot} className="cur-dot" aria-hidden="true" />
+    </>
+  )
 }
