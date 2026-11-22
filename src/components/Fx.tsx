@@ -1,17 +1,13 @@
 import { useEffect, useRef } from 'react'
 
-// Um canvas num loop só: partículas roxas no fundo e um glow roxo que segue o
-// cursor (no celular, o dedo) por trás do conteúdo. Roda pra todo mundo,
+// Canvas com partículas roxas no fundo, por trás do conteúdo. Roda pra todo mundo,
 // inclusive com "reduzir movimento" ligado no sistema (decisão do dono do site).
 type Dot = { x: number; y: number; r: number; a: number; vy: number; ph: number }
 
 const PURPLE = '179,102,255'
-const GLOW_R = 260
 
 export function Fx() {
   const bg = useRef<HTMLCanvasElement>(null)
-  const dot = useRef<HTMLDivElement>(null)
-  const ring = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const c = bg.current
@@ -22,12 +18,6 @@ export function Fx() {
     let h = 0
     let dots: Dot[] = []
     let raf = 0
-
-    const glow = { x: 0, y: 0 }
-    const target = { x: 0, y: 0 }
-    let alpha = 0 // fade in/out do glow
-    let awake = false
-    let flare = 0
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -47,63 +37,8 @@ export function Fx() {
       }))
     }
 
-    const follow = (x: number, y: number) => {
-      target.x = x
-      target.y = y
-      if (!awake) {
-        awake = true
-        if (alpha < 0.01) {
-          glow.x = x
-          glow.y = y
-        }
-      }
-    }
-    const onMove = (e: PointerEvent) => {
-      follow(e.clientX, e.clientY)
-      if (e.pointerType !== 'mouse') return
-      const d = dot.current
-      const r = ring.current
-      if (!d || !r) return
-      document.documentElement.classList.add('has-cur')
-      d.style.transform = `translate(${e.clientX}px,${e.clientY}px)`
-      r.style.transform = `translate(${e.clientX}px,${e.clientY}px)`
-      r.classList.toggle('is-hot', !!(e.target as Element).closest?.('a,button,[role="button"],input,textarea,select,label,summary'))
-    }
-    // no celular o navegador cancela o pointermove quando começa a rolar; o touchmove continua
-    const onTouch = (e: TouchEvent) => {
-      const t = e.touches[0]
-      if (t) follow(t.clientX, t.clientY)
-    }
-    const onDown = (e: PointerEvent) => {
-      follow(e.clientX, e.clientY)
-      flare = 1
-      ring.current?.classList.add('is-down')
-    }
-    const onUp = () => ring.current?.classList.remove('is-down')
-    // no toque o pointerleave dispara a cada vez que solta o dedo; aí o glow fica onde está
-    const onLeave = (e: PointerEvent) => {
-      if (e.pointerType !== 'mouse') return
-      awake = false
-      document.documentElement.classList.remove('has-cur') // mouse saiu: devolve o cursor nativo
-    }
-
-    const drawGlow = () => {
-      glow.x += (target.x - glow.x) * 0.12
-      glow.y += (target.y - glow.y) * 0.12
-      alpha += ((awake ? 1 : 0) - alpha) * 0.08
-      flare *= 0.93
-      if (alpha < 0.01) return
-      const r = GLOW_R * (1 + flare * 0.25)
-      const g = ctx.createRadialGradient(glow.x, glow.y, 0, glow.x, glow.y, r)
-      g.addColorStop(0, `rgba(${PURPLE},${(0.18 + flare * 0.12) * alpha})`)
-      g.addColorStop(1, `rgba(${PURPLE},0)`)
-      ctx.fillStyle = g
-      ctx.fillRect(glow.x - r, glow.y - r, r * 2, r * 2)
-    }
-
     const frame = (t: number) => {
       ctx.clearRect(0, 0, w, h)
-      drawGlow()
       for (const d of dots) {
         d.y -= d.vy
         if (d.y < -4) {
@@ -128,29 +63,12 @@ export function Fx() {
     raf = requestAnimationFrame(frame)
     window.addEventListener('resize', resize)
     document.addEventListener('visibilitychange', onVis)
-    window.addEventListener('pointermove', onMove, { passive: true })
-    window.addEventListener('pointerdown', onDown, { passive: true })
-    window.addEventListener('pointerup', onUp, { passive: true })
-    window.addEventListener('touchmove', onTouch, { passive: true })
-    document.documentElement.addEventListener('pointerleave', onLeave)
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', onVis)
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('pointerdown', onDown)
-      window.removeEventListener('pointerup', onUp)
-      document.documentElement.classList.remove('has-cur')
-      window.removeEventListener('touchmove', onTouch)
-      document.documentElement.removeEventListener('pointerleave', onLeave)
     }
   }, [])
 
-  return (
-    <>
-      <canvas ref={bg} className="fx fx-bg" aria-hidden="true" />
-      <div ref={ring} className="cur-ring" aria-hidden="true" />
-      <div ref={dot} className="cur-dot" aria-hidden="true" />
-    </>
-  )
+  return <canvas ref={bg} className="fx fx-bg" aria-hidden="true" />
 }

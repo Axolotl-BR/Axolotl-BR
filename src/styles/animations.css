@@ -205,7 +205,7 @@ html[data-lang] .axl-root {
   z-index: 1;
 }
 
-/* ── canvas: partículas + glow do cursor ao fundo ── */
+/* ── canvas: partículas ao fundo ── */
 .fx {
   position: fixed;
   inset: 0;
@@ -219,58 +219,6 @@ html[data-lang] .axl-root {
 .axl-root {
   position: relative;
   z-index: 1;
-}
-
-/* ── cursor custom (só mouse; .has-cur é ligada no primeiro movimento do mouse) ── */
-.cur-dot,
-.cur-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  display: none;
-}
-.cur-dot::before,
-.cur-ring::before {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-}
-.cur-dot::before {
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  background: #b366ff;
-  box-shadow: 0 0 12px 2px rgba(179, 102, 255, 0.7);
-}
-.cur-ring::before {
-  width: 32px;
-  height: 32px;
-  margin: -16px 0 0 -16px;
-  border: 1.5px solid rgba(179, 102, 255, 0.7);
-  background: rgba(143, 0, 255, 0.08);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-.cur-ring {
-  transition: transform 0.12s ease-out; /* o anel chega um pouco depois do ponto */
-}
-.cur-ring.is-hot::before {
-  transform: scale(1.6);
-  background: rgba(143, 0, 255, 0.18);
-}
-.cur-ring.is-down::before {
-  transform: scale(0.7);
-}
-@media (hover: hover) and (pointer: fine) {
-  .has-cur .cur-dot,
-  .has-cur .cur-ring {
-    display: block;
-  }
-  .has-cur,
-  .has-cur * {
-    cursor: none !important;
-  }
 }
 
 /* ── projetos: cards com entrada em sequência ── */
