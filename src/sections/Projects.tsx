@@ -1,3 +1,4 @@
+import { SparkleFour } from 'trazo-stickers'
 import { useEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { Badge } from 'prism'
@@ -43,7 +44,7 @@ export function Projects() {
   const href = (id: string) => (id === 'alt' ? '/projetos.html' : id === 'smp' ? '#smp' : GITHUB)
 
   return (
-    <Section id="projetos" className="projects" eyebrow={p.eyebrow} title={<>{p.title}</>} lead={p.lead}>
+    <Section doodle={<SparkleFour size={64} color="currentColor" rotate={10} />} id="projetos" className="projects" eyebrow={p.eyebrow} title={<>{p.title}</>} lead={p.lead}>
       <ul className="proj-grid">
         {p.items.map((item, i) => {
           const s = status(item.id)

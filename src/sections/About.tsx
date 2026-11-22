@@ -1,3 +1,4 @@
+import { Spiral } from 'trazo-stickers'
 import { ArrowUpRight } from 'lucide-react'
 import { Section } from '../components/Section'
 import { Reveal } from '../components/Reveal'
@@ -9,6 +10,7 @@ export function About() {
   const a = c.about
   return (
     <Section
+      doodle={<Spiral size={72} color="currentColor" rotate={-8} />}
       id="sobre"
       className="about"
       eyebrow={a.eyebrow}

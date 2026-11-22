@@ -1,3 +1,4 @@
+import { Triangle } from 'trazo-stickers'
 import { useEffect, useRef, useState } from 'react'
 import { Badge } from 'prism'
 import { Section } from '../components/Section'
@@ -39,7 +40,7 @@ export function Timeline() {
   }, [c])
 
   return (
-    <Section id="novidades" title={<>{c.timeline.title}</>}>
+    <Section doodle={<Triangle size={56} color="currentColor" rotate={14} />} id="novidades" title={<>{c.timeline.title}</>}>
       <ol className="news-list" ref={list}>
         {c.timeline.items.map((item, i) => (
           <li key={`${item.kind}-${item.date}`} className={`${item.next ? 'is-next' : ''} ${i <= active ? 'is-lit' : ''} ${i === active ? 'is-now' : ''}`}>

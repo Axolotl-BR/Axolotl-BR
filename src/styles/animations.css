@@ -437,3 +437,74 @@ html[data-lang] .axl-root {
     --mascot-scale: 2;
   }
 }
+
+/* ── adesivos trazo (roxo do tema; só decoração) ── */
+:root {
+  --doodle: #b366ff;
+}
+[data-theme='light'] {
+  --doodle: #8f00ff;
+}
+.section-head {
+  position: relative;
+}
+.doodle,
+.footer-doodle {
+  color: var(--doodle);
+  pointer-events: none;
+  line-height: 0;
+}
+.doodle {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  opacity: 0.9;
+}
+.doodle svg {
+  width: clamp(40px, 8vw, 72px);
+  height: auto;
+}
+.year-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--doodle);
+  font-size: var(--font-size-overline);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+.footer-giant {
+  position: relative;
+}
+.footer-giant-copy {
+  position: relative;
+}
+.footer-doodle {
+  position: absolute;
+}
+.fd-crown {
+  top: -40px;
+  right: -48px;
+}
+.fd-sparkle {
+  bottom: -14px;
+  right: -64px;
+}
+.fd-arrow {
+  right: 150px;
+  top: -30px;
+}
+.fd-ring {
+  right: -8px;
+  top: -34px;
+}
+@media (max-width: 720px) {
+  .fd-arrow,
+  .fd-ring,
+  .fd-sparkle {
+    display: none;
+  }
+  .fd-crown {
+    right: 0;
+  }
+}
