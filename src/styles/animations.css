@@ -438,73 +438,97 @@ html[data-lang] .axl-root {
   }
 }
 
-/* ── adesivos trazo (roxo do tema; só decoração) ── */
+/* ── hashtag do ano no topo do rodapé (adesivo trazo, roxo do tema) ── */
 :root {
   --doodle: #b366ff;
 }
 [data-theme='light'] {
   --doodle: #8f00ff;
 }
-.section-head {
-  position: relative;
-}
-.doodle,
-.footer-doodle {
-  color: var(--doodle);
-  pointer-events: none;
-  line-height: 0;
-}
-.doodle {
-  position: absolute;
-  top: -8px;
-  right: 0;
-  opacity: 0.9;
-}
-.doodle svg {
-  width: clamp(40px, 8vw, 72px);
-  height: auto;
-}
 .year-tag {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-2);
   color: var(--doodle);
+  margin-bottom: var(--space-10);
+  font-size: clamp(2.25rem, 9vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.year-tag svg {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ── fabi: commits com cursor de presença ── */
+.fabi-commits-head {
+  color: var(--text-muted);
   font-size: var(--font-size-overline);
   letter-spacing: 0.08em;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
-.footer-giant {
+.commit-wrap {
   position: relative;
+  overflow: hidden;
 }
-.footer-giant-copy {
-  position: relative;
+.commit-list {
+  list-style: none;
 }
-.footer-doodle {
+.commit-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: var(--space-4);
+  align-items: baseline;
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--font-size-body-sm);
+}
+.commit-row:first-child {
+  border-top: none;
+}
+.commit-ver,
+.commit-date {
+  color: var(--text-muted);
+  font-size: var(--font-size-overline);
+}
+.presence {
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  color: #8f00ff;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  will-change: transform;
 }
-.fd-crown {
-  top: -40px;
-  right: -48px;
+.presence.is-on {
+  opacity: 1;
 }
-.fd-sparkle {
-  bottom: -14px;
-  right: -64px;
+.presence svg {
+  display: block;
 }
-.fd-arrow {
-  right: 150px;
-  top: -30px;
+.presence-name {
+  position: absolute;
+  top: 16px;
+  left: 14px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #8f00ff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
 }
-.fd-ring {
-  right: -8px;
-  top: -34px;
-}
-@media (max-width: 720px) {
-  .fd-arrow,
-  .fd-ring,
-  .fd-sparkle {
-    display: none;
+@media (max-width: 640px) {
+  .commit-row {
+    grid-template-columns: 1fr auto;
   }
-  .fd-crown {
-    right: 0;
+  .commit-msg {
+    grid-column: 1 / -1;
+    order: 3;
   }
 }

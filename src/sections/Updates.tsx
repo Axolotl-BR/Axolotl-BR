@@ -1,4 +1,3 @@
-import { Asterisk } from 'trazo-stickers'
 import { useEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { Badge } from 'prism'
@@ -44,7 +43,7 @@ export function Updates() {
   const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 
   return (
-    <Section doodle={<Asterisk size={60} color="currentColor" rotate={12} />} id="atualizacoes" className="updates" eyebrow={u.eyebrow} title={<>{u.title}</>} lead={u.lead}>
+    <Section id="atualizacoes" className="updates" eyebrow={u.eyebrow} title={<>{u.title}</>} lead={u.lead}>
       <ol className="upd-list">
         {rows.map((r, i) => (
           <li key={`${r.source}-${r.version}`}>

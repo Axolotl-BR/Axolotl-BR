@@ -9,16 +9,14 @@ type SectionProps = {
   lead?: ReactNode
   children: ReactNode
   className?: string
-  doodle?: ReactNode
 }
 
-export function Section({ id, title, eyebrow, lead, children, className, doodle }: SectionProps) {
+export function Section({ id, title, eyebrow, lead, children, className }: SectionProps) {
   return (
     <section id={id} className={`section ${className ?? ''}`}>
       <div className="container">
         <Reveal>
           <div className="section-head">
-            {doodle ? <span className="doodle" aria-hidden="true">{doodle}</span> : null}
             {eyebrow ? <p className="eyebrow mono"><Scramble text={eyebrow} /></p> : null}
             <h2 className="h2">{title}</h2>
             {lead ? <p className="lead">{lead}</p> : null}
