@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Asterisk, CurlyArrow, SparkleFour } from 'trazo-stickers'
 import { useLang } from '../lib/i18n'
 
 const WEEKS = 18
@@ -91,6 +92,7 @@ export function FabiCommits() {
       <p className="mono fabi-commits-head">
         {c.fabi.commits} · {total}
       </p>
+      <div className="hm-row">
       <div className="hm">
         <div className="hm-days mono" aria-hidden="true">
           <span style={{ gridRow: 2 }}>{dow[0]}</span>
@@ -122,6 +124,12 @@ export function FabiCommits() {
             </span>
           ) : null}
         </div>
+      </div>
+      <div className="hm-doodles" aria-hidden="true">
+        <CurlyArrow size={40} color="currentColor" rotate={-20} />
+        <SparkleFour size={26} color="currentColor" rotate={8} />
+        <Asterisk size={22} color="currentColor" rotate={14} />
+      </div>
       </div>
     </div>
   )
