@@ -231,6 +231,10 @@ html[data-lang] .axl-root {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-4);
 }
+/* o wrapper do Reveal estica pra todos os cards terem a mesma altura */
+.proj-grid > li > * {
+  height: 100%;
+}
 .proj-card {
   position: relative;
   display: flex;
@@ -272,6 +276,7 @@ html[data-lang] .axl-root {
   flex: 1;
 }
 .proj-link {
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 4px;

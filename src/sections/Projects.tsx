@@ -7,6 +7,7 @@ import { links } from '../data/site'
 import { useLang } from '../lib/i18n'
 
 const GITHUB = 'https://github.com/Axolotl-BR'
+const COMET = 'https://ofabiano1.github.io/comet/'
 
 // Status do ALT vem do /api/status (widget do Discord). null = sem checagem.
 function useAltOnline(): boolean | null {
@@ -40,7 +41,9 @@ export function Projects() {
     if (id === 'smp') return { label: p.dev, tone: 'warning' as const }
     return { label: p.live, tone: 'success' as const }
   }
-  const href = (id: string) => (id === 'alt' ? '/projetos.html' : id === 'smp' ? '#smp' : GITHUB)
+  const href = (id: string) =>
+    id === 'alt' ? '/projetos.html' : id === 'smp' ? '#smp' : id === 'comet' ? COMET : GITHUB
+  const external = (id: string) => id === 'site' || id === 'comet'
 
   return (
     <Section id="projetos" className="projects" eyebrow={p.eyebrow} title={<>{p.title}</>} lead={p.lead}>
@@ -60,7 +63,7 @@ export function Projects() {
                   <a
                     className="proj-link"
                     href={href(item.id)}
-                    {...(item.id === 'site' ? { target: '_blank', rel: 'noreferrer' } : {})}
+                    {...(external(item.id) ? { target: '_blank', rel: 'noreferrer' } : {})}
                   >
                     {item.link} <ArrowUpRight size={14} aria-hidden="true" />
                   </a>
