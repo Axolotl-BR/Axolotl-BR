@@ -28,6 +28,7 @@ import { resolvePath, findFile, serveFile, serveError } from './server/static.js
 import { handleNowPlaying } from './server/spotify.js'
 import { handleStatus } from './server/status.js'
 import { handleChangelog } from './server/changelog.js'
+import { handleCollect } from './server/analytics.js'
 
 const checkApi = createRateLimiter(apiRateLimit)
 const checkStatic = createRateLimiter(staticRateLimit)
@@ -76,16 +77,21 @@ const server = createServer((req, res) => {
     }
     return
   }
+  const rawUrl = req.url || '/'
+  const route = rawUrl.split('?')[0]
+  // único POST do site: o contador de visitas (corpo minúsculo, ver server/analytics.js)
+  if (req.method === 'POST' && route === '/api/pulse') {
+    handleCollect(req, res)
+    return
+  }
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     respondMethodNotAllowed(res)
     return
   }
-  const rawUrl = req.url || '/'
   if (rawUrl.length > MAX_URL_LENGTH) {
     serveError(res, 414, join(ROOT, '404.html'))
     return
   }
-  const route = rawUrl.split('?')[0]
   if (!handleApi(req, res, route)) handleStatic(req, res, rawUrl)
 })
 
