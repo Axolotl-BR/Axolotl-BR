@@ -257,10 +257,8 @@
   flex-direction: column;
   gap: var(--space-3);
   align-items: flex-start;
-  padding: var(--space-6);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  background: var(--background);
+  padding-left: var(--space-8);
+  border-left: 1px solid var(--border-subtle);
 }
 .discord-hint {
   color: var(--text-muted);
@@ -270,6 +268,11 @@
 @media (max-width: 760px) {
   .discord-inner {
     grid-template-columns: 1fr;
+  }
+  .discord-enter {
+    padding: var(--space-6) 0 0;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
   }
 }
 
@@ -397,38 +400,57 @@
 .fabi-top {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
-  margin-bottom: var(--space-4);
+  gap: var(--space-5);
 }
 .fabi-photo {
-  width: 96px;
-  height: 96px;
-  border-radius: var(--radius-xl);
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
   object-fit: cover;
   flex: none;
   border: 1px solid var(--border-subtle);
 }
+.fabi-id {
+  flex: 1;
+  min-width: 0;
+}
 .owner-handle {
   color: var(--text-muted);
   font-size: var(--font-size-overline);
+  margin-bottom: var(--space-2);
 }
 .owner-facts {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
 }
 .owner-fact {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border-subtle);
+  gap: var(--space-2);
   color: var(--text-secondary);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-body-sm);
 }
-.owner-fact:last-child {
-  border-bottom: none;
+.owner-cta {
+  flex: none;
+}
+.fabi-grid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-6) var(--space-10);
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .fabi-top {
+    flex-wrap: wrap;
+  }
+  .owner-cta {
+    width: 100%;
+  }
+  .fabi-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* ───────── tocando agora ───────── */
@@ -538,7 +560,7 @@
 
 /* ───────── fab!* + spotify no mesmo card ───────── */
 .owner-rule {
-  margin-block: var(--space-8);
+  margin-block: var(--space-5);
 }
 .now-section {
   padding: 0;
@@ -547,10 +569,9 @@
   margin-bottom: var(--space-2);
 }
 .now-title {
-  font-size: var(--font-size-h4);
+  font-size: var(--font-size-body);
   font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 .now-slot {
   max-width: none;

@@ -215,6 +215,9 @@ html[data-lang] .axl-root {
 }
 .fx-bg {
   z-index: 0;
+  /* nuvens fortes nas laterais, quase somem atrás da coluna de texto */
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 12%, rgb(0 0 0 / 0.18) 30%, rgb(0 0 0 / 0.18) 70%, #000 88%, #000 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 12%, rgb(0 0 0 / 0.18) 30%, rgb(0 0 0 / 0.18) 70%, #000 88%, #000 100%);
 }
 .axl-root {
   position: relative;
@@ -439,10 +442,11 @@ html[data-lang] .axl-root {
 }
 
 /* ── hashtag do ano no topo do rodapé (adesivo trazo, roxo do tema) ── */
-:root {
+/* os tokens do prism vivem em .prism-root, não em :root */
+.prism-root {
   --doodle: var(--prism-purple-300);
 }
-[data-theme='light'] {
+.prism-root[data-theme='light'] {
   --doodle: var(--prism-purple-600);
 }
 .year-tag {
@@ -473,7 +477,11 @@ html[data-lang] .axl-root {
   display: flex;
   align-items: center;
   gap: var(--space-5);
-  flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  .hm-row {
+    flex-wrap: wrap;
+  }
 }
 .hm-doodles {
   display: flex;

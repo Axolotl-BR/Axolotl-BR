@@ -19,29 +19,32 @@ export function Fabi() {
               <img
                 src={photo}
                 alt={f.photoAlt}
-                width={96}
-                height={96}
+                width={72}
+                height={72}
                 className="fabi-photo"
                 loading="lazy"
                 decoding="async"
               />
-              <p className="mono owner-handle">@{owner.handle}</p>
-            </div>
-            <ul className="owner-facts">
-              {f.facts.map((fact) => (
-                <li key={fact} className="owner-fact">
-                  <span className="tick" aria-hidden="true" />
-                  {fact}
-                </li>
-              ))}
-            </ul>
-            <div className="owner-cta">
-              <Button href={links.discord} external variant="secondary" label={f.cta} />
+              <div className="fabi-id">
+                <p className="mono owner-handle">@{owner.handle}</p>
+                <ul className="owner-facts">
+                  {f.facts.map((fact) => (
+                    <li key={fact} className="owner-fact">
+                      <span className="tick" aria-hidden="true" />
+                      {fact}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="owner-cta">
+                <Button href={links.discord} external variant="secondary" label={f.cta} />
+              </div>
             </div>
             <hr className="rule owner-rule" />
-            <FabiCommits />
-            <hr className="rule owner-rule" />
-            <NowPlaying />
+            <div className="fabi-grid">
+              <FabiCommits />
+              <NowPlaying />
+            </div>
           </Card>
         </div>
       </Reveal>
