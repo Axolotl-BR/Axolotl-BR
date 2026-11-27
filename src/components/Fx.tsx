@@ -9,7 +9,8 @@ const RAMP = ' .:+*ox%#@'
 const CELL_W = 10
 const CELL_H = 16
 const FPS = 20
-const COLOR = { dark: '179,102,255', light: '143,0,255' }
+// Lavender #C085FF no escuro, #7A00DB no claro (paleta canônica do Prism)
+const COLOR = { dark: '192,133,255', light: '122,0,219' }
 
 // hash inteiro -> [0,1)
 const hash = (x: number, y: number) => {
@@ -66,7 +67,7 @@ export function Fx() {
       cv.height = h * dpr
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       cols = Math.ceil(w / CELL_W)
-      rows = Math.ceil(h / CELL_H)
+      rows = Math.ceil(h / CELL_H) + 1
     }
 
     const draw = (now: number) => {
@@ -77,7 +78,12 @@ export function Fx() {
       ctx.font = `600 ${CELL_H - 4}px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace`
       ctx.textBaseline = 'top'
       ctx.fillStyle = `rgb(${light ? COLOR.light : COLOR.dark})`
-      for (let r = 0; r < rows; r++) {
+      // céu preso à página, não à tela: desloca as linhas pelo scroll
+      const sy = window.scrollY
+      const r0 = Math.floor(sy / CELL_H)
+      const off = sy - r0 * CELL_H
+      for (let i = 0; i < rows; i++) {
+        const r = i + r0
         for (let c = 0; c < cols; c++) {
           const d = cloud(c, r, t)
           let ch = ''
@@ -93,7 +99,7 @@ export function Fx() {
           }
           if (!ch) continue
           ctx.globalAlpha = a
-          ctx.fillText(ch, c * CELL_W, r * CELL_H)
+          ctx.fillText(ch, c * CELL_W, i * CELL_H - off)
         }
       }
       ctx.globalAlpha = 1
@@ -114,11 +120,14 @@ export function Fx() {
     resize()
     draw(t0)
     raf = requestAnimationFrame(frame)
+    const onScroll = () => draw(performance.now())
     window.addEventListener('resize', resize)
+    window.addEventListener('scroll', onScroll, { passive: true })
     document.addEventListener('visibilitychange', onVis)
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
+      window.removeEventListener('scroll', onScroll)
       document.removeEventListener('visibilitychange', onVis)
     }
   }, [])

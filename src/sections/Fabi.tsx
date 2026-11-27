@@ -11,7 +11,7 @@ export function Fabi() {
   const { c } = useLang()
   const f = c.fabi
   return (
-    <Section id="fabi" eyebrow={f.eyebrow} title={<>{f.title}</>} lead={f.lead}>
+    <Section id="fabi" className="fabi-section" eyebrow={f.eyebrow} title={<>{f.title}</>} lead={f.lead}>
       <Reveal>
         <div className="owner-card">
           <Card as="article">

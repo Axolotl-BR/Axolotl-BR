@@ -571,3 +571,9 @@
     padding-left: var(--space-4);
   }
 }
+
+/* título fab!* menor e mais juntinho */
+.fabi-section .section-head .h2 {
+  font-size: var(--font-size-h3);
+  letter-spacing: -0.05em;
+}

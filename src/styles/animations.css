@@ -440,10 +440,10 @@ html[data-lang] .axl-root {
 
 /* ── hashtag do ano no topo do rodapé (adesivo trazo, roxo do tema) ── */
 :root {
-  --doodle: #b366ff;
+  --doodle: var(--prism-purple-300);
 }
 [data-theme='light'] {
-  --doodle: #8f00ff;
+  --doodle: var(--prism-purple-600);
 }
 .year-tag {
   display: flex;
