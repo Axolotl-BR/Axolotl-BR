@@ -93,7 +93,7 @@ export function Hero({ onEgg }: HeroProps) {
               <ul className="hero-avatars" aria-label={h.membersAria}>
                 {members.avatars.map((src) => (
                   <li key={src}>
-                    <img src={src} alt="" width={32} height={32} loading="lazy" decoding="async" referrerPolicy="no-referrer" />
+                    <img src={src} alt="" width={32} height={32} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={(e) => e.currentTarget.closest('li')?.setAttribute('hidden', '')} />
                   </li>
                 ))}
               </ul>
