@@ -127,6 +127,41 @@
   margin-top: var(--space-8);
 }
 
+.hero-hello {
+  color: var(--prism-primary);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* membros: número real do convite do Discord, avatares de quem está online */
+.hero-members {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+  color: var(--text-secondary);
+  font-size: var(--font-size-body-sm);
+}
+.hero-avatars {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+.hero-avatars li {
+  margin-left: -8px;
+}
+.hero-avatars img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--background);
+  background: var(--surface);
+  object-fit: cover;
+}
+
 .hero-scroll {
   position: absolute;
   bottom: 28px;

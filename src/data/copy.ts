@@ -27,6 +27,9 @@ const pt = {
   copyright: '© 2020 – 2026 axolotl br • de player pra player · by @ofabiano1x',
   hero: {
     kicker: 'desde 2020',
+    hello: 'hello world',
+    members: (n: string) => `${n} pessoas já fazem parte`,
+    membersAria: 'membros online no Discord agora',
     tagline: 'Sua comunidade na internet. De player para player.',
     join: 'entrar na comunidade',
     about: 'sobre nós',
@@ -203,6 +206,10 @@ const pt = {
         links: [
           { label: 'Discord', href: 'DISCORD', external: true },
           { label: 'Projetos', href: '/projetos.html' },
+          { label: 'Docs', href: '/docs/' },
+          { label: 'Showcase', href: '/showcase/' },
+          { label: 'Eventos', href: '/eventos/' },
+          { label: 'Redes', href: '/redes/' },
           { label: 'Wiki do SMP', href: '/wiki/' },
           { label: 'Regras', href: '/regras.html' },
           { label: 'Status', href: '/status/' },
@@ -236,6 +243,9 @@ const en: Copy = {
   copyright: '© 2020 – 2026 axolotl br • from player to player · by @ofabiano1x',
   hero: {
     kicker: 'since 2020',
+    hello: 'hello world',
+    members: (n: string) => `${n} people are already in`,
+    membersAria: 'members online on Discord right now',
     tagline: 'Your community on the internet. From player to player.',
     join: 'join the community',
     about: 'about us',
@@ -412,6 +422,10 @@ const en: Copy = {
         links: [
           { label: 'Discord', href: 'DISCORD', external: true },
           { label: 'Projects', href: '/projetos.html' },
+          { label: 'Docs', href: '/docs/' },
+          { label: 'Showcase', href: '/showcase/' },
+          { label: 'Events', href: '/eventos/' },
+          { label: 'Socials', href: '/redes/' },
           { label: 'SMP wiki', href: '/wiki/' },
           { label: 'Rules', href: '/regras.html' },
           { label: 'Status', href: '/status/' },

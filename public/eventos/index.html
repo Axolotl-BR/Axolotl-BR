@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#09090d" />
+    <title>Eventos do Axolotl BR · encontros, campeonatos e lives</title>
+    <meta name="description" content="Calendário de eventos do Axolotl BR: encontros, campeonatos, lives e reuniões da comunidade." />
+    <link rel="icon" href="/axl.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/axolote.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/eventos/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Axolotl BR" />
+    <meta property="og:title" content="Eventos do Axolotl BR · encontros, campeonatos e lives" />
+    <meta property="og:description" content="Calendário de eventos do Axolotl BR: encontros, campeonatos, lives e reuniões da comunidade." />
+    <meta property="og:url" content="https://axolotl-br.shardweb.app/eventos/" />
+    <meta property="og:image" content="https://axolotl-br.shardweb.app/og-v2.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Axolotl BR, comunidade de player para player" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Eventos do Axolotl BR · encontros, campeonatos e lives" />
+    <meta name="twitter:description" content="Calendário de eventos do Axolotl BR: encontros, campeonatos, lives e reuniões da comunidade." />
+    <meta name="twitter:image" content="https://axolotl-br.shardweb.app/og-v2.png" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Axolotl BR", "item": "https://axolotl-br.shardweb.app/"}, {"@type": "ListItem", "position": 2, "name": "eventos", "item": "https://axolotl-br.shardweb.app/eventos/"}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared.css" />
+    <style>
+      .events { list-style: none; display: grid; gap: 10px; }
+      .events li { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start; border: 1px solid #20202a; border-radius: 12px; padding: 14px 16px; }
+      .events time { display: flex; flex-direction: column; align-items: center; font-family: 'JetBrains Mono', ui-monospace, monospace; color: #c085ff; line-height: 1.2; }
+      .events time b { font-size: 1.5rem; color: #f0f0f4; }
+      .events time span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .events h3 { font-size: 1rem; }
+      .events p { color: #90909d; font-size: 0.875rem; }
+      .events small { color: #666674; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .events .empty { display: block; color: #90909d; font-size: 0.875rem; }
+      .past li { opacity: 0.6; }
+    </style>
+    <script src="/a.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// eventos</span>
+        <h1>Eventos.</h1>
+        <p>Encontros, campeonatos, lives e reuniões da comunidade. Tudo é anunciado primeiro no Discord.</p>
+      </header>
+
+      <section aria-labelledby="prox">
+        <h2 id="prox">próximos</h2>
+        <p>O que está marcado. Horário de Brasília.</p>
+        <ol class="events" id="upcoming"><li class="empty">carregando…</li></ol>
+      </section>
+
+      <section aria-labelledby="pass">
+        <h2 id="pass">já rolou</h2>
+        <ol class="events past" id="past"><li class="empty">carregando…</li></ol>
+      </section>
+
+      <section class="cta" aria-label="chamada">
+        <p>Tem ideia de evento ou quer organizar um campeonato? Chama a gente no Discord.</p>
+        <a class="btn" href="https://discord.gg/8WtmZTySdB">entrar no discord</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/docs/">docs</a> · <a href="/showcase/">showcase</a> · <a href="/eventos/">eventos</a> · <a href="/redes/">redes</a></p>
+      </footer>
+    </main>
+    <script src="/eventos/eventos.js"></script>
+  </body>
+</html>

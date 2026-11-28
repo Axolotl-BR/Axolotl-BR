@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#09090d" />
+    <title>Docs do Axolotl BR · como entrar, participar e contribuir</title>
+    <meta name="description" content="A documentação do Axolotl BR: como entrar na comunidade, regras, como participar dos projetos, guias de desenvolvimento, ALT Bot e Axolotl Lab." />
+    <link rel="icon" href="/axl.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/axolote.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/docs/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Axolotl BR" />
+    <meta property="og:title" content="Docs do Axolotl BR · como entrar, participar e contribuir" />
+    <meta property="og:description" content="A documentação do Axolotl BR: como entrar na comunidade, regras, como participar dos projetos, guias de desenvolvimento, ALT Bot e Axolotl Lab." />
+    <meta property="og:url" content="https://axolotl-br.shardweb.app/docs/" />
+    <meta property="og:image" content="https://axolotl-br.shardweb.app/og-v2.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Axolotl BR, comunidade de player para player" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Docs do Axolotl BR · como entrar, participar e contribuir" />
+    <meta name="twitter:description" content="A documentação do Axolotl BR: como entrar na comunidade, regras, como participar dos projetos, guias de desenvolvimento, ALT Bot e Axolotl Lab." />
+    <meta name="twitter:image" content="https://axolotl-br.shardweb.app/og-v2.png" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Axolotl BR", "item": "https://axolotl-br.shardweb.app/"}, {"@type": "ListItem", "position": 2, "name": "docs", "item": "https://axolotl-br.shardweb.app/docs/"}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared.css" />
+    <style>
+      body { display: block; padding: 0; }
+      .docs { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px; width: min(1100px, 100%); margin: 0 auto; padding: 56px 20px 64px; }
+      .side { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 0.875rem; }
+      .side .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #f0f0f4; font-weight: 600; margin-bottom: 28px; }
+      .side .brand img { width: 28px; height: 28px; }
+      .side .brand span { color: #666674; font-weight: 400; }
+      .side .grp { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #666674; margin: 20px 0 8px; }
+      .side ul { list-style: none; }
+      .side a { display: block; padding: 5px 10px; border-left: 1px solid #20202a; color: #90909d; text-decoration: none; }
+      .side a:hover, .side a[aria-current='true'] { color: #f0f0f4; border-left-color: #8f00ff; }
+      article { min-width: 0; max-width: 72ch; }
+      article > section { background: none; border: 0; border-radius: 0; padding: 0 0 40px; margin: 0 0 40px; border-bottom: 1px solid #20202a; scroll-margin-top: 24px; }
+      article h2 { font-size: 1.5rem; margin-bottom: 12px; }
+      article h3 { font-size: 1.05rem; margin: 20px 0 6px; }
+      article p, article li { color: #b4b4c0; font-size: 0.95rem; }
+      article p + p { margin-top: 10px; }
+      article ul, article ol { padding-left: 20px; margin: 8px 0; display: grid; gap: 4px; }
+      article a { color: #c085ff; }
+      article code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.85em; background: #16161d; border: 1px solid #20202a; border-radius: 6px; padding: 1px 6px; color: #f0f0f4; }
+      pre { background: #101015; border: 1px solid #20202a; border-radius: 10px; padding: 14px 16px; overflow-x: auto; margin: 10px 0; }
+      pre code { background: none !important; border: 0 !important; padding: 0 !important; }
+      table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 10px 0; display: block; overflow-x: auto; }
+      th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #20202a; vertical-align: top; }
+      th { color: #666674; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; }
+      td { color: #b4b4c0; }
+      .meta { color: #666674; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; display: block; }
+      footer { text-align: left; }
+      @media (max-width: 860px) {
+        .docs { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+        .side { position: static; max-height: none; border: 1px solid #20202a; border-radius: 12px; padding: 16px; }
+        .side .brand { margin-bottom: 8px; }
+      }
+    </style>
+    <script src="/a.js" defer></script>
+  </head>
+  <body>
+    <div class="docs">
+      <nav class="side" aria-label="Documentação">
+        <a class="brand" href="/docs/"><img src="/axolote.png" alt="" width="28" height="28" />Axolotl BR <span>/ docs</span></a>
+        <p class="grp">Introdução</p>
+        <ul>
+          <li><a href="#o-que-e">O que é o Axolotl BR</a></li>
+          <li><a href="#linha-do-tempo">Linha do tempo</a></li>
+          <li><a href="#valores">Nossos valores</a></li>
+        </ul>
+        <p class="grp">Comunidade</p>
+        <ul>
+          <li><a href="#como-entrar">Como entrar</a></li>
+          <li><a href="#regras">Regras e diretrizes</a></li>
+          <li><a href="#participar">Como participar dos projetos</a></li>
+        </ul>
+        <p class="grp">Desenvolvimento</p>
+        <ul>
+          <li><a href="#guia-setup">Rodando os projetos</a></li>
+          <li><a href="#convencoes">Convenções</a></li>
+          <li><a href="#primeiro-pr">Seu primeiro pull request</a></li>
+        </ul>
+        <p class="grp">Projetos</p>
+        <ul>
+          <li><a href="#alt-bot">ALT Bot</a></li>
+          <li><a href="#axolotl-lab">Axolotl Lab</a></li>
+        </ul>
+      </nav>
+
+      <main>
+      <article>
+        <section id="o-que-e">
+          <span class="meta">introdução · 2 min</span>
+          <h1>O que é o Axolotl BR</h1>
+          <p>O Axolotl BR é uma comunidade brasileira de quem gosta de jogar, criar e programar. Começou em 2020 como um grupo de amigos no Discord e virou um ecossistema: servidor de Discord, o Axolotl SMP de Minecraft, o ALT Bot, o design system Prism e projetos de código aberto.</p>
+          <p>Sem empresa por trás e sem fórmula pronta. Sua comunidade na internet, de player para player. A ideia cabe em três palavras: <b>jogar, criar, conectar</b>.</p>
+        </section>
+
+        <section id="linha-do-tempo">
+          <h2>Linha do tempo</h2>
+          <ul>
+            <li><b>2020</b> · um grupo de amigos monta um servidor no Discord. Sem plano, sem nome chique.</li>
+            <li><b>2021 – 2022</b> · campeonatinhos internos, testes de servidor e os primeiros traços da identidade.</li>
+            <li><b>2023 – 2024</b> · bot próprio, ideias de jogo e os primeiros rascunhos do SMP.</li>
+            <li><b>2025</b> · site, bots e labs saindo do papel.</li>
+            <li><b>2026</b> · uma nova casa, identidade definida e vários projetos ganhando forma.</li>
+          </ul>
+        </section>
+
+        <section id="valores">
+          <h2>Nossos valores</h2>
+          <ul>
+            <li><b>Gente antes de número.</b> Não queremos ser a maior comunidade da internet, queremos ser uma que vale a pena encontrar.</li>
+            <li><b>Feito de verdade.</b> Nada de número, status ou recurso inventado. O que é demo diz que é demo.</li>
+            <li><b>Aberto.</b> Código em público na <a href="https://github.com/Axolotl-BR">org do GitHub</a>. Qualquer um pode olhar, aprender e contribuir.</li>
+            <li><b>Todo mundo participa.</b> Não precisa ser alguém importante pra criar, compartilhar e fazer parte.</li>
+          </ul>
+        </section>
+
+        <section id="como-entrar">
+          <span class="meta">comunidade</span>
+          <h2>Como entrar</h2>
+          <ol>
+            <li>Entra no Discord pelo <a href="https://discord.gg/8WtmZTySdB">convite oficial</a>. É de graça e não precisa de convite especial.</li>
+            <li>Lê as <a href="/regras.html">regras</a>. São seis, curtas.</li>
+            <li>Manda um oi. O ALT tá lá e você já começa a ganhar XP conversando.</li>
+            <li>Usa <code>&gt;ajuda</code> pra ver o que o bot faz e <code>&gt;server</code> pra conhecer o servidor.</li>
+          </ol>
+          <p>Os links oficiais ficam em <a href="/redes/">/redes</a>. O que não está lá não é a gente.</p>
+        </section>
+
+        <section id="regras">
+          <h2>Regras e diretrizes</h2>
+          <p>O resto é bom senso. Isso aqui é o inegociável:</p>
+          <ol>
+            <li><b>Sem ódio nem preconceito.</b> Ataque a quem a pessoa é cai de verdade.</li>
+            <li><b>Sem spam nem flood.</b> Inclui divulgação sem permissão.</li>
+            <li><b>Sem golpe nem pirataria.</b> Tolerância zero.</li>
+            <li><b>Conteúdo +18 só no lugar certo.</b> Fora do canal marcado, é ban.</li>
+            <li><b>Respeita a moderação.</b> Discordou? Chama no privado.</li>
+            <li><b>No jogo, joga limpo.</b> Sem hack, x-ray ou grief.</li>
+          </ol>
+          <p>A escada é aviso → mute → ban, salvo caso grave. Viu algo errado: tira print e chama um moderador no privado. Tudo em detalhe nas <a href="/regras.html">regras completas</a>.</p>
+        </section>
+
+        <section id="participar">
+          <h2>Como participar dos projetos</h2>
+          <p>Todo projeto aberto está no GitHub e no <a href="/showcase/">showcase</a>. Dá pra ajudar de vários jeitos, não só com código:</p>
+          <ul>
+            <li><b>Ideia ou bug:</b> abre uma issue no repositório do projeto, ou um ticket de bug no Discord.</li>
+            <li><b>Código:</b> pega uma issue, faz um fork e manda um pull request (veja abaixo).</li>
+            <li><b>Arte, vídeo, mapa:</b> posta no Discord. Projeto da comunidade tem palco no site. Usa o <a href="/midia.html">kit de mídia</a>.</li>
+            <li><b>Evento:</b> propõe no Discord. O que for marcado aparece em <a href="/eventos/">/eventos</a>.</li>
+          </ul>
+        </section>
+
+        <section id="guia-setup">
+          <span class="meta">desenvolvimento</span>
+          <h2>Rodando os projetos</h2>
+          <h3>Site (React + TypeScript + Vite)</h3>
+          <pre><code>git clone https://github.com/Axolotl-BR/Axolotl-BR
+cd Axolotl-BR
+npm install
+npm run dev        # desenvolvimento
+npm run typecheck  # checagem de tipos
+npm start          # build + servidor de produção</code></pre>
+          <p>A camada visual é o <a href="https://github.com/OFabiano1/prism">Prism</a>. Usa os tokens e componentes dele antes de criar estilo novo.</p>
+          <h3>ALT Bot (Python + discord.py)</h3>
+          <pre><code>git clone https://github.com/OFabiano1/ALT-BOT
+cd ALT-BOT
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env   # preenche o TOKEN no mínimo
+python main.py
+python -m pytest         # testes</code></pre>
+          <p>No developer portal do Discord, liga os intents <code>members</code> e <code>message_content</code>. Usa um bot de teste seu, nunca o token oficial.</p>
+        </section>
+
+        <section id="convencoes">
+          <h2>Convenções</h2>
+          <ul>
+            <li><b>Commit:</b> <code>x.y.z - o que mudou</code>, tudo minúsculo, versão em sequência. Ex.: <code>0.5.3 - página de eventos</code>.</li>
+            <li><b>Segredo nunca vai pro git.</b> Token e chave ficam em variável de ambiente; o repositório só tem o <code>.env.example</code>.</li>
+            <li><b>Nada inventado.</b> Número, status e atividade só entram se vierem de uma checagem real.</li>
+            <li><b>Mudança pequena e focada.</b> Um PR resolve uma coisa.</li>
+            <li><b>Acessível e responsivo.</b> Funciona no celular, no teclado e com leitor de tela.</li>
+          </ul>
+        </section>
+
+        <section id="primeiro-pr">
+          <h2>Seu primeiro pull request</h2>
+          <ol>
+            <li>Faz um fork do repositório e cria uma branch: <code>git checkout -b minha-mudanca</code>.</li>
+            <li>Faz a mudança e roda as checagens do projeto (typecheck, testes).</li>
+            <li>Commita no formato da casa e dá push na sua branch.</li>
+            <li>Abre o PR explicando o que mudou e por quê. Print ajuda se mexeu em tela.</li>
+            <li>Responde a revisão. Depois do merge, seu nome vai pro histórico do projeto.</li>
+          </ol>
+          <p>Travou? Pergunta no Discord. Ninguém nasceu sabendo.</p>
+        </section>
+
+        <section id="alt-bot">
+          <span class="meta">projetos</span>
+          <h2>ALT Bot</h2>
+          <p>O bot oficial do Axolotl BR. Todo comando <code>&gt;</code> tem um gêmeo <code>/</code> com o mesmo nome. <code>&gt;ajuda</code> mostra tudo por categoria. Código no <a href="https://github.com/OFabiano1/ALT-BOT">GitHub</a>, status em <a href="/status/">/status</a>.</p>
+          <table>
+            <thead><tr><th>sistema</th><th>comandos</th></tr></thead>
+            <tbody>
+              <tr><td>geral</td><td><code>&gt;ajuda &gt;axolotl &gt;ping</code></td></tr>
+              <tr><td>servidor</td><td><code>&gt;server &gt;player &gt;quests</code></td></tr>
+              <tr><td>níveis</td><td><code>&gt;xp &gt;ranking</code></td></tr>
+              <tr><td>economia</td><td><code>&gt;saldo &gt;daily &gt;pay &gt;topdima</code></td></tr>
+              <tr><td>loja</td><td><code>&gt;loja &gt;buy &gt;equipar &gt;auras &gt;roll &gt;box &gt;caixarara &gt;colecao</code></td></tr>
+              <tr><td>axolotl bet</td><td><code>&gt;bet &gt;slots &gt;caraoucoroa &gt;mines</code></td></tr>
+              <tr><td>jogos</td><td><code>&gt;ptp &gt;placar &gt;rankingptp</code></td></tr>
+              <tr><td>deadlock</td><td><code>&gt;deadlock &gt;vincular &gt;desvincular &gt;stats &gt;rank</code></td></tr>
+              <tr><td>minecraft</td><td><code>&gt;minecraft &lt;nick&gt; · &gt;skin &lt;nick&gt;</code></td></tr>
+              <tr><td>osu!</td><td><code>&gt;osu (mania, taiko, catch)</code></td></tr>
+              <tr><td>voz</td><td><code>&gt;call &gt;sair &gt;oi</code></td></tr>
+              <tr><td>tickets</td><td><code>&gt;fecharticket &gt;addticket (+ painel de denúncia, bug e outra)</code></td></tr>
+            </tbody>
+          </table>
+          <h3>Sozinho, sem comando</h3>
+          <ul>
+            <li><code>&gt;daily</code> dá 100 diamantes + 2 ametistas e vira à meia-noite.</li>
+            <li>Digest das diárias às 00:00 e backup do banco às 04:00.</li>
+            <li>Commits da branch principal dos repositórios aparecem no chat.</li>
+            <li>Aviso quando os rolls do Mudae voltam.</li>
+          </ul>
+        </section>
+
+        <section id="axolotl-lab">
+          <h2>Axolotl Lab</h2>
+          <p>A central interna de desenvolvimento do Axolotl BR: projetos, tarefas, infraestrutura e equipe num lugar só. O Lab não hospeda código (isso fica no GitHub); ele organiza o que está em volta.</p>
+          <ul>
+            <li><b>Quem acessa:</b> só a equipe. Não existe cadastro aberto; a entrada é por convite (Lab Access), com login por e-mail ou Discord.</li>
+            <li><b>O que tem:</b> Command Center com serviços no ar e incidentes, projetos com página própria, tarefas, membros e papéis.</li>
+            <li><b>Stack:</b> React + Vite + TypeScript no front, FastAPI (Python) e SQLite no back.</li>
+            <li><b>Código:</b> repositório privado.</li>
+          </ul>
+          <p>Quer entrar pra equipe? Mostra serviço nos projetos abertos e chama no Discord.</p>
+        </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/docs/">docs</a> · <a href="/showcase/">showcase</a> · <a href="/eventos/">eventos</a> · <a href="/redes/">redes</a></p>
+      </footer>
+      </article>
+      </main>
+    </div>
+    <script src="/docs/docs.js"></script>
+  </body>
+</html>

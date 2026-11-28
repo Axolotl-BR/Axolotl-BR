@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#09090d" />
+    <title>Showcase do Axolotl BR · projetos feitos pela comunidade</title>
+    <meta name="description" content="A vitrine do que a comunidade Axolotl BR constrói: bots, sites, design system, apps e o servidor de Minecraft, com autor, tecnologias e status." />
+    <link rel="icon" href="/axl.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/axolote.png" />
+    <link rel="canonical" href="https://axolotl-br.shardweb.app/showcase/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Axolotl BR" />
+    <meta property="og:title" content="Showcase do Axolotl BR · projetos feitos pela comunidade" />
+    <meta property="og:description" content="A vitrine do que a comunidade Axolotl BR constrói: bots, sites, design system, apps e o servidor de Minecraft, com autor, tecnologias e status." />
+    <meta property="og:url" content="https://axolotl-br.shardweb.app/showcase/" />
+    <meta property="og:image" content="https://axolotl-br.shardweb.app/og-v2.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Axolotl BR, comunidade de player para player" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Showcase do Axolotl BR · projetos feitos pela comunidade" />
+    <meta name="twitter:description" content="A vitrine do que a comunidade Axolotl BR constrói: bots, sites, design system, apps e o servidor de Minecraft, com autor, tecnologias e status." />
+    <meta name="twitter:image" content="https://axolotl-br.shardweb.app/og-v2.png" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Axolotl BR", "item": "https://axolotl-br.shardweb.app/"}, {"@type": "ListItem", "position": 2, "name": "showcase", "item": "https://axolotl-br.shardweb.app/showcase/"}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared.css" />
+    <style>
+      .grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+      .grid > li > a, .grid article {
+        display: flex; flex-direction: column; gap: 6px; height: 100%;
+        background: #101015; border: 1px solid #20202a; border-radius: 14px;
+        padding: 18px; text-decoration: none; color: inherit;
+        transition: border-color 150ms ease-in-out;
+      }
+      .grid > li > a:hover { border-color: #41414d; }
+      .grid b { font-size: 1rem; }
+      .grid span, .grid p { color: #90909d; font-size: 0.875rem; }
+      .tag {
+        align-self: flex-start; font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+        color: #c085ff; border: 1px solid #292933; border-radius: 9999px; padding: 4px 10px;
+      }
+      main { width: min(960px, 100%); }
+      section { background: none; border: 0; padding: 0; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+      .grid small { color: #666674; font-size: 0.8rem; }
+      .st { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); }
+      .st i { width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
+      .tech { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+      .tech li { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #c085ff; border: 1px solid #292933; border-radius: 6px; padding: 2px 8px; }
+      .grid .repo { margin-top: auto; padding-top: 10px; font-size: 0.85rem; color: #f0f0f4; }
+      .grid span.repo { color: #666674; }
+    </style>
+    <script src="/a.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mono eyebrow">// showcase</span>
+        <h1>Feito pela comunidade.</h1>
+        <p>A vitrine do que sai do Axolotl BR. Fez um projeto e quer ele aqui? Posta no Discord com nome, descrição, tecnologias e link do repositório.</p>
+      </header>
+
+      <section aria-label="Projetos">
+        <ul class="grid">
+          <li><article>
+            <span class="st" style="--c:#22c55e"><i aria-hidden="true"></i>ativo</span>
+            <b>ALT Bot</b>
+            <p>O bot oficial no Discord: níveis e XP, economia, loja, jogos, tickets e perfis de Deadlock, Minecraft e osu!.</p>
+            <small>por fab!*</small>
+            <ul class="tech" aria-label="tecnologias"><li>Python</li><li>discord.py</li><li>SQLite</li></ul>
+            <a class="repo" href="https://github.com/OFabiano1/ALT-BOT">repositório ↗</a>
+          </article></li>
+          <li><article>
+            <span class="st" style="--c:#22c55e"><i aria-hidden="true"></i>ativo</span>
+            <b>Site Axolotl BR</b>
+            <p>A central da comunidade, esta página inclusa.</p>
+            <small>por fab!*</small>
+            <ul class="tech" aria-label="tecnologias"><li>React</li><li>TypeScript</li><li>Vite</li><li>Prism</li></ul>
+            <a class="repo" href="https://github.com/Axolotl-BR/Axolotl-BR">repositório ↗</a>
+          </article></li>
+          <li><article>
+            <span class="st" style="--c:#22c55e"><i aria-hidden="true"></i>ativo</span>
+            <b>Prism</b>
+            <p>O design system do Axolotl BR: tokens, componentes e a paleta espectro.</p>
+            <small>por fab!*</small>
+            <ul class="tech" aria-label="tecnologias"><li>React</li><li>TypeScript</li><li>CSS</li></ul>
+            <a class="repo" href="https://github.com/OFabiano1/prism">repositório ↗</a>
+          </article></li>
+          <li><article>
+            <span class="st" style="--c:#22c55e"><i aria-hidden="true"></i>ativo</span>
+            <b>Comet</b>
+            <p>Baixador de vídeos pro Windows: YouTube, Twitter/X e TikTok em vídeo, GIF ou MP3.</p>
+            <small>por fab!*</small>
+            <ul class="tech" aria-label="tecnologias"><li>Rust</li></ul>
+            <a class="repo" href="https://github.com/OFabiano1/comet">repositório ↗</a>
+          </article></li>
+          <li><article>
+            <span class="st" style="--c:#f59e0b"><i aria-hidden="true"></i>em desenvolvimento</span>
+            <b>Axolotl SMP</b>
+            <p>O servidor de Minecraft da comunidade: survival com lore, eventos e construção coletiva.</p>
+            <small>por equipe Axolotl BR</small>
+            <ul class="tech" aria-label="tecnologias"><li>Minecraft</li></ul>
+            <a class="repo" href="https://github.com/Axolotl-BR/Axolotl-SMP">repositório ↗</a>
+          </article></li>
+          <li><article>
+            <span class="st" style="--c:#f59e0b"><i aria-hidden="true"></i>em desenvolvimento</span>
+            <b>Axolotl Lab</b>
+            <p>A central interna da equipe: projetos, tarefas e infraestrutura. Repositório privado.</p>
+            <small>por equipe Axolotl BR</small>
+            <ul class="tech" aria-label="tecnologias"><li>React</li><li>FastAPI</li><li>SQLite</li></ul>
+            <span class="repo">repositório privado</span>
+          </article></li>
+        </ul>
+      </section>
+
+      <section class="cta" aria-label="chamada" style="background:#101015;border:1px solid #20202a;padding:32px;margin-top:16px">
+        <p>Seu projeto pode ser o próximo. O caminho começa no Discord.</p>
+        <a class="btn" href="https://discord.gg/8WtmZTySdB">mostrar meu projeto</a>
+      </section>
+
+      <footer>
+        <p class="mono">© 2020 – 2026 axolotl br · <a href="/">voltar ao site</a> · <a href="/docs/">docs</a> · <a href="/showcase/">showcase</a> · <a href="/eventos/">eventos</a> · <a href="/redes/">redes</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
